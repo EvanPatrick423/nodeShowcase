@@ -1,0 +1,201 @@
+:root {
+  --body: #000000;
+  --font: #ffffff;
+  --border: #ffffff;
+  --screen: #000000;
+  --btn: #000000;
+  --btn-hover: #7d857f;
+  --btn-active: #ccc;
+  --btn-red: #d4616d;
+  --btn-red-hover: #000000;
+  --btn-red-active: #d4616d;
+  --btn-blue: #8aa1ed;
+  --btn-blue-hover: #000000;
+  --btn-blue-active: #8aa1ed;
+}
+
+*,
+*::before,
+*::after {
+
+  padding: 0;
+  margin: 0;
+}
+
+body {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  background-color: var(--body);
+  color: var(--font);
+  font-family: "Roboto", sans-serif;
+}
+
+button {
+  color: #ffffff;
+}
+
+.calculator {
+  width: 35%;
+  border: 2px var(--border) solid;
+  border-radius: 15px;
+  margin: 30px;
+  padding: 20px;
+  background-color: var(--calculator);
+}
+
+.screen {
+  min-height: 80px;
+  padding: 20px;
+  border: 2px var(--border) solid;
+  border-radius: 5px;
+  margin-bottom: 20px;
+  background-color: var(--screen);
+  font-size: 29px;
+  text-align: right;
+  word-wrap: break-word;
+  word-break: break-all;
+}
+
+.buttons-grid {
+  display: flex;
+  flex-direction: row;
+
+  /*
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  grid-gap: 10px;
+  */
+}
+/*
+.span-2 {
+  grid-column: span 2;
+}
+*/
+.btn {
+  position: relative;
+  border: 2px var(--border) solid;
+  border-radius: 5px;
+  background-color: var(--btn);
+  font-size: 20px;
+  outline: none;
+  cursor: pointer;
+  display: flex;
+  flex: 1 1 0;
+  width: 100%;
+  height: 100%;
+  justify-content: center;
+  align-items: center;
+  margin: 5px;
+}
+
+.o-btn {
+  position: relative;
+  border: 2px var(--border) solid;
+  border-radius: 5px;
+  background-color: var(--btn);
+  font-size: 20px;
+  outline: none;
+  cursor: pointer;
+  display: flex;
+  flex: 1 0 0;
+  width: 100%;
+  height: 100px;
+  justify-content: center;
+  align-items: center;
+  margin-top: 5px;
+}
+
+.o-btn:hover {
+  position: relative;
+  border: 2px var(--border) solid;
+  border-radius: 5px;
+  background-color: var(--btn-hover);
+  font-size: 20px;
+  outline: none;
+  cursor: pointer;
+  display: flex;
+  flex: 1 0 0;
+  width: 100%;
+  height: 100px;
+  justify-content: center;
+  align-items: center;
+  margin-top: 5px;
+}
+
+.btn:hover {
+  background-color: var(--btn-hover);
+}
+
+.btn:active {
+  background-color: var(--btn-active);
+}
+
+.btn-red {
+  background-color: var(--btn-red);
+}
+
+.btn-red:hover {
+  background-color: var(--btn-red-hover);
+}
+
+.btn-red:active {
+  background-color: var(--btn-red-active);
+}
+
+.btn-blue {
+  background-color: var(--btn-blue);
+}
+
+.btn-blue:hover {
+  background-color: var(--btn-blue-hover);
+}
+
+.btn-blue:active {
+  background-color: var(--btn-blue-active);
+}
+
+#header {
+  background-color: #000000;
+  color:#ffffff;
+  height: 80px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 90%;
+}
+
+#numbers {
+  display: flex;
+  flex-direction: column;
+  flex: 1 1 0;
+}
+
+#operand-buttons {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: baseline;
+}
+
+#row-5 {
+  margin-bottom: 25px;
+}
+
+.row {
+  display: flex;
+  margin: 10px;
+  justify-content: center;
+  margin-top: auto;
+}
+
+#row-1 {
+  margin-bottom: 5px;
+}
+
+/* Disables input spinners in calc screen
+input[type="number"]::-webkit-inner-spin-button,
+input[type="number"]::-webkit-outer-spin-button {
+  -webkit-appearance: none;
+  margin: 0;
+}*/

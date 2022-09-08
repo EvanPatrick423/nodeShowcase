@@ -1,0 +1,118 @@
+body {
+  margin:4px;
+  background-color: #000000;
+}
+
+#view {
+  height: 90vh;
+}
+
+#greeting {
+  height: 10vh;
+  color: #ffffff;
+  display: flex;
+  justify-content: center;
+}
+
+#panel-holder {
+  display: flex;
+  flex-direction:row;
+  height: 100%;
+}
+
+#left-panel {
+  display: flex;
+  flex-direction: column;
+  width: 25%;
+  background-color: grey;
+  height: 100%;
+}
+
+#right-panel {
+  display: flex;
+  flex-direction: column;
+  width:75%;
+  height: 100%;
+}
+
+#search-screen {
+  display: flex;
+  height: 30vh;
+  width: 100%;
+}
+
+#library-screen {
+  display: flex;
+  height: 60vh;
+  width: 100%;
+}
+
+#input-section {
+  display: flex;
+  flex-direction: row;
+}
+
+#input-boxes {
+  display: flex;
+  flex-direction: column;
+  width: 50%;
+  align-items: center;
+  justify-content: center;
+}
+
+#check-boxes {
+  display: flex;
+  flex-direction: column;
+  width: 50%;
+  align-items: center;
+  justify-content: center;
+}
+
+#button-section {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+
+.input-box {
+  margin: 2px;
+  display:flex;
+  justify-content: center;
+}
+
+.clicked-button {
+  background-color: #000000;
+  color: #ffffff;
+}
+
+.tileBack {
+  background-color: #484848;
+  height: 90%;
+  width: 21%;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  margin: 10px;
+}
+
+.deleteButton {
+  height: 24px;
+  width: 24px;
+  background-color: #000000;
+  position: relative;
+  left: 80px;
+  border-radius: 50%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.book-info {
+  background-color: var(--body);
+  color:var(--font);
+  height:30px;
+  width: 90%;
+  margin-bottom: 10px;
+}

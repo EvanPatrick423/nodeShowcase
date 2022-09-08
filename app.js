@@ -1,7 +1,7 @@
 const express = require("express");
 const app = express();
 app.get("/", function (req, res) {
-    res.sendFile(__dirname + "/index.html");
+    res.sendFile(__dirname + "/landPage.html");
 });
 
 app.use(express.static(__dirname + '/public')); //I think this ports any link to start from

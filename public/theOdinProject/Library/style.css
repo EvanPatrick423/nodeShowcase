@@ -1,0 +1,144 @@
+:root {
+  --body: #000000;
+  --font: #ffffff;
+}
+
+*::after {
+  padding: 0px;
+  margin: 0px;
+}
+
+body {
+  background-color: #000000;
+}
+
+#true {
+  height: 50px;
+  width: 100px;
+}
+
+#viewport {
+  background-color: var(--body);
+  color: var(--font);
+  display: flex;
+  flex-direction: row;
+}
+
+#add-container {
+  background-color: var(--body);
+  color: var(--body);
+  border-bottom-style: solid;
+  border-bottom-color: var(--font);
+  border-bottom-width: thin;
+  display: flex;
+  flex-direction: column;
+  margin-bottom: 10px;
+}
+
+#screen {
+  height: 200px;
+  width: 70%;
+  display: flex;
+  justify-content: space-between;
+}
+
+#screen2 {
+  display: flex;
+  flex-direction: row;
+  flex-wrap: wrap;
+}
+
+#searchScreen {
+  height: 200px;
+  width: 100%;
+  display: flex;
+  justify-content: center;
+  border-color: var(--font);
+  border-width: thin;
+  border-style: solid;
+}
+
+#screen-column {
+  height: 500px;
+  width: 80%;
+  display: flex;
+  flex-direction: column;
+  margin-right: 3px;
+}
+
+#button-container {
+  display: flex;
+  flex-direction: column;
+}
+
+#inputs-container {
+  border-style: solid;
+  border-width: thin;
+  border-color: var(--font);
+  height: auto;
+  width:20%;
+}
+
+#explanation-container {
+  display: flex;
+  width:97%;
+  margin: 3px;
+}
+
+
+.deleteButton {
+  height: 24px;
+  width: 24px;
+  background-color: #000000;
+  position: relative;
+  left: 80px;
+  border-radius: 50%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.tileBack {
+  background-color: #484848;
+  height: 90%;
+  width: 21%;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  margin: 10px;
+}
+
+.book-info {
+  background-color: var(--body);
+  color:var(--font);
+  height:30px;
+  width: 90%;
+  margin-bottom: 10px;
+}
+
+.bookAuthor {
+  background-color: var(--body);
+  color:var(--font);
+  height:10px;
+  width: 70px;
+  margin-bottom: 20px;
+}
+
+.bookPages {
+  background-color: var(--body);
+  color:var(--font);
+  height:10px;
+  width: 70px;
+  margin-bottom: 20px;
+}
+.clicked-button {
+  background-color: #000000;
+  color: #ffffff;
+}
+
+.input-box {
+  margin: 2px;
+  display:flex;
+  justify-content: center;
+}

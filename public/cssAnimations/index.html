@@ -5,8 +5,7 @@
   </style>
   <head>
     <title>EvanPatrick.net</title>
-    {% load static %}
-    <link type="text/css" rel="stylesheet" href="{% static 'cssAnimations/style.css' %}">
+    <link type="text/css" rel="stylesheet" href="style.css">
   </head>
 
   <body>
@@ -16,11 +15,9 @@
         </div>
 
         <div id="nav-bar">
-          <a id="home" class="nav-item" href="{% url 'landPage:index' %}">Home Page</a>
-          <a class="nav-item" href="{% url 'theodinproject:index' %}">The Odin Project Files</a>
-          <a id="active" class="nav-item" href="{% url 'cssAnimations:index' %}">Various CSS Animations</a>
+          <a id="home" class="nav-item" href="/">Home Page</a>
+          <a class="nav-item" href="/theOdinProject/index.html">The Odin Project Files</a>
           <!--<a class="nav-item" href="{% url 'theodinproject:javascript30' %}">Javascript30</a>-->
-          <a class="nav-item" href="{% url 'polls:index' %}">Voting Poll App</a>
         </div>
 
         <div id="animation-bay">

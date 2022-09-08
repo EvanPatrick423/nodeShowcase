@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>Swing Number 2!</title>
+    <link type='text/css' rel='stylesheet' href="style.css">
+
+  </head>
+  <body>
+
+    <div id="view">
+    <!-- Figure out how to get this in a drop down message or something. to where it can go away after they read it -->
+      <div id ='greeting'>
+        <p>Hello! This is my second attempt at the library app. Though this time
+          I will be using the class method to make the object and engage functions.</p>
+      </div>
+
+      <div id="panel-holder">
+        <div id ="left-panel">
+
+          <div id='input-section'>
+            <div id="input-boxes">
+              <input type='text' id='add-book-title' value='Book Title' data-input></input>
+              <input type='text' id='add-book-author' value='Book Author' data-input></input>
+              <input type='number' id='add-book-pages' value = 10 data-input></input>
+              <button id='truRead'>Have I read this yet?</button>
+            </div>
+            <div id="check-boxes">
+              <button class='search-selector' name='title'>Search By</button>
+              <button class='search-selector' name='author'>Search By</button>
+              <button class='search-selector' name='pages'>Search By</button>
+              <button class='search-selector' name='haveRead'>Search By</button>
+            </div>
+          </div>
+
+          <div id="button-section">
+            <button id='add-button' class='input-box' data-write>add book!</button>
+            <button id='search-button' class='input-box' data-search>Search for Book!</button>
+            <button id='storage-clear' class='input-box'>Clear data stored on local machine.</button>
+          </div>
+        </div>
+
+        <div id="right-panel">
+          <div id='search-screen'></div>
+          <div id='library-screen'></div>
+
+        </div>
+      </div>
+    </div>
+
+    <script src="odin-projects/new-library/script.js"></script>
+  </body>
+</html>
+
+
+</html>

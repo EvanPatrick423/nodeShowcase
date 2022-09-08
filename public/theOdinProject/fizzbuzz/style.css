@@ -1,0 +1,18 @@
+.thing {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  background-color: #000000;
+  color: #ffffff;
+  border-style: solid;
+  border-width: thin;
+  border-color: #ffffff;
+}
+
+#output {
+  display: flex;
+  justify-content: center;
+  flex-direction: column;
+  width: 20%;
+  background-color: #000000;
+}

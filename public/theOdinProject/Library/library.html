@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+
+<html>
+<head>
+  <title>Library</title>
+  <link type="text/css" rel="stylesheet" href="style.css">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+</head>
+<body>
+  <div id="viewport">
+    <div id='screen-column'>
+      <div id='searchScreen'></div>
+      <div id='screen2'></div>
+    </div>
+
+    <div id='inputs-container'>
+      <div id='add-container'>
+        <div class='input-box'>
+          <input type='text' id='add-book-title' name='title' value='Book Title' data-input></input><button class='search-selector' name='title'>Search By</button>
+        </div>
+        <div class='input-box'>
+          <input type='text' id='add-author-name' name='author' value='Book Author' data-input></input><button class='search-selector' name='author'>Search By</button>
+        </div>
+        <div class='input-box'>
+          <input type='text' id='add-book-pages' name='pages' value='Book Pages' data-input></input><button class='search-selector' name='pages'>Search By</button>
+        </div>
+        <div id ='add-have-read'>
+          <button id ='true' name='add-have-read'>Has been Read?</button>
+          <button class='search-selector' name='add-have-read'>Search By</button>
+        </div>
+      </div>
+      <div id='button-container'>
+        <button id='add-button' class='input-box' data-write>add book!</button>
+        <button id='search-button' class='input-box' data-search>Search for Book!</button>
+        <button id='storage-clear' class='input-box'>Clear data stored on local machine.</button>
+      </div>
+
+      <div id='explanation-container'>
+      <p>Welcome to my first attempt at wrting storing and reading objects! This is a moc library, storing the title, author, number pages, and whether or not you have read the book. The total library stored on your computer will be shown in the bottom section, while the current search function is shown in the above screen outlined by the thin white border. All library changes will be stored on your local library. So when you come back they will still be there! If you want to delete all in your cache you can click the button that is labeled Clear Data on Local Machine</p>
+      </div>
+    </div>
+
+  </div>
+<script src="script.js"></script>
+</body>
+</html>

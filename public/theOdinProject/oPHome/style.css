@@ -1,12 +1,20 @@
-html {
-  height: 1480px;
-}
-
 #view {
   height: 100%;
   width: 100%;
   display: flex;
   flex-direction: column;
+}
+
+#text {
+  display: flex;
+  background-color: rgba(0,0,0,0.25);
+  width:100% ;
+  border-style: solid;
+  border-width: thin;
+  justify-content: center;
+  align-items: center;
+  border-top: 0px;
+  height: 60px;
 }
 
 #nav-bar {
@@ -104,6 +112,15 @@ li a {
   color: white;
 }
 
+.noticable-link {
+  color: blue;
+  style: underline;
+}
+
+.noticable-link:hover {
+  text-decoration: underline;
+}
+
 li a:hover {
   background-color: blue;
   color: white;
@@ -118,83 +135,28 @@ a:hover {
   color: blue;
 }
 
-img {
-  height: auto;
-  width: auto;
-  margin-bottom: 10px;
-}
 
 body {
-  margin: 10px ;
-  background: url(https://cdn-media-1.freecodecamp.org/imgr/MJAkxbh.png);
-  display: flex;
-  height: 100%;
+  margin:4px ;
+  background: url(https://cdn-media-1.freecodecamp.org/imgr/MJAkxbh.png)
 }
 
-#text-holder {
-  background-color: rgba(0,0,0,0.25);
-  width: 100%;
-  border-style: solid;
-  border-width: thin;
-  justify-content: center;
-  align-items: center;
-  border-top: 0px;
-}
 
-#text {
-  margin: 20px;
-}
-
-#about-section {
-  background-color: rgba(0,0,0,0.30);
-  display: flex;
-  flex-direction: row;
-  justify-content: space-around;
-  margin-top: 10px;
-  margin-bottom: 10px;
-  padding-top: 15px;
-  padding-bottom: 15px;
-  position: relative;
-  height: 100%;
-  border-style: solid;
-  border-width: thin;
-  border-color: #000000;
-}
-
-#head-shot {
-  height: 300px;
-  width: 300px;;
-  background-color: #000000;
-
-}
-
-#resume {
-  height: 100%;
-  width: auto;
-  background-image: url(resources/0001.jpg);
-  background-size: cover;
-  display: flex;
-  flex-direction: row-reverse;
-}
-
-#resume-column {
-  display: flex;
+#main-content {
+  display:flex;
   flex-direction: column;
-  height: 100%;
-  width: 900px;
-  margin-bottom: 10px;
-
+  margin-top: 20px;
+  width: 100%;
+  height: 400px;
 }
 
-#page-turn {
-  color: #ffffff;
-  background-color: #000000;
-  height: 30px;
-  width: 30px;
-  display: flex;
-  justify-content: center;
-  align-items: center;
+.row {
+  display:flex;
+  flex-direction: row;
+  height: 125px;
+  width: 100%;
 }
+
 
 
 .content-item {

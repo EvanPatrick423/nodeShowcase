@@ -1,0 +1,73 @@
+#header {
+  display:flex;
+  width: 100%;
+  height: 40px;
+  background-color: #000000;
+  color: #ffffff;
+  align-items: center;
+  justify-content: center;
+}
+
+#playBoard {
+  background-color: #000000;
+  color:#ffffff;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+}
+
+#scoreBoard {
+  height: 70px;
+  width: 100%;
+  display: flex;
+}
+
+.score-board {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height:100%;
+  width:50%;
+  background-color: #000000;
+  color: #ffffff;
+  border: 2px;
+  border-color: #ffffff;
+  border-style: solid;
+}
+
+.row {
+  display: flex;
+  height: 100px;
+  width: 100%;
+  background-color: #000000;
+  color: #ffffff;
+}
+
+.item {
+  height: 100%;
+  width: 33%;
+  border: 2px;
+  border-color: #ffffff;
+  border-style: solid;
+}
+
+.playerx {
+  background-color: green;
+}
+
+.playero {
+  background-color: blue;
+}
+
+.play-button {
+  background-color: #000000;
+  color: #ffffff;
+  height: 40px;
+  width: 100%;
+}
+
+body {
+  margin: 0px;
+  background-color: #000000;
+}
