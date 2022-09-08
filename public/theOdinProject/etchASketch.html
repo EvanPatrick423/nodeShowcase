@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+  <title></title>
+  {% load static %}
+  <link type="text/css" rel="stylesheet" href="{% static 'etchasketch/style.css' %}">
+</head>
+
+
+
+
+
+<body>
+<div id="title">
+  <h1>Pixel-Pad</h1>
+</div>
+
+<div id="content-holder">
+  <div id="button-holder">
+    <button id="eraser-btn">Toggle Eraser</button>
+    <button id="erase-all">Erase All</button>
+    <div id="color-card">
+      <div id="color-box">
+        <input type="color" id="color-select">
+      </div>
+      <span>Pick your color</span>
+    </div>
+
+    <div class="slider-box">
+        <input type="range" value="48" min="1" max="60" id="range-slider"
+        onChange="rangeSlider(this.value)">
+        <div id="progress-bar"></div>
+
+        <p class="grid-size">Grid size: <span id="range-value">48</span> x <span id="range-value">48</span></p>
+    </div>
+  </div>
+  <div id="board-holder">
+    <div id="board" draggable="false"></div>
+  </div>
+</div>
+
+<script src="{% static 'etchasketch/etchasketch.js' %}"></script>
+</body>
+
+</html>

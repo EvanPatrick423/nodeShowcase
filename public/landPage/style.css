@@ -1,0 +1,226 @@
+html {
+  height: 1480px;
+}
+
+#view {
+  height: 100%;
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+}
+
+#nav-bar {
+  display: block;
+  height: auto;
+
+  display: block;
+  float: left;
+  color: black;
+  padding: 8px 16px;
+  border-right: 1px;
+  border-right-style: solid;
+  border-right-color: black;
+  text-align: center;
+  background-color:rgba(0,0,0,0.5);
+
+  list-style-type: none;
+  margin: 0;
+  padding: 0;
+  height: auto;
+  width: 100%;
+  border-style: solid;
+  border-width: thin;
+  border-color: black;
+}
+
+#home {
+  background-color: #4CAF50;
+  color: white;
+  float:right;
+  border-right: 0px;
+  border-left: 1px;
+  border-left-color: black;
+  border-left-style: solid;
+}
+
+#home:hover {
+  background-color: blue;
+  color: white;
+}
+
+#header {
+  text-align: center;
+  border-style: solid;
+  border-width: thin;
+  border-bottom: 0px;
+  border-color: black;
+  white-space: normal;
+  margin:0;
+  padding:0;
+  display: block;
+  float:left;
+  background-color: #056823;
+  color: white;
+  width: 100%;
+}
+
+ul {
+  list-style-type: none;
+  margin: 0;
+  padding: 0;
+  height: auto;
+  width: 100%;
+  background-color: #07B43B;
+  border-width: 0px;
+  border-style: solid;
+  border-width: thin;
+  border-color: black;
+  overflow: hidden;
+}
+
+li a {
+}
+
+.nav-item {
+  display: block;
+  float: left;
+  color: black;
+  padding: 8px 16px;
+  border-right: 1px;
+  border-right-style: solid;
+  border-right-color: black;
+  text-align: center;
+}
+
+.nav-item:hover {
+  display: block;
+  float: left;
+  padding: 8px 16px;
+  border-right: 1px;
+  border-right-style: solid;
+  border-right-color: black;
+  text-align: center;
+  background-color: blue;
+  color: white;
+}
+
+li a:hover {
+  background-color: blue;
+  color: white;
+}
+
+a {
+  color: black;
+  text-decoration: none;
+}
+
+a:hover {
+  color: blue;
+}
+
+img {
+  height: auto;
+  width: auto;
+  margin-bottom: 10px;
+}
+
+body {
+  margin: 10px ;
+  background: url(https://cdn-media-1.freecodecamp.org/imgr/MJAkxbh.png);
+  display: flex;
+  height: 100%;
+}
+
+#text-holder {
+  background-color: rgba(0,0,0,0.25);
+  width: 100%;
+  border-style: solid;
+  border-width: thin;
+  justify-content: center;
+  align-items: center;
+  border-top: 0px;
+}
+
+#text {
+  margin: 20px;
+}
+
+#about-section {
+  background-color: rgba(0,0,0,0.30);
+  display: flex;
+  flex-direction: row;
+  justify-content: space-around;
+  margin-top: 10px;
+  margin-bottom: 10px;
+  padding-top: 15px;
+  padding-bottom: 15px;
+  position: relative;
+  height: 100%;
+  border-style: solid;
+  border-width: thin;
+  border-color: #000000;
+}
+
+#head-shot {
+  height: 300px;
+  width: 300px;;
+  background-color: #000000;
+
+}
+
+#resume {
+  height: 100%;
+  width: auto;
+  background-image: url(resources/0001.jpg);
+  background-size: cover;
+  display: flex;
+  flex-direction: row-reverse;
+}
+
+#resume-column {
+  display: flex;
+  flex-direction: column;
+  height: 100%;
+  width: 900px;
+  margin-bottom: 10px;
+
+}
+
+#page-turn {
+  color: #ffffff;
+  background-color: #000000;
+  height: 30px;
+  width: 30px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+
+.content-item {
+  display: flex;
+  flex-wrap: wrap;
+  border-style: solid;
+  border-width: thin;
+  height:100px;
+  width: 20%;
+  justify-content: center;
+  align-items: center;
+  flex-grow: 1;
+  background-color:rgba(0,0,0,0.5);
+  color: black;
+}
+
+.content-item:hover {
+  border-width: thin;
+  display: flex;
+  flex-wrap: wrap;
+  border-style: solid;
+  height:100px;
+  width: 20%;
+  justify-content: center;
+  align-items: center;
+  flex-grow: 1;
+  background-color: blue;
+  color: white;
+}

@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>The Odin Project Page</title>
+    {% load static %}
+    <link rel="stylesheet" type="text/css" href="{% static 'theodinproject/style.css' %}">
+  </head>
+
+  <body>
+
+    <div id="view">
+      <div id="header">
+        <h1>The Odin Project Page</h1>
+      </div>
+
+      <div id="nav-bar">
+        <a id="home" class="nav-item" href="{% url 'landPage:index' %}">Home Page</a>
+        <a class="nav-item" href="{% url 'theodinproject:index' %}">The Odin Project Files</a>
+        <a class="nav-item" href="{% url 'cssAnimations:index' %}">Various CSS Animations</a>
+        <!--<a class="nav-item" href="{% url 'theodinproject:javascript30' %}">Javascript30</a>-->
+        <a class="nav-item" href="{% url 'polls:index' %}">Voting Poll App</a>
+      </div>
+
+
+      <div id="main">
+        <div id="text">
+          <p2><a class="noticable-link" href="https://www.theodinproject.com">The Odin Project</a> is a very informative and free webdesign course that I have been slowly chugging through. And has been the biggest resource in my path of obtaining a webdesign carrer.</p>
+        </div>
+
+        <div id="main-content">
+          <div class="row">
+            <a class="content-item" href="{% url 'theodinproject:etchASketch' %}">Etch a Sketch</a>
+            <a class="content-item" href="{% url 'theodinproject:rockpaperscissors' %}">Rock Paper Scissors Game</a>
+            <a class="content-item" href="{% url 'theodinproject:fizzbizz' %}">FizzBuzz</a>
+            <a class="content-item" href="{% url 'theodinproject:DOM' %}">Document Object Model</a>
+          </div>
+          <div class="row">
+            <a class="content-item" href="{% url 'theodinproject:calculator' %}">Calculator</a>
+            <a class="content-item" href="{% url 'theodinproject:library' %}">Basic Object Constructor</a>
+            <a class="content-item" href="{% url 'theodinproject:tic-tac-toe' %}">tic tac toe</a>
+            <a class="content-item" href="{% url 'theodinproject:library' %}">Library</a>
+          </div>
+          <div class="row">
+            <a class="content-item" href="{% url 'theodinproject:newLibrary' %}">New Library</a>
+            <a class="content-item" href="#">#</a>
+            <a class="content-item" href="#">#</a>
+            <a class="content-item" href="#">#</a>
+          </div>
+        </div>
+      </div>
+    </div>
+  </body>
+
+
+
+</html>
