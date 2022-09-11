@@ -1,17 +1,17 @@
 //-------------------------------Add Task to database -----------------------
-function addTask (task) {
+export function addTask (task) {
   console.log('Task = ' + task);
   database.push(task);
 
   if(storageAvailable('localStorage')) {
     localStorage.setItem('localLibrary', JSON.stringify(database));
+  }
 }
-
 //---------------------------Clear Local Storage Function--------------------
 
 
 //------------------------- Can Use Local Storage Function -----------
-function storageAvailable(type) {
+export function storageAvailable(type) {
     var storage;
     try {
         storage = window[type];
