@@ -39,45 +39,74 @@ class Project {
 
 //---------- Setting Up the initial project array when entering the appendChild
 
-let projectDatabase = JSON.parse(localStorage.getItem('localLibrary'));
+let projectDatabase = JSON.parse(localStorage.getItem('projectDatabase'));
+console.log('Project Database = ' + projectDatabase);
 if (projectDatabase === null) {
   projectDatabase = [];
-  //console.log(library);
 }
 
 //-------------------- Left hand column boxes ----------------------------------
 
 function updateLeftCol (projectDatabase) {
-  clearLeftCol()
-  for (x=0;x<projectDatabase.length;x++) {
+
+  //create each projectTab for each project
+  let leftColumn = document.getElementById('left-hand-column');
+
+  clearLeftCol();
+  createLeftColHeader(leftColumn);
+  for (let x=0;x<projectDatabase.length;x++) {
     console.log(projectDatabase[x]);
-    popProjectTab(projectDatabase.title);
+    popProjectTab(projectDatabase[x].title, leftColumn);
   }
 }
 
-function popProjectTab (title) {
-  //create each projectTab for each project
-  let leftColumn = document.getElementById('left-hand-column');
-  createLeftColheader(leftColumn);
+function popProjectTab (title,col) {
 
   const tabBack = document.createElement('div');
   tabBack.classList.add('projectTabBackground');
 
-  const projectTitle = document.createElement('div');
+  const projectTitle = document.createElement('input');
   projectTitle.classList.add('projectText');
   projectTitle.textContent = title;
+
+  tabBack.appendChild(projectTitle);
+  col.appendChild(tabBack);
 
 }
 
 function clearLeftCol () {
-
+  let leftColumn = document.getElementById('left-hand-column');
+  while(leftColumn.firstChild) {
+    leftColumn.removeChild(leftColumn.firstChild);
+  }
 }
 
 
-function createProject (title) {
+function addProject () {
+  let blankTitle = '';
+  const newProject = new Project(blankTitle);
 
+  projectDatabase.push(newProject); //push new object to project database
+
+  if(storageAvailable('projectDatabase')) {
+    console.log(projectDatabase);
+    localStorage.setItem('projectDatabase', JSON.stringify(projectDatabase)); //push to local storage
+  }
+  clearLeftCol();
+  updateLeftCol(projectDatabase);
 }
 
-function createLeftColHeader () {
-  let
+function createLeftColHeader (tab) {
+  let headerBack = document.createElement('div');
+  headerBack.classList.add('headerBack');
+
+  let addButton = document.createElement('button');
+  addButton.classList.add('addButton');
+  addButton.textContent = '+';
+  addButton.addEventListener('click', () => addProject());
+
+  headerBack.appendChild(addButton);
+  tab.appendChild(headerBack);
 }
+
+updateLeftCol (projectDatabase);

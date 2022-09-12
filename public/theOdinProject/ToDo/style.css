@@ -1,10 +1,28 @@
 .projectTabBackground {
-
+  height: 100px;
+  width: 200px;
+  background-color: grey;
+  border-style: solid;
+  border-color: black;
+  border-width: 1px;
 }
 
 #left-hand-column {
   height: 300px;
-  width: 150px;
+  width: 200px;
   background-color: #ced9f5;
   overflow-y:auto;
+}
+
+.headerBack {
+  height: 50px;
+  width: 200px;
+  background-color: black;
+}
+
+.addButton {
+  height: 50px;
+  width: 100px;
+  background-color: blue;
+  color: white;
 }
