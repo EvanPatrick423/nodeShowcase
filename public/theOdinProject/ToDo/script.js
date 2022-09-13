@@ -27,12 +27,14 @@ class Task {
 }
 
 class Project {
-  constructor(title) {
+  constructor(title,id) {
     this.title = title;
+    this.id = id;
   }
 
   showProject() {
     console.log(this.title);
+    console.log(this.id);
   }
 
 }
@@ -40,7 +42,7 @@ class Project {
 //---------- Setting Up the initial project array when entering the appendChild
 
 let projectDatabase = JSON.parse(localStorage.getItem('projectDatabase'));
-console.log('Project Database = ' + projectDatabase);
+console.log(projectDatabase);
 if (projectDatabase === null) {
   projectDatabase = [];
 }
@@ -55,21 +57,29 @@ function updateLeftCol (projectDatabase) {
   clearLeftCol();
   createLeftColHeader(leftColumn);
   for (let x=0;x<projectDatabase.length;x++) {
-    console.log(projectDatabase[x]);
-    popProjectTab(projectDatabase[x].title, leftColumn);
+    //console.log(projectDatabase[x]);
+    popProjectTab(projectDatabase[x], leftColumn);
   }
 }
 
-function popProjectTab (title,col) {
+function popProjectTab (project,col) {
 
   const tabBack = document.createElement('div');
   tabBack.classList.add('projectTabBackground');
 
   const projectTitle = document.createElement('input');
   projectTitle.classList.add('projectText');
-  projectTitle.textContent = title;
+  projectTitle.value = project.title;
+  projectTitle.setAttribute('id',project.id);
+  projectTitle.addEventListener('keyup', () => renameProject(project,projectTitle));
+
+  const deleteButton = document.createElement('div');
+  deleteButton.classList.add('deleteButton');
+  deleteButton.textContent = 'X';
+  deleteButton.addEventListener('click', () => deleteProject(project));
 
   tabBack.appendChild(projectTitle);
+  tabBack.appendChild(deleteButton);
   col.appendChild(tabBack);
 
 }
@@ -84,16 +94,15 @@ function clearLeftCol () {
 
 function addProject () {
   let blankTitle = '';
-  const newProject = new Project(blankTitle);
+  let id = Date.now();
+  let idString = id.toString();
+  const newProject = new Project(blankTitle,idString);
 
   projectDatabase.push(newProject); //push new object to project database
 
-  if(storageAvailable('projectDatabase')) {
-    console.log(projectDatabase);
-    localStorage.setItem('projectDatabase', JSON.stringify(projectDatabase)); //push to local storage
-  }
   clearLeftCol();
   updateLeftCol(projectDatabase);
+  saveProject(newProject);
 }
 
 function createLeftColHeader (tab) {
@@ -107,6 +116,35 @@ function createLeftColHeader (tab) {
 
   headerBack.appendChild(addButton);
   tab.appendChild(headerBack);
+}
+
+function saveProject (project) {
+  let projectId = project.id;
+  let titleInput = document.getElementById(projectId);
+  project.title = titleInput.value;
+  if(storageAvailable('localStorage')) {
+    localStorage.setItem('projectDatabase', JSON.stringify(projectDatabase)); //push to local storage
+  }
+}
+
+function renameProject (project,projectTitle) {
+  console.log(project);
+  project.title = projectTitle.value;
+  saveProject(project);
+}
+
+function deleteProject (project) {
+
+  for (let x = 0; x < projectDatabase.length; x++) {
+    if (project.id === projectDatabase[x].id) {
+      projectDatabase.splice(x,1);
+    }
+  }
+
+  if(storageAvailable('localStorage')) {
+    localStorage.setItem('projectDatabase', JSON.stringify(projectDatabase));
+  }
+  updateLeftCol(projectDatabase);
 }
 
 updateLeftCol (projectDatabase);

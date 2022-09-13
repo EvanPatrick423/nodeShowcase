@@ -26,3 +26,10 @@
   background-color: blue;
   color: white;
 }
+
+.deleteButton {
+  width: 100px;
+  width: 100px;
+  background-color: red;
+  color: white;
+}
