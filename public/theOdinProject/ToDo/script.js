@@ -39,14 +39,60 @@ class Project {
 
 }
 
-//---------- Setting Up the initial project array when entering the appendChild
+//---------- Setting Up the initial project array
 
 let projectDatabase = JSON.parse(localStorage.getItem('projectDatabase'));
 console.log(projectDatabase);
 if (projectDatabase === null) {
   projectDatabase = [];
 }
+//---------- Setting up a task database per project identified by project id
+function initialzeProjectTaskDatabase (project) {
+  let id = project.id;
+  console.log(id);
+  let taskDatabase = JSON.parse(localStorage.getItem(id));
+  if (taskDatabase === null) {
+    let exTask = new Task('Put your Title Here','Draft','Put a description here',
+     'Due Date', 'priority', 'notes', ['Here you can make checklists', 'double click to strike through', 'checklist item 3'], project.id);
+    taskDatabase = [exTask];
+  }
+  return taskDatabase;
+}
 
+
+
+
+
+
+function updateTaskBoard (project) {
+  let taskDatabase = initialzeProjectTaskDatabase(project);
+  clearTaskBoard();
+  for (let x = 0; x<taskDatabase.length; x++) {
+    console.log(taskDatabase[x]);
+    populateTask(taskDatabase[x]);
+  }
+}
+
+function populateTask (task) {
+  let taskBoard = document.getElementById('taskBoard')
+
+  const taskBack = document.createElement('div');
+  taskBack.classList.add('taskBackBoard');
+
+  const taskTitle = document.createElement('input');
+  taskTitle.value = task.title;
+
+
+  taskBack.appendChild(taskTitle);
+  taskBoard.appendChild(taskBack);
+}
+
+function clearTaskBoard() {
+  let taskBoard = document.getElementById('taskBoard');
+  while (taskBoard.firstChild) {
+    taskBoard.removeChild(taskBoard.lastChild);
+  }
+}
 //-------------------- Left hand column boxes ----------------------------------
 
 function updateLeftCol (projectDatabase) {
@@ -60,6 +106,7 @@ function updateLeftCol (projectDatabase) {
     //console.log(projectDatabase[x]);
     popProjectTab(projectDatabase[x], leftColumn);
   }
+  updateTaskBoard(projectDatabase[0]);
 }
 
 function popProjectTab (project,col) {
@@ -146,5 +193,7 @@ function deleteProject (project) {
   }
   updateLeftCol(projectDatabase);
 }
+
+
 
 updateLeftCol (projectDatabase);

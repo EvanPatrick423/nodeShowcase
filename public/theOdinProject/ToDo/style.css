@@ -28,8 +28,13 @@
 }
 
 .deleteButton {
-  width: 100px;
+  height: 20px;
   width: 100px;
   background-color: red;
   color: white;
+}
+
+.taskBackBoard {
+  height:200px;
+  width: 500px;
 }
