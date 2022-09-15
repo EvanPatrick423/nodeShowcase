@@ -4,7 +4,7 @@ import {addTask, storageAvailable} from './functions.js';
 // Object Class Statements
 
 class Task {
-  constructor (title, status, description, dueDate, priority, notes, checklist, project) {
+  constructor (title, status, description, dueDate, priority, notes, checklist, project, id) {
     this.title = title;
     this.status = status;
     this.description = description;
@@ -12,7 +12,8 @@ class Task {
     this.priority = priority;
     this.notes = notes;
     this.checklist = checklist;
-    this.project = project
+    this.project = project;
+    this.id = id;
   }
   //reporting function for Task
   showTask () {
@@ -53,33 +54,48 @@ function initialzeProjectTaskDatabase (project) {
   let taskDatabase = JSON.parse(localStorage.getItem(id));
   if (taskDatabase === null) {
     let exTask = new Task('Put your Title Here','Draft','Put a description here',
-     'Due Date', 'priority', 'notes', ['Here you can make checklists', 'double click to strike through', 'checklist item 3'], project.id);
+     'Due Date', 'priority', 'notes',
+     ['Here you can make checklists', 'double click to strike through', 'checklist item 3'],
+      project.id, Date.now());
     taskDatabase = [exTask];
   }
   return taskDatabase;
 }
 
-
-
-
-
-
 function updateTaskBoard (project) {
   let taskDatabase = initialzeProjectTaskDatabase(project);
   clearTaskBoard();
+  createTaskBoardHeader();
   for (let x = 0; x<taskDatabase.length; x++) {
     console.log(taskDatabase[x]);
     populateTask(taskDatabase[x]);
   }
 }
 
+function createTaskBoardHeader() {
+  let taskBoard = document.getElementById('taskBoard');
+
+  const header = document.createElement('div');
+  header.classList.add('taskBoardHeader');
+
+  const addButton = document.createElement('button');
+  addButton.classList.add('addTask');
+  addButton.textContent = '+';
+
+  header.appendChild(addButton);
+  taskBoard.appendChild(header);
+
+}
+
 function populateTask (task) {
-  let taskBoard = document.getElementById('taskBoard')
+  let taskBoard = document.getElementById('taskBoard');
 
   const taskBack = document.createElement('div');
   taskBack.classList.add('taskBackBoard');
+  taskBack.setAttribute('id',task.id);
 
   const taskTitle = document.createElement('input');
+  taskTitle.setAttribute('id', 'task' + task.id);
   taskTitle.value = task.title;
 
 
@@ -91,6 +107,29 @@ function clearTaskBoard() {
   let taskBoard = document.getElementById('taskBoard');
   while (taskBoard.firstChild) {
     taskBoard.removeChild(taskBoard.lastChild);
+  }
+}
+
+
+function createTask(project) {
+  let blankTitle = '';
+  let id = Date.now();
+  let idString = id.toString();
+
+
+
+}
+
+function saveTask (task) {
+  let title
+}
+
+function saveProject (project) {
+  let projectId = project.id;
+  let titleInput = document.getElementById(projectId);
+  project.title = titleInput.value;
+  if(storageAvailable('localStorage')) {
+    localStorage.setItem('projectDatabase', JSON.stringify(projectDatabase)); //push to local storage
   }
 }
 //-------------------- Left hand column boxes ----------------------------------
@@ -152,6 +191,8 @@ function addProject () {
   saveProject(newProject);
 }
 
+
+
 function createLeftColHeader (tab) {
   let headerBack = document.createElement('div');
   headerBack.classList.add('headerBack');
@@ -165,14 +206,7 @@ function createLeftColHeader (tab) {
   tab.appendChild(headerBack);
 }
 
-function saveProject (project) {
-  let projectId = project.id;
-  let titleInput = document.getElementById(projectId);
-  project.title = titleInput.value;
-  if(storageAvailable('localStorage')) {
-    localStorage.setItem('projectDatabase', JSON.stringify(projectDatabase)); //push to local storage
-  }
-}
+
 
 function renameProject (project,projectTitle) {
   console.log(project);
