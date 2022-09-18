@@ -43,15 +43,15 @@ class Project {
 //---------- Setting Up the initial project array
 
 let projectDatabase = JSON.parse(localStorage.getItem('projectDatabase'));
-console.log(projectDatabase);
+//console.log(projectDatabase);
 if (projectDatabase === null) {
   projectDatabase = [];
 }
 //---------- Setting up a task database per project identified by project id
 function initialzeProjectTaskDatabase (project) {
   let id = project.id;
-  console.log(id);
-  let taskDatabase = JSON.parse(localStorage.getItem(id));
+  let idString = id.toString();
+  let taskDatabase = JSON.parse(localStorage.getItem(idString));
   if (taskDatabase === null) {
     let exTask = new Task('Put your Title Here','Draft','Put a description here',
      'Due Date', 'priority', 'notes',
@@ -65,14 +65,13 @@ function initialzeProjectTaskDatabase (project) {
 function updateTaskBoard (project) {
   let taskDatabase = initialzeProjectTaskDatabase(project);
   clearTaskBoard();
-  createTaskBoardHeader();
+  createTaskBoardHeader(project);
   for (let x = 0; x<taskDatabase.length; x++) {
-    console.log(taskDatabase[x]);
-    populateTask(taskDatabase[x]);
+    populateTask(taskDatabase[x],project);
   }
 }
 
-function createTaskBoardHeader() {
+function createTaskBoardHeader(project) {
   let taskBoard = document.getElementById('taskBoard');
 
   const header = document.createElement('div');
@@ -81,13 +80,14 @@ function createTaskBoardHeader() {
   const addButton = document.createElement('button');
   addButton.classList.add('addTask');
   addButton.textContent = '+';
+  addButton.addEventListener('click', () => createTask(project));
 
   header.appendChild(addButton);
   taskBoard.appendChild(header);
 
 }
 
-function populateTask (task) {
+function populateTask (task,project) {
   let taskBoard = document.getElementById('taskBoard');
 
   const taskBack = document.createElement('div');
@@ -95,11 +95,17 @@ function populateTask (task) {
   taskBack.setAttribute('id',task.id);
 
   const taskTitle = document.createElement('input');
-  taskTitle.setAttribute('id', 'task' + task.id);
+  taskTitle.setAttribute('id', 'title' + task.id);
   taskTitle.value = task.title;
+  taskTitle.addEventListener('keyup', () => saveTask(task, project));
 
+  const deleteButton = document.createElement('div');
+  deleteButton.classList.add('deleteButton');
+  deleteButton.textContent = 'x';
+  deleteButton.addEventListener('click', () => deleteTask(task,project));
 
   taskBack.appendChild(taskTitle);
+  taskBack.appendChild(deleteButton);
   taskBoard.appendChild(taskBack);
 }
 
@@ -111,17 +117,29 @@ function clearTaskBoard() {
 }
 
 
-function createTask(project) {
-  let blankTitle = '';
-  let id = Date.now();
+
+
+function saveTask (task, project) {
+
+  let id = project.id;
   let idString = id.toString();
+  let titleInput = document.getElementById('title' + task.id);
+  task.title = titleInput.value;
 
+  let taskDatabase = initialzeProjectTaskDatabase(project);
+  for (let x = 0; x < taskDatabase.length; x++) {
+    console.log(task.id + ' ' + taskDatabase[x].id);
+    if (task.id === taskDatabase[x].id) {
+      console.log('hit');
+      taskDatabase[x] = task;
+    }
+  }
 
+  console.log(taskDatabase);
 
-}
-
-function saveTask (task) {
-  let title
+  if(storageAvailable('localStorage')) {
+    localStorage.setItem(idString, JSON.stringify(taskDatabase)); //Push to localDatabase of project id
+  }
 }
 
 function saveProject (project) {
@@ -152,6 +170,7 @@ function popProjectTab (project,col) {
 
   const tabBack = document.createElement('div');
   tabBack.classList.add('projectTabBackground');
+  tabBack.addEventListener('click', () => changeProject(project));
 
   const projectTitle = document.createElement('input');
   projectTitle.classList.add('projectText');
@@ -177,6 +196,26 @@ function clearLeftCol () {
   }
 }
 
+function createTask(project) {
+  let blankTitle = '';
+  let id = Date.now();
+  let idString = id.toString();
+
+  let taskDatabase = initialzeProjectTaskDatabase(project);
+
+  let newTask = new Task(blankTitle,null,null,null,null,null,null,null,idString);
+  taskDatabase.push(newTask);
+
+  let projectId = project.id;
+  let proIdString = projectId.toString();
+
+  if(storageAvailable('localStorage')) {
+    localStorage.setItem(proIdString, JSON.stringify(taskDatabase));
+  }
+
+  clearTaskBoard();
+  updateTaskBoard(project);
+}
 
 function addProject () {
   let blankTitle = '';
@@ -228,6 +267,28 @@ function deleteProject (project) {
   updateLeftCol(projectDatabase);
 }
 
+function deleteTask (task, project) {
+  let taskDatabase = initialzeProjectTaskDatabase(project);
+  for (let x = 0; x < taskDatabase.length; x++) {
+    if (task.id === taskDatabase[x].id) {
+      taskDatabase.splice(x,1);
+      break;
+    }
+  }
+
+  let id = project.id;
+  let idString = id.toString();
+
+  if(storageAvailable('localStorage')) {
+    localStorage.setItem(idString, JSON.stringify(taskDatabase));
+  }
+  updateTaskBoard(project);
+}
+
+function changeProject (project) {
+  clearTaskBoard();
+  updateTaskBoard(project);
+}
 
 
 updateLeftCol (projectDatabase);
