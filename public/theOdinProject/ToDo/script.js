@@ -1,14 +1,18 @@
 //Import Statements
 import {addTask, storageAvailable} from './functions.js';
 
+
+
+
 // Object Class Statements
 
 class Task {
-  constructor (title, status, description, dueDate, priority, notes, checklist, project, id) {
+  constructor (title, status, description, dueDate, createdDate, priority, notes, checklist, project, id) {
     this.title = title;
     this.status = status;
     this.description = description;
     this.dueDate = dueDate;
+    this.createdDate = createdDate;
     this.priority = priority;
     this.notes = notes;
     this.checklist = checklist;
@@ -94,26 +98,35 @@ function populateTask (task,project) {
   taskBack.classList.add('taskBackBoard');
   taskBack.setAttribute('id',task.id);
 
+  const titleBack = document.createElement('div');
+  titleBack.classList.add('titleBack');
+
   const taskTitle = document.createElement('input');
   taskTitle.setAttribute('id', 'title' + task.id);
   taskTitle.value = task.title;
   taskTitle.addEventListener('keyup', () => saveTask(task, project));
+
+  const taskStatus = document.createElement('input');
+  taskStatus.setAttribute('id','status'+task.id);
+  taskStatus.value = task.status;
+  taskStatus.addEventListener('keyup', () => saveTask(task, project));
+
+  const taskDescription = document.createElement('input');
+  taskDescription.setAttribute('id','description'+ task.id);
+  taskDescription.value = task.description;
+  taskDescription.addEventListener('keyup', () => saveTask(task, project));
 
   const deleteButton = document.createElement('div');
   deleteButton.classList.add('deleteButton');
   deleteButton.textContent = 'x';
   deleteButton.addEventListener('click', () => deleteTask(task,project));
 
-  taskBack.appendChild(taskTitle);
-  taskBack.appendChild(deleteButton);
+  titleBack.appendChild(taskTitle);
+  titleBack.appendChild(deleteButton);
+  taskBack.appendChild(titleBack);
+  taskBack.appendChild(taskStatus);
+  taskBack.appendChild(taskDescription);
   taskBoard.appendChild(taskBack);
-}
-
-function clearTaskBoard() {
-  let taskBoard = document.getElementById('taskBoard');
-  while (taskBoard.firstChild) {
-    taskBoard.removeChild(taskBoard.lastChild);
-  }
 }
 
 
@@ -123,8 +136,15 @@ function saveTask (task, project) {
 
   let id = project.id;
   let idString = id.toString();
+
   let titleInput = document.getElementById('title' + task.id);
   task.title = titleInput.value;
+
+  let titleStatus = document.getElementById('status' + task.id);
+  task.status = titleStatus.value;
+
+  let titleDescription = document.getElementById('description' + task.id);
+  task.description = titleDescription.value;
 
   let taskDatabase = initialzeProjectTaskDatabase(project);
   for (let x = 0; x < taskDatabase.length; x++) {
@@ -196,14 +216,28 @@ function clearLeftCol () {
   }
 }
 
+function clearTaskBoard () {
+  let taskBoard = document.getElementById('taskBoard');
+  while(taskBoard.firstChild) {
+    taskBoard.removeChild(taskBoard.lastChild);
+  }
+}
+
 function createTask(project) {
   let blankTitle = '';
   let id = Date.now();
   let idString = id.toString();
+  let status = 'Draft';
+  let description = 'place a description here';
+  let dueDate = null;
+  let createdDate = new Date();
+  let priority = 'meh';
+  let notes = '';
+  let checklist = [];
 
   let taskDatabase = initialzeProjectTaskDatabase(project);
 
-  let newTask = new Task(blankTitle,null,null,null,null,null,null,null,idString);
+  let newTask = new Task(blankTitle,status,description,dueDate,createdDate,priority,notes,checklist,project.id,idString);
   taskDatabase.push(newTask);
 
   let projectId = project.id;

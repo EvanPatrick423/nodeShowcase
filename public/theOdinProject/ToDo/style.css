@@ -57,3 +57,11 @@
   width: 500px;
   background-color: black;
 }
+
+.titleBack {
+  display:flex;
+  flex-direction: row;
+  height:30px;
+  width: 500px;
+  background-color: grey;
+}
