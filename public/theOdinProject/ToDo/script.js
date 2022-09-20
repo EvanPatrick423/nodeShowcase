@@ -112,9 +112,22 @@ function populateTask (task,project) {
   taskStatus.addEventListener('keyup', () => saveTask(task, project));
 
   const taskDescription = document.createElement('input');
+  taskDescription.setAttribute('type', 'text');
   taskDescription.setAttribute('id','description'+ task.id);
   taskDescription.value = task.description;
   taskDescription.addEventListener('keyup', () => saveTask(task, project));
+
+  const dueDate = document.createElement('input');
+  dueDate.setAttribute('type','date');
+  dueDate.setAttribute('id', 'dueDate' + task.id);
+  dueDate.value = task.dueDate;
+  dueDate.addEventListener('change', () => saveTask(task,project));
+
+  const createDate = document.createElement('input');
+  createDate.setAttribute('type','date');
+  createDate.setAttribute('id', 'createDate' + task.id);
+  createDate.value = task.createdDate;
+  createDate.addEventListener('change', () => saveTask(task,project));
 
   const deleteButton = document.createElement('div');
   deleteButton.classList.add('deleteButton');
@@ -126,6 +139,9 @@ function populateTask (task,project) {
   taskBack.appendChild(titleBack);
   taskBack.appendChild(taskStatus);
   taskBack.appendChild(taskDescription);
+  taskBack.appendChild(dueDate);
+  taskBack.appendChild(createDate);
+
   taskBoard.appendChild(taskBack);
 }
 
@@ -140,11 +156,17 @@ function saveTask (task, project) {
   let titleInput = document.getElementById('title' + task.id);
   task.title = titleInput.value;
 
-  let titleStatus = document.getElementById('status' + task.id);
-  task.status = titleStatus.value;
+  let taskStatus = document.getElementById('status' + task.id);
+  task.status = taskStatus.value;
 
-  let titleDescription = document.getElementById('description' + task.id);
-  task.description = titleDescription.value;
+  let taskDescription = document.getElementById('description' + task.id);
+  task.description = taskDescription.value;
+
+  let taskDueDate = document.getElementById('dueDate' + task.id);
+  task.dueDate = taskDueDate.value;
+
+  let taskCreateDate = document.getElementById('createDate' + task.id);
+  task.createdDate = taskCreateDate.value;
 
   let taskDatabase = initialzeProjectTaskDatabase(project);
   for (let x = 0; x < taskDatabase.length; x++) {
@@ -231,17 +253,20 @@ function createTask(project) {
   let description = 'place a description here';
   let dueDate = null;
   let createdDate = new Date();
+  let useableDate = createdDate.getFullYear().toString().padStart(4, '0') + '-' + (createdDate.getMonth()+1).toString().padStart(2, '0') + '-' + createdDate.getDate().toString().padStart(2, '0');
   let priority = 'meh';
   let notes = '';
   let checklist = [];
 
   let taskDatabase = initialzeProjectTaskDatabase(project);
 
-  let newTask = new Task(blankTitle,status,description,dueDate,createdDate,priority,notes,checklist,project.id,idString);
-  taskDatabase.push(newTask);
-
   let projectId = project.id;
   let proIdString = projectId.toString();
+
+  let newTask = new Task(blankTitle,status,description,dueDate,useableDate,priority,notes,checklist,proIdString,idString);
+  taskDatabase.push(newTask);
+
+
 
   if(storageAvailable('localStorage')) {
     localStorage.setItem(proIdString, JSON.stringify(taskDatabase));
