@@ -129,6 +129,11 @@ function populateTask (task,project) {
   createDate.value = task.createdDate;
   createDate.addEventListener('change', () => saveTask(task,project));
 
+  const notes = document.createElement('input');
+  notes.setAttribute('id','notes' + task.id);
+  notes.value = task.notes;
+  notes.addEventListener('keyup', () => saveTask(task,project));
+
   const deleteButton = document.createElement('div');
   deleteButton.classList.add('deleteButton');
   deleteButton.textContent = 'x';
@@ -141,6 +146,7 @@ function populateTask (task,project) {
   taskBack.appendChild(taskDescription);
   taskBack.appendChild(dueDate);
   taskBack.appendChild(createDate);
+  taskBack.appendChild(notes);
 
   taskBoard.appendChild(taskBack);
 }
@@ -167,6 +173,9 @@ function saveTask (task, project) {
 
   let taskCreateDate = document.getElementById('createDate' + task.id);
   task.createdDate = taskCreateDate.value;
+
+  let taskNotes = document.getElementById('notes' + task.id);
+  task.notes = taskNotes.value;
 
   let taskDatabase = initialzeProjectTaskDatabase(project);
   for (let x = 0; x < taskDatabase.length; x++) {
