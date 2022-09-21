@@ -1,10 +1,6 @@
-.projectTabBackground {
-  height: 100px;
-  width: 100%;
-  background-color: grey;
-  border-style: solid;
-  border-color: black;
-  border-width: 1px;
+#main {
+  display: flex;
+  flex-direction: row;
 }
 
 #left-hand-column {
@@ -14,9 +10,19 @@
   overflow-y:auto;
 }
 
-#main {
-  display: flex;
-  flex-direction: row;
+#taskBoard {
+  width: 85vw;
+  height: 90vh;
+  overflow-y: auto;
+}
+
+.projectTabBackground {
+  height: 100px;
+  width: 100%;
+  background-color: grey;
+  border-style: solid;
+  border-color: black;
+  border-width: 1px;
 }
 
 .taskBoardHeader {
@@ -71,10 +77,4 @@
   height:30px;
   width: 500px;
   background-color: grey;
-}
-
-#taskBoard {
-  width: 100%;
-  height: 90vh;
-  overflow-y: auto;
 }
