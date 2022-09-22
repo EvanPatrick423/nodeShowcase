@@ -106,14 +106,17 @@ function populateTask (task,project) {
   taskTitle.value = task.title;
   taskTitle.addEventListener('keyup', () => saveTask(task, project));
 
-  const taskStatus = document.createElement('input');
+  const taskStatus = document.createElement('div');
   taskStatus.setAttribute('id','status'+task.id);
-  taskStatus.value = task.status;
+  let statusClass = getStatusClass(task.status);
+  taskStatus.classList.add(statusClass);
+  taskStatus.textContent = task.status;
   taskStatus.addEventListener('keyup', () => saveTask(task, project));
 
-  const taskDescription = document.createElement('input');
+  const taskDescription = document.createElement('textarea');
   taskDescription.setAttribute('type', 'text');
   taskDescription.setAttribute('id','description'+ task.id);
+  taskDescription.classList.add('taskDescription');
   taskDescription.value = task.description;
   taskDescription.addEventListener('keyup', () => saveTask(task, project));
 
@@ -140,9 +143,9 @@ function populateTask (task,project) {
   deleteButton.addEventListener('click', () => deleteTask(task,project));
 
   titleBack.appendChild(taskTitle);
+  titleBack.appendChild(taskStatus);
   titleBack.appendChild(deleteButton);
   taskBack.appendChild(titleBack);
-  taskBack.appendChild(taskStatus);
   taskBack.appendChild(taskDescription);
   taskBack.appendChild(dueDate);
   taskBack.appendChild(createDate);
@@ -152,7 +155,21 @@ function populateTask (task,project) {
 }
 
 
-
+function getStatusClass(status) {
+  let clas = '';
+  if (status === 'Draft') {
+    clas = 'Draft';
+  } else if (status === 'Pending') {
+    clas === 'Pending';
+  } else if (status === 'Overdue') {
+    clas = 'Overdue';
+  } else if (status === 'Done') {
+    clas = 'Done';
+  } else {
+    clas = 'Error';
+  }
+  return clas;
+}
 
 function saveTask (task, project) {
 

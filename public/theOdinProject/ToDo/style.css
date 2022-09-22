@@ -16,6 +16,12 @@
   overflow-y: auto;
 }
 
+.taskDescription {
+  height: 100px;
+  width: 200px;
+  overflow: hidden;
+}
+
 .projectTabBackground {
   height: 100px;
   width: 100%;
@@ -60,6 +66,7 @@
   width: 100px;
   background-color: red;
   color: white;
+  float: right;
 }
 
 .taskBackBoard {
@@ -74,7 +81,15 @@
 .titleBack {
   display:flex;
   flex-direction: row;
+  justify-content: space-between;
   height:30px;
-  width: 500px;
+  width: 100%;
   background-color: grey;
+}
+
+.Draft {
+  height: 100%;
+  width: 100px;
+  background-color: Blue;
+  color: white;
 }
