@@ -99,11 +99,14 @@ function populateTask (task,project) {
   taskBack.setAttribute('id',task.id);
 
   const titleBack = document.createElement('div');
+  titleBack.setAttribute('id', 'titleBack' + task.id);
   titleBack.classList.add('titleBack');
 
-  const taskTitle = document.createElement('input');
+  const taskTitle = document.createElement('div');
   taskTitle.setAttribute('id', 'title' + task.id);
-  taskTitle.value = task.title;
+  taskTitle.classList.add('taskTitle');
+  taskTitle.textContent = task.title;
+  taskTitle.addEventListener('dblclick', () => showInput(task,project));
   taskTitle.addEventListener('keyup', () => saveTask(task, project));
 
   const taskStatus = document.createElement('div');
@@ -154,6 +157,65 @@ function populateTask (task,project) {
   taskBoard.appendChild(taskBack);
 }
 
+  function showInput (task,project) {
+    let titleBack = document.getElementById('titleBack' + task.id);
+    while (titleBack.firstChild) {
+      titleBack.removeChild(titleBack.lastChild);
+    }
+    const taskTitle = document.createElement('input');
+    taskTitle.setAttribute('id', 'title' + task.id);
+    taskTitle.value = task.title;
+    taskTitle.addEventListener('focusout', () => showTitle(task,project));
+    taskTitle.addEventListener('keyup', () => saveTask(task, project));
+
+    const taskStatus = document.createElement('div');
+    taskStatus.setAttribute('id','status'+task.id);
+    let statusClass = getStatusClass(task.status);
+    taskStatus.classList.add(statusClass);
+    taskStatus.textContent = task.status;
+    taskStatus.addEventListener('keyup', () => saveTask(task, project));
+
+    const deleteButton = document.createElement('div');
+    deleteButton.classList.add('deleteButton');
+    deleteButton.textContent = 'x';
+    deleteButton.addEventListener('click', () => deleteTask(task,project));
+
+    titleBack.appendChild(taskTitle);
+    titleBack.appendChild(taskStatus);
+    titleBack.appendChild(deleteButton);
+  }
+
+  function showTitle (task,project) {
+    let titleBack = document.getElementById('titleBack' + task.id);
+
+    while (titleBack.firstChild) {
+      titleBack.removeChild(titleBack.lastChild);
+    }
+
+    const taskTitle = document.createElement('div');
+    taskTitle.setAttribute('id', 'title' + task.id);
+    taskTitle.classList.add('taskTitle');
+    taskTitle.textContent = task.title;
+    taskTitle.addEventListener('dblclick', () => showInput(task,project));
+    taskTitle.addEventListener('keyup', () => saveTask(task, project));
+
+    const taskStatus = document.createElement('div');
+    taskStatus.setAttribute('id','status'+task.id);
+    let statusClass = getStatusClass(task.status);
+    console.log(statusClass);
+    taskStatus.classList.add(statusClass);
+    taskStatus.textContent = task.status;
+    taskStatus.addEventListener('keyup', () => saveTask(task, project));
+
+    const deleteButton = document.createElement('div');
+    deleteButton.classList.add('deleteButton');
+    deleteButton.textContent = 'x';
+    deleteButton.addEventListener('click', () => deleteTask(task,project));
+
+    titleBack.appendChild(taskTitle);
+    titleBack.appendChild(taskStatus);
+    titleBack.appendChild(deleteButton);
+  }
 
 function getStatusClass(status) {
   let clas = '';
@@ -180,7 +242,7 @@ function saveTask (task, project) {
   task.title = titleInput.value;
 
   let taskStatus = document.getElementById('status' + task.id);
-  task.status = taskStatus.value;
+  task.status = taskStatus.textContent;
 
   let taskDescription = document.getElementById('description' + task.id);
   task.description = taskDescription.value;

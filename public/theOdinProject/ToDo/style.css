@@ -69,6 +69,12 @@
   float: right;
 }
 
+.taskTitle {
+  height: 50px;
+  width: 200px;
+  background-color: teal;
+}
+
 .taskBackBoard {
   height:200px;
   width: 100%;
