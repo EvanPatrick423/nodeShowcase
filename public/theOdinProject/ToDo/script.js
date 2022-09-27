@@ -44,6 +44,20 @@ class Project {
 
 }
 
+class CheckListItem {
+  constructor(title,done,id) {
+    this.title = title;
+    this.done = done;
+    this.id = id;
+  }
+
+  showCheckListItem() {
+    console.log(this.title);
+    console.log(this.done);
+    console.log(this.id);
+  }
+}
+
 //---------- Setting Up the initial project array
 
 let projectDatabase = JSON.parse(localStorage.getItem('projectDatabase'));
@@ -86,12 +100,30 @@ function createTaskBoardHeader(project) {
   addButton.textContent = '+';
   addButton.addEventListener('click', () => createTask(project));
 
+  const exportButton = document.createElement('button');
+  exportButton.classList.add('exportButton');
+  exportButton.textContent = 'Export to CSV';
+
   header.appendChild(addButton);
   taskBoard.appendChild(header);
 
 }
 
 function populateTask (task,project) {
+  function addCheckItem(task,project) {
+    let blankTitle = '';
+    let id = Date.now();
+    let idString = id.toString();
+    let done = false;
+
+    let newCheckItem = new CheckListItem(blankTitle,done,idString);
+    task.checklist.push(newCheckItem);
+
+    saveTask(task,project);
+    clearTaskBoard();
+    updateTaskBoard(project);
+  }
+
   let taskBoard = document.getElementById('taskBoard');
 
   const taskBack = document.createElement('div');
@@ -140,6 +172,33 @@ function populateTask (task,project) {
   notes.value = task.notes;
   notes.addEventListener('keyup', () => saveTask(task,project));
 
+  const checklistBack = document.createElement('div');
+  checklistBack.classList.add('checklistBack');
+  checklistBack.setAttribute('id','checklistBack' + task.id);
+
+  const checklistHeader = document.createElement('div');
+  checklistHeader.classList.add('checklistHeader');
+
+  const addCheckItemButton = document.createElement('button');
+  addCheckItemButton.addEventListener('click', () => addCheckItem(task,project));
+
+  checklistHeader.appendChild(addCheckItemButton);
+  checklistBack.appendChild(checklistHeader);
+
+  for (let x = 0; x < task.checklist.length; x++) {
+    const checkItemBack = document.createElement('div');
+    checkItemBack.classList.add('checkItemBack');
+
+    const checkItemText = document.createElement('div');
+    checkItemText.classList.add('checkItemText');
+    checkItemText.setAttribute('id', task.checklist[x].id);
+    checkItemText.textContent = task.checklist[x].title;
+    checkItemText.addEventListener('dblclick', () => showCheckItemInput(task.checklist[x],task));
+
+    checkItemBack.appendChild(checkItemText);
+    checklistBack.appendChild(checkItemBack);
+  }
+
   const deleteButton = document.createElement('div');
   deleteButton.classList.add('deleteButton');
   deleteButton.textContent = 'x';
@@ -149,13 +208,61 @@ function populateTask (task,project) {
   titleBack.appendChild(taskStatus);
   titleBack.appendChild(deleteButton);
   taskBack.appendChild(titleBack);
+
+
   taskBack.appendChild(taskDescription);
+  taskBack.appendChild(notes);
   taskBack.appendChild(dueDate);
   taskBack.appendChild(createDate);
-  taskBack.appendChild(notes);
-
+  taskBack.appendChild(checklistBack);
   taskBoard.appendChild(taskBack);
+
+
 }
+
+
+
+  function showCheckItemInput (checkItem,task) {
+    let checklistBack = document.getElementById('checklistBack' + task.id);
+    let checkListItem = document.getElementById(checkItem.id);
+
+    while (checklistBack.firstChild) {
+      checklistBack.removeChild(checklistBack.lastChild)
+    }
+
+    const checklistHeader = document.createElement('div');
+    checklistHeader.classList.add('checklistHeader');
+
+    const addCheckItemButton = document.createElement('button');
+    addCheckItemButton.addEventListener('click', () => addCheckItem(task,project));
+
+    checklistHeader.appendChild(addCheckItemButton);
+    checklistBack.appendChild(checklistHeader);
+
+    for (let x = 0; x < task.checklist.length; x++) {
+      const checkItemBack = document.createElement('div');
+      checkItemBack.classList.add('checkItemBack');
+
+      if (checkItem.id = task.checklist[x].id) {
+        const checkItemText = document.createElement('input');
+        checkItemText.classList.add('checkItemTextInput');
+        checkItemText.setAttribute('id', task.checklist[x].id);
+        checkItemText.value = task.checklist[x].title;
+        checkItemText.addEventListener('dblclick', () => showCheckItemDiv(task.checklist[x],task));
+        checkItemBack.appendChild(checkItemText);
+        checklistBack.appendChild(checkItemBack);
+      } else {
+        const checkItemText = document.createElement('div');
+        checkItemText.classList.add('checkItemText');
+        checkItemText.setAttribute('id', task.checklist[x].id);
+        checkItemText.textContent = task.checklist[x].title;
+        checkItemText.addEventListener('dblclick', () => showCheckItemInput(task.checklist[x],task));
+        checkItemBack.appendChild(checkItemText);
+        checklistBack.appendChild(checkItemBack);
+      }
+    }
+
+  }
 
   function showInput (task,project) {
     let titleBack = document.getElementById('titleBack' + task.id);
@@ -332,6 +439,8 @@ function clearTaskBoard () {
     taskBoard.removeChild(taskBoard.lastChild);
   }
 }
+
+
 
 function createTask(project) {
   let blankTitle = '';
