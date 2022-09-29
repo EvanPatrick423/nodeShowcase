@@ -117,11 +117,13 @@
 }
 
 .checkItemBack {
-  height: 15px;
+  height: 20px;
   width: 100%;
   background-color: grey;
   border-width:1px;
   border-style:solid;
+  display: flex;
+  flex-direction: row;
 }
 
 .checkItemText {

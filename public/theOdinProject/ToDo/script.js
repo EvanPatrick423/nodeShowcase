@@ -119,6 +119,43 @@ function createTaskBoardHeader(project) {
 
 function populateTask (task,project) {
 
+  function deleteCheckItem (checkItem,task,project) {
+
+    let taskDatabase = initialzeProjectTaskDatabase(project);
+
+    for (let x = 0; x < taskDatabase.length; x++) {
+      let y = taskDatabase[x].checklist.length
+      for (let z = 0; z < y; z++) {
+        if (checkItem.id === taskDatabase[x].checklist[z].id) {
+          taskDatabase[x].checklist.splice(z,1);
+          task.checklist = taskDatabase[x].checklist;
+          break;
+        }
+      }
+    }
+
+    let id = project.id;
+    let idString = id.toString();
+
+    if(storageAvailable('localStorage')) {
+      localStorage.setItem(idString, JSON.stringify(taskDatabase));
+    }
+
+    let checklistBack = document.getElementById('checklistBack' + task.id);
+
+    while (checklistBack.firstChild) {
+      checklistBack.removeChild(checklistBack.lastChild)
+    }
+
+    createChecklistHeader(task,project);
+
+    for (let x = 0; x < task.checklist.length; x++) {
+      populateCheckItem(task.checklist[x],task,project);
+    }
+
+    saveTask(task,project);
+  }
+
   function createChecklistHeader(task,project) {
     const checklistHeader = document.createElement('div');
     checklistHeader.classList.add('checklistHeader');
@@ -222,9 +259,14 @@ function populateTask (task,project) {
     const checkButton = document.createElement('button');
     checkButton.addEventListener('click', () => checkTaskItem(checkItem));
 
+    const deleteButton = document.createElement('button');
+    deleteButton.textContent = 'X';
+    deleteButton.addEventListener('click',() => deleteCheckItem(checkItem,task,project));
+
     checkItemBack.appendChild(checkItemText);
+    checkItemBack.appendChild(checkButton);
+    checkItemBack.appendChild(deleteButton);
     checklistBack.appendChild(checkItemBack);
-    checklistBack.appendChild(checkButton);
   }
 
   let taskBoard = document.getElementById('taskBoard');
