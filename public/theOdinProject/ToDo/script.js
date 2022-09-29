@@ -433,7 +433,13 @@ function saveTask (task, project) {
   let idString = id.toString();
 
   let titleInput = document.getElementById('title' + task.id);
-  task.title = titleInput.value;
+  console.log(titleInput);
+  if (titleInput.nodeName === 'DIV') {
+    task.title = titleInput.textContent;
+  } else if (titleInput.nodeName === 'INPUT') {
+    let safeTitle = titleInput.value.replace(/</g, "&lt;").replace(/>/g, "&gt;");
+    task.title = safeTitle;
+  }
 
   let taskStatus = document.getElementById('status' + task.id);
   task.status = taskStatus.textContent;
@@ -456,7 +462,8 @@ function saveTask (task, project) {
       if (checklistItem.nodeName === 'DIV') {
         task.checklist[x].title = checklistItem.textContent;
       } else if (checklistItem.nodeName ==='INPUT') {
-        task.checklist[x].title = checklistItem.value;
+        let safeTitle =checklistItem.value.replace(/</g, "&lt;").replace(/>/g, "&gt;")
+        task.checklist[x].title = safeTitle;
       } else {
         console.log('there was an error finding the checklist DOM type for checkList item ' + task.checklist[x] + ' node name was found to be ' + checkListItem.nodeName);
       }
