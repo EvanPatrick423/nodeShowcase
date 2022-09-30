@@ -224,7 +224,7 @@ function populateTask (task,project) {
         const checkItemText = document.createElement('input');
         checkItemText.classList.add('checkItemTextInput');
         checkItemText.setAttribute('id', task.checklist[x].id);
-        checkItemText.value = task.checklist[x].title;
+        checkItemText.value = deHash(task.checklist[x].title);
         checkItemText.addEventListener('keyup', () => saveTask(task, project));
         checkItemText.addEventListener('focusout', () => showCheckItemDiv(task,project));
         checkItemBack.appendChild(checkItemText);
@@ -253,7 +253,7 @@ function populateTask (task,project) {
     const checkItemText = document.createElement('div');
     checkItemText.classList.add('checkItemText');
     checkItemText.setAttribute('id', checkItem.id);
-    checkItemText.textContent = checkItem.title;
+    checkItemText.textContent = deHash(checkItem.title);
     checkItemText.addEventListener('dblclick', () => showCheckItemInput(checkItem,task,project));
 
     const checkButton = document.createElement('button');
@@ -282,7 +282,8 @@ function populateTask (task,project) {
   const taskTitle = document.createElement('div');
   taskTitle.setAttribute('id', 'title' + task.id);
   taskTitle.classList.add('taskTitle');
-  taskTitle.textContent = task.title;
+  //console.log(deHash(task.title));
+  taskTitle.textContent = deHash(task.title);
   taskTitle.addEventListener('dblclick', () => showInput(task,project));
   taskTitle.addEventListener('keyup', () => saveTask(task, project));
 
@@ -348,6 +349,14 @@ function populateTask (task,project) {
 
 }
 
+function hash(x) {
+  return x.replace(/</g, "&lt;").replace(/>/g, "&gt;");
+}
+
+function deHash(x) {
+  return x.replace(/&lt;/g, "<").replace(/&gt;/g, ">")
+}
+
   function showInput (task,project) {
     let titleBack = document.getElementById('titleBack' + task.id);
     while (titleBack.firstChild) {
@@ -355,7 +364,7 @@ function populateTask (task,project) {
     }
     const taskTitle = document.createElement('input');
     taskTitle.setAttribute('id', 'title' + task.id);
-    taskTitle.value = task.title;
+    taskTitle.value = deHash(task.title);
     taskTitle.addEventListener('focusout', () => showTitle(task,project));
     taskTitle.addEventListener('keyup', () => saveTask(task, project));
 
@@ -389,7 +398,8 @@ function populateTask (task,project) {
     const taskTitle = document.createElement('div');
     taskTitle.setAttribute('id', 'title' + task.id);
     taskTitle.classList.add('taskTitle');
-    taskTitle.textContent = task.title;
+    //console.log(deHash(task.title));
+    taskTitle.textContent = deHash(task.title);
     taskTitle.addEventListener('dblclick', () => showInput(task,project));
     taskTitle.addEventListener('keyup', () => saveTask(task, project));
 
@@ -433,11 +443,12 @@ function saveTask (task, project) {
   let idString = id.toString();
 
   let titleInput = document.getElementById('title' + task.id);
-  console.log(titleInput);
+  //console.log(titleInput);
   if (titleInput.nodeName === 'DIV') {
     task.title = titleInput.textContent;
   } else if (titleInput.nodeName === 'INPUT') {
-    let safeTitle = titleInput.value.replace(/</g, "&lt;").replace(/>/g, "&gt;");
+    //console.log(hash(titleInput.value));
+    let safeTitle = hash(titleInput.value);
     task.title = safeTitle;
   }
 
@@ -460,10 +471,9 @@ function saveTask (task, project) {
     for (let x=0;x<task.checklist.length;x++) {
       let checklistItem = document.getElementById(task.checklist[x].id)
       if (checklistItem.nodeName === 'DIV') {
-        task.checklist[x].title = checklistItem.textContent;
+        //task.checklist[x].title = checklistItem.textContent;    Is this really needed??
       } else if (checklistItem.nodeName ==='INPUT') {
-        let safeTitle =checklistItem.value.replace(/</g, "&lt;").replace(/>/g, "&gt;")
-        task.checklist[x].title = safeTitle;
+        task.checklist[x].title = hash(checklistItem.value);
       } else {
         console.log('there was an error finding the checklist DOM type for checkList item ' + task.checklist[x] + ' node name was found to be ' + checkListItem.nodeName);
       }
@@ -472,14 +482,14 @@ function saveTask (task, project) {
 
   let taskDatabase = initialzeProjectTaskDatabase(project);
   for (let x = 0; x < taskDatabase.length; x++) {
-    console.log(task.id + ' ' + taskDatabase[x].id);
+    //console.log(task.id + ' ' + taskDatabase[x].id);
     if (task.id === taskDatabase[x].id) {
       //console.log('hit');
       taskDatabase[x] = task;
     }
   }
 
-  console.log(taskDatabase);
+  //console.log(taskDatabase);
 
   if(storageAvailable('localStorage')) {
     localStorage.setItem(idString, JSON.stringify(taskDatabase)); //Push to localDatabase of project id
