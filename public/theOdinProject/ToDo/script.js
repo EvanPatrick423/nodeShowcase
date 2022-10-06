@@ -350,11 +350,15 @@ function populateTask (task,project) {
 }
 
 function hash(x) {
-  return x.replace(/</g, "&lt;").replace(/>/g, "&gt;");
+  if(x != undefined){
+    return x.replace(/</g, "&lt;").replace(/>/g, "&gt;");
+  } else {}
 }
 
 function deHash(x) {
-  return x.replace(/&lt;/g, "<").replace(/&gt;/g, ">")
+  if (x != undefined) {
+    return x.replace(/&lt;/g, "<").replace(/&gt;/g, ">");
+  } else {}
 }
 
   function showInput (task,project) {
