@@ -1,3 +1,18 @@
+function hash(x) {
+  if(x != undefined){
+    if (x === '"') {
+      alert('>:(');
+    }
+    return x.replace(/</g, "&lt;").replace(/>/g, "&gt;");
+  } else {}
+}
+
+function deHash(x) {
+  if (x != undefined) {
+    return x.replace(/&lt;/g, "<").replace(/&gt;/g, ">");
+  } else {}
+}
+
 //--------- Setting up the Library array ----------
 
 let library = JSON.parse(localStorage.getItem('localLibrary'));
@@ -59,9 +74,9 @@ const inputData = document.querySelector('[data-write]');
 //adding event listener to add buttons
 inputData.addEventListener('click', function() {
   //Pulls Current Book Information
-  const addTitle = document.getElementById('add-book-title').value;
-  const addAuthor = document.getElementById('add-author-name').value;
-  const addPages = document.getElementById('add-book-pages').value;
+  const addTitle = hash(document.getElementById('add-book-title').value);
+  const addAuthor = hash(document.getElementById('add-author-name').value);
+  const addPages = hash(document.getElementById('add-book-pages').value);
 
   //Alert and Confirm  [to do]
   //alert('Are you sure you want to want to add this book');
@@ -210,7 +225,7 @@ function search(haveRead) {
     for (x = 0; x < library.length; x++) {
       if (searchTitle.value === library[x].title) {
         //let e = 'matched library item ' + x + "'s title. Its " + library[x].title
-        updateDisplay(library[x].title, library[x].author, library[x].pages, library[x].haveRead, true);
+        updateDisplay(deHash(library[x].title), deHash(library[x].author), library[x].pages, library[x].haveRead, true);
       } else {
         //console.log('not a match, title');
       }
@@ -220,7 +235,7 @@ function search(haveRead) {
     for (x = 0; x < library.length; x++) {
       if (searchAuthor.value === library[x].author) {
         //console.log('matched library item ' + x + "'s author. It's " + library[x].author);
-        updateDisplay(library[x].title, library[x].author, library[x].pages, library[x].haveRead, true);
+        updateDisplay(deHash(library[x].title), deHash(library[x].author),library[x].pages, library[x].haveRead, true);
       } else {
         //console.log('not a match, author');
       }
@@ -233,7 +248,7 @@ function search(haveRead) {
       //console.log(library[x].pages);
       if (Number(searchPages.value) === library[x].pages) {
         //console.log('matched library item ' + x + "'s page number. It's " + library[x].pages);
-        updateDisplay(library[x].title, library[x].author, library[x].pages, library[x].haveRead, true);
+        updateDisplay(deHash(library[x].title), deHash(library[x].author),library[x].pages, library[x].haveRead, true);
       } else {
         //console.log('not a match, pages');
       }
@@ -244,7 +259,7 @@ function search(haveRead) {
 
       if (haveRead === library[x].haveRead) {
         //console.log('matched library item ' + x + "'s title is " + library[x].title);
-        updateDisplay(library[x].title, library[x].author, library[x].pages, library[x].haveRead, true);
+        updateDisplay(deHash(library[x].title), deHash(library[x].author), library[x].pages,library[x].haveRead, true);
       } else {
         //console.log('not a match, haveRead');
       }
@@ -252,15 +267,14 @@ function search(haveRead) {
   } else {
     console.log('there was a problem matching the item to search');
   }
-  console.log(searchSelected.name);
-  console.log(searchHaveRead.id);
+
 
 }
 //---------- Update Library Display Function ---------------------
 function presentLibrary (library) {
   for (x=0; x<library.length; x++) {
     //console.log(library[x]);
-    updateDisplay(library[x].title, library[x].author, library[x].pages, library[x].haveRead, false);
+    updateDisplay(deHash(library[x].title), deHash(library[x].author), library[x].pages, library[x].haveRead, false);
   }
 }
 //---------- Update Display -------------------------

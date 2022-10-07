@@ -24,10 +24,12 @@ class Task {
     console.log(this.title);
     console.log(this.description);
     console.log(this.dueDate);
+    console.log(this.createDate);
     console.log(this.priority);
     console.log(this.notes);
     console.log(this.checklist);
     console.log(this.project);
+    console.log(this.id);
   }
 }
 
@@ -73,9 +75,8 @@ function initialzeProjectTaskDatabase (project) {
   let idString = id.toString();
   let taskDatabase = JSON.parse(localStorage.getItem(idString));
   if (taskDatabase === null) {
-    let exTask = new Task('Put your Title Here','Draft','Put a description here',
-     'Due Date', 'priority', 'notes',
-     ['Here you can make checklists', 'double click to strike through', 'checklist item 3'],
+    let exTask = new Task('Double Click to Reveal Input Box','Draft','Put a description here',
+     '', '','priority', 'notes', [],
       project.id, Date.now());
     taskDatabase = [exTask];
   }
@@ -106,12 +107,12 @@ function createTaskBoardHeader(project) {
   addButton.textContent = '+';
   addButton.addEventListener('click', () => createTask(project));
 
-  const exportButton = document.createElement('button');
-  exportButton.classList.add('exportButton');
-  exportButton.textContent = 'Export to CSV';
+  //const exportButton = document.createElement('button');
+  //exportButton.classList.add('exportButton');
+  //exportButton.textContent = 'Export to CSV';
 
   header.appendChild(addButton);
-  header.appendChild(exportButton);
+  //header.appendChild(exportButton);
   header.appendChild(projectTitle);
   taskBoard.appendChild(header);
 
@@ -127,7 +128,9 @@ function populateTask (task,project) {
       let y = taskDatabase[x].checklist.length
       for (let z = 0; z < y; z++) {
         if (checkItem.id === taskDatabase[x].checklist[z].id) {
-          taskDatabase[x].checklist.splice(z,1);
+          let checklist = taskDatabase[x].checklist;
+          checklist.splice(z,1);
+          taskDatabase[x].checklist = checklist;
           task.checklist = taskDatabase[x].checklist;
           break;
         }
@@ -224,6 +227,7 @@ function populateTask (task,project) {
         const checkItemText = document.createElement('input');
         checkItemText.classList.add('checkItemTextInput');
         checkItemText.setAttribute('id', task.checklist[x].id);
+        console.log(task.checklist[x].title);
         checkItemText.value = deHash(task.checklist[x].title);
         checkItemText.addEventListener('keyup', () => saveTask(task, project));
         checkItemText.addEventListener('focusout', () => showCheckItemDiv(task,project));
@@ -298,7 +302,7 @@ function populateTask (task,project) {
   taskDescription.setAttribute('type', 'text');
   taskDescription.setAttribute('id','description'+ task.id);
   taskDescription.classList.add('taskDescription');
-  taskDescription.value = task.description;
+  taskDescription.value = deHash(task.description);
   taskDescription.addEventListener('keyup', () => saveTask(task, project));
 
   const dueDate = document.createElement('input');
@@ -315,7 +319,7 @@ function populateTask (task,project) {
 
   const notes = document.createElement('input');
   notes.setAttribute('id','notes' + task.id);
-  notes.value = task.notes;
+  notes.value = deHash(task.notes);
   notes.addEventListener('keyup', () => saveTask(task,project));
 
   const checklistBack = document.createElement('div');
@@ -351,6 +355,9 @@ function populateTask (task,project) {
 
 function hash(x) {
   if(x != undefined){
+    if (x === '"') {
+      alert('>:(');
+    }
     return x.replace(/</g, "&lt;").replace(/>/g, "&gt;");
   } else {}
 }
@@ -452,15 +459,14 @@ function saveTask (task, project) {
     task.title = titleInput.textContent;
   } else if (titleInput.nodeName === 'INPUT') {
     //console.log(hash(titleInput.value));
-    let safeTitle = hash(titleInput.value);
-    task.title = safeTitle;
+    task.title = hash(titleInput.value);
   }
 
   let taskStatus = document.getElementById('status' + task.id);
   task.status = taskStatus.textContent;
 
   let taskDescription = document.getElementById('description' + task.id);
-  task.description = taskDescription.value;
+  task.description = hash(taskDescription.value);
 
   let taskDueDate = document.getElementById('dueDate' + task.id);
   task.dueDate = taskDueDate.value;
@@ -469,7 +475,7 @@ function saveTask (task, project) {
   task.createdDate = taskCreateDate.value;
 
   let taskNotes = document.getElementById('notes' + task.id);
-  task.notes = taskNotes.value;
+  task.notes = hash(taskNotes.value);
 
   if (task.checklist.length > 0) {
     for (let x=0;x<task.checklist.length;x++) {
@@ -503,7 +509,7 @@ function saveTask (task, project) {
 function saveProject (project) {
   let projectId = project.id;
   let titleInput = document.getElementById(projectId);
-  project.title = titleInput.value;
+  project.title = hash(titleInput.value);
   if(storageAvailable('localStorage')) {
     localStorage.setItem('projectDatabase', JSON.stringify(projectDatabase)); //push to local storage
   }
