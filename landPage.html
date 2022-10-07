@@ -3,7 +3,7 @@
   <head>
     <title>EvanPatrick.net</title>
 
-    <link type="text/css" rel="stylesheet" href="landPage/style.css">
+    <link type="text/css" rel="stylesheet" href="style.css">
   </head>
 
   <body>
@@ -11,40 +11,12 @@
       <div id="header">
         <h1>Hello world! Welcome to my website!</h1>
       </div>
-
-      <div id="nav-bar">
-        <a id="home" class="nav-item" href="/">Home Page</a>
-        <a class="nav-item" href="theOdinProject/index.html">The Odin Project Files</a>
-        <a class="nav-item" href="cssAnimations/index.html">Various CSS Animations</a>
-        <!--<a class="nav-item" href="{% url 'theodinproject:javascript30' %}">Javascript30</a>-->
-        <!--<a class="nav-item" href="/wordpress-shop-page/wordpress/wp-admin/install.php">WordPress Shop Page</a>-->
-      </div>
-
-      <div id="text-holder">
-        <div id='text'>
-          <p>This website serves as an active resume and portfolio. Where you can take a look at my current resume, and see the actual projects I've been working on. All hosted on this website.</p>
-          <p>This site is mostly made in Javascript, HTML5, and CSS. With the backend being handled by django. Though I probably will be changing that over to Node.JS as my fullstack certifaction
-            will be covering that and I will probably be able to understand it a lot better than I have ben able to understand django just from reading the source material.</p>
-          <p>I hope you enjoy my website!</p>
+      <div id='main'>
+        <div id="nav-bar">
         </div>
+        <div id="show"></div>
       </div>
-
-      <div id='about-section'>
-        <div id='resume-column'>
-          <div id='resume'>
-            <div id='page-turn'>></div>
-          </div>
-        </div>
-
-        <div id='head-shot-column'>
-          <div id='head-shot-cont'>
-            <div id='head-shot'></div>
-          </div>
-          <a href="landPage/resources/Dev.pdf">A PDF Link to My Resume</a>
-        </div>
-      </div>
-
     </div>
-    <script src="landPage/landPage.js"></script>
+    <script type='module' src="landPage.js"></script>
   </body>
 </html>
