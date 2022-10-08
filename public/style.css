@@ -244,3 +244,119 @@ body {
   background-color: blue;
   color: white;
 }
+
+#board {
+  height:550px;
+  width: 550px;
+  display: flex;
+  flex-direction:column;
+}
+
+#board-holder {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 580px;
+  width: 580px;
+  background-color: #282828;
+  border-radius: 5px;
+  border: solid;
+  border-width: thin;
+  border-color: #ffffff;
+}
+
+#button-holder {
+  display:flex ;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  margin-bottom:20px;
+  height:580px;
+  width:auto;
+  background-color: #282828;
+  border-radius: 5px;
+  border: solid;
+  border-width: thin;
+  border-color: #ffffff;
+}
+
+#content-holder {
+  display: flex;
+  justify-content: space-evenly;
+  width: 100%;
+}
+
+#color-card {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  margin: 30px;
+  color: #ffffff;
+}
+
+#color-select {
+  background-color: rgba(0,0,0,0);
+  border-style: none;
+  outline: none;
+}
+
+#title {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  color: #ffffff;
+  width: 100%;
+  height: 140px;
+}
+
+.slider-box {
+  margin: 30px;
+  color: #ffffff;
+}
+
+.grid-item {
+  background:white ;
+  align-content:stretch ;
+  flex-grow:1 ;
+  float:left ;
+  draggable: 'false';
+}
+
+.grid-row {
+  flex-grow:1 ;
+  display:flex ;
+}
+
+.pressed {
+  background:black ;
+  align-content:stretch ;
+  flex-grow:1 ;
+  float:left ;
+}
+
+.pixelPadBack {
+  display: flex;
+  background: #181818;
+  align-items: center;
+  flex-direction: column;
+  margin:4px ;
+}
+
+.pixelPadButton {
+  margin:30px;
+  color: #ffffff;
+  height: 30px;
+  width: 70%;
+  background-color: #282828;
+  border: solid;
+  border-width: thin;
+  border-color: #ffffff;
+  outline: none;
+  border-radius: 5px;
+}
+
+.btn-on {
+  background-color: #ffffff;
+  color: #000000 ;
+}
