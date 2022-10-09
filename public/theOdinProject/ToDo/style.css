@@ -1,18 +1,18 @@
-#main {
+#toDoMain {
   display: flex;
   flex-direction: row;
 }
 
 #left-hand-column {
-  height: 90vh;
-  width: 15vw;
+  height: 100%;
+  width: 18%;
   background-color: #ced9f5;
   overflow-y:auto;
 }
 
 #taskBoard {
-  width: 85vw;
-  height: 90vh;
+  width: 82%;
+  height: 100%;
   overflow-y: auto;
 }
 
@@ -65,7 +65,7 @@
   color: white;
 }
 
-.deleteButton {
+.toDoDeleteButton {
   height: 20px;
   width: 100px;
   background-color: red;
@@ -140,4 +140,8 @@
   height: 50px;
   width: 100px;
   background-color: blue;
+}
+
+.projectText {
+  width: 50;
 }

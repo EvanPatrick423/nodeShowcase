@@ -4,6 +4,7 @@ import {setUpCalculator} from './theOdinProject/calculator/calculator.js';
 import {setUpLibrary} from './theOdinProject/Library/script.js';
 import {startRPS} from './theOdinProject/rockpaperscissors/rockpaperscissors.js';
 import {startTicTacToe} from './theOdinProject/tic tac toe/script.js';
+import {startToDo} from './theOdinProject/ToDo/script.js';
 
 let show = document.getElementById('show');
 
@@ -30,6 +31,11 @@ function popNavBar () {
   pixelPad.classList.add('nav-item');
   pixelPad.textContent = 'Pixel Pad';
   pixelPad.addEventListener('click', () => showPixelPad());
+
+  let toDo = document.createElement('div');
+  toDo.classList.add('nav-item');
+  toDo.textContent = 'To Do App';
+  toDo.addEventListener('click', () => showToDo());
 
   let calculator = document.createElement('div');
   calculator.classList.add('nav-item');
@@ -58,11 +64,35 @@ function popNavBar () {
 
   navBar.appendChild(home);
   navBar.appendChild(pixelPad);
+  navBar.appendChild(toDo);
   navBar.appendChild(ticTacToe);
   navBar.appendChild(library);
   navBar.appendChild(calculator);
   navBar.appendChild(rockPaperScissors);
   navBar.appendChild(dom);
+}
+
+function showToDo() {
+  clearShow();
+
+  let header = document.getElementById('header');
+  header.textContent = 'To Do App';
+
+  let toDoMain = document.createElement('div');
+  toDoMain.setAttribute('id','toDoMain');
+
+  let leftHandColumn = document.createElement('div');
+  leftHandColumn.setAttribute('id','left-hand-column');
+
+  let taskBoard = document.createElement('div');
+  taskBoard.setAttribute('id','taskBoard');
+
+  toDoMain.appendChild(leftHandColumn);
+  toDoMain.appendChild(taskBoard);
+
+  show.appendChild(toDoMain);
+
+  startToDo();
 }
 
 function showTicTacToe() {
