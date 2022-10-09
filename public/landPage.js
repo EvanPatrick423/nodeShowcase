@@ -62,10 +62,10 @@ function popNavBar () {
   cssAnimations.textContent = 'CSS Animations';
   cssAnimations.addEventListener('click', () => showCssAnimations());
 
-  let dom = document.createElement('div');
+  /*let dom = document.createElement('div');
   dom.classList.add('nav-item');
   dom.textContent = 'Dom';
-  dom.addEventListener('click', () => showDom());
+  dom.addEventListener('click', () => showDom());*/
 
   navBar.appendChild(home);
   navBar.appendChild(pixelPad);
@@ -75,7 +75,7 @@ function popNavBar () {
   navBar.appendChild(calculator);
   navBar.appendChild(rockPaperScissors);
   navBar.appendChild(cssAnimations);
-  navBar.appendChild(dom);
+  //navBar.appendChild(dom);
 }
 
 function showCssAnimations() {
@@ -495,7 +495,7 @@ function showCalculator() {
 
   let row6 = document.createElement('div');
   row6.setAttribute('id','row-6');
-  row6.classList.add('row');
+  row6.classList.add('calRow');
 
   let factorial = document.createElement('div');
   factorial.classList.add('data-operator','btn');
@@ -511,7 +511,7 @@ function showCalculator() {
 
   let row5 =document.createElement('div');
   row5.setAttribute('id','row-5');
-  row5.classList.add('row');
+  row5.classList.add('calRow');
 
   let tan = document.createElement('div');
   tan.textContent = 'tan(x)';
@@ -527,7 +527,7 @@ function showCalculator() {
 
   let row4 = document.createElement('div');
   row4.setAttribute('id','row-4');
-  row4.classList.add('row');
+  row4.classList.add('calRow');
 
   let seven = document.createElement('button');
   seven.textContent = '7';
@@ -543,7 +543,7 @@ function showCalculator() {
 
   let row3 = document.createElement('div');
   row3.setAttribute('id','row-3');
-  row3.classList.add('row');
+  row3.classList.add('calRow');
 
   let four = document.createElement('button');
   four.textContent = '4';
@@ -559,7 +559,7 @@ function showCalculator() {
 
   let row2 = document.createElement('div');
   row2.setAttribute('id','row-2');
-  row2.classList.add('row');
+  row2.classList.add('calRow');
 
   let one = document.createElement('button');
   one.textContent = '1';
@@ -575,7 +575,7 @@ function showCalculator() {
 
   let row1 = document.createElement('div');
   row1.setAttribute('id','row-1');
-  row1.classList.add('row');
+  row1.classList.add('calRow');
 
   let dot = document.createElement('button');
   dot.textContent = '.';
@@ -715,8 +715,8 @@ function showPixelPad () {
   rangeSliderDiv.setAttribute('id','range-slider');
   rangeSliderDiv.setAttribute('type','range');
   rangeSliderDiv.setAttribute('value','48');
-  rangeSliderDiv.setAttribute('min','1');
-  rangeSliderDiv.setAttribute('max','60');
+  rangeSliderDiv.setAttribute('min','8');
+  rangeSliderDiv.setAttribute('max','64');
   rangeSliderDiv.addEventListener('change', () => rangeSlider(rangeSliderDiv.value));
 
   let progressBar = document.createElement('div');
@@ -848,3 +848,4 @@ function showHome () {
 }
 
   popNavBar();
+  showHome();
