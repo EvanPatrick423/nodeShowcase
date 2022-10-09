@@ -172,13 +172,10 @@ body {
   height: 100%;
   width: 100%;
   background-image: url(landPage/Dev1024_1.jpg);
+  background-position: center;
   background-size:contain;
   background-repeat: no-repeat;
-}
 
-img {
-  height: 100%;
-  width:100%;
 }
 
 #resume-column {
@@ -187,7 +184,7 @@ img {
   height: 100%;
   width: 70%;
   margin-bottom: 10px;
-  overflow-y: auto;
+  align-items: center;
 
 }
 
