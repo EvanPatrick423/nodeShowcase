@@ -1,6 +1,7 @@
 import {manipulateDom} from './theOdinProject/DOM/DOM.js';
 import {listen, createGrid, setInk, toggleButton, eraseAllDivs, rangeSlider} from './theOdinProject/etchasketch/etchasketch.js';
 import {setUpCalculator} from './theOdinProject/calculator/calculator.js';
+import {setUpLibrary} from './theOdinProject/Library/script.js';
 
 let show = document.getElementById('show');
 
@@ -10,6 +11,7 @@ function clearShow() {
   }
   show.classList.remove('pixelPadBack');
   show.classList.remove('calShow');
+  show.classList.remove('libraryShow');
 }
 
 function popNavBar () {
@@ -43,17 +45,16 @@ function popNavBar () {
 
   navBar.appendChild(home);
   navBar.appendChild(pixelPad);
+  navBar.appendChild(library);
   navBar.appendChild(calculator);
   navBar.appendChild(dom);
-
-
 }
 
 function showLibrary() {
   clearShow();
 
-  let viewport = document.createElement('div');
-  viewport.setAttribute('id','viewport');
+  let show = document.getElementById('show');
+  show.classList.add('libraryShow');
 
   let screenColumn = document.createElement('div');
   screenColumn.setAttribute('id','screen-column');
@@ -68,10 +69,19 @@ function showLibrary() {
   screenColumn.appendChild(screen2);
 
   let inputsContainer = document.createElement('div');
-  inputsContainer.setAttribute('id','add-container');
+  inputsContainer.setAttribute('id','inputs-container');
 
-  let inputBox = document.createElement('div');
-  inputBox.classList.add('inpout-box');
+  let inputBox1 = document.createElement('div');
+  inputBox1.classList.add('input-box');
+
+  let inputBox2 = document.createElement('div');
+  inputBox2.classList.add('input-box');
+
+  let inputBox3 = document.createElement('div');
+  inputBox3.classList.add('input-box');
+
+  let addContainer = document.createElement('div');
+  addContainer.setAttribute('id','add-container');
 
   let titleInput = document.createElement('input');
   titleInput.setAttribute('id','add-book-title');
@@ -86,7 +96,7 @@ function showLibrary() {
   titleSearchButton.setAttribute('name','title');
   titleSearchButton.textContent = 'Search By';
 
-  let authorInput = document.createElement('button');
+  let authorInput = document.createElement('input');
   authorInput.setAttribute('id','add-author-name');
   authorInput.setAttribute('type','text');
   authorInput.setAttribute('name','author');
@@ -98,7 +108,7 @@ function showLibrary() {
   authorSearchButton.setAttribute('name','author');
   authorSearchButton.textContent = 'Search By';
 
-  let pagesInput = document.createElement('div');
+  let pagesInput = document.createElement('input');
   pagesInput.setAttribute('id','add-book-pages');
   pagesInput.setAttribute('type','text');
   pagesInput.setAttribute('name','pages');
@@ -111,14 +121,14 @@ function showLibrary() {
   pagesSearchButton.textContent = 'Search By';
 
   let addHaveRead = document.createElement('div');
-  addHaveRead.setAttribute('id');
+  addHaveRead.setAttribute('id','add-have-read');
 
   let trueButton = document.createElement('button');
   trueButton.setAttribute('id','true');
   trueButton.setAttribute('name','add-have-read');
   trueButton.textContent = 'Has Been Read?';
 
-  trueSearchButton = document.createElement('button');
+  let trueSearchButton = document.createElement('button');
   trueSearchButton.classList.add('search-selector');
   trueSearchButton.setAttribute('name','add-have-read');
   trueSearchButton.textContent = 'Search By';
@@ -127,21 +137,70 @@ function showLibrary() {
   buttonContainer.setAttribute('id','button-container');
 
   let addButton = document.createElement('button');
-  addButton.setAttribute('add-button');
+  addButton.setAttribute('id','add-button');
   addButton.classList.add('input-box','data-write');
   addButton.textContent = 'Add Book';
 
-  let trueSearchButton = document.createElement('button');
-  trueSearchButton.setAttribute('id','search-button');
-  trueSearchButton.classList.add('input-box','data-search');
-  trueSearchButton.textContent = 'Search for Book';
+  let searchButton = document.createElement('button');
+  searchButton.setAttribute('id','search-button');
+  searchButton.classList.add('input-box','data-search');
+  searchButton.textContent = 'Search for Book';
 
   let storageClear = document.createElement('button');
   storageClear.setAttribute('id','storage-clear');
   storageClear.classList.add('input-box');
+  storageClear.textContent = 'Clear data stored on local machine';
+
+  let explanationContainer = document.createElement('div');
+  explanationContainer.setAttribute('id','explanation-container');
+  explanationContainer.textContent = 'Welcome to my first attempt at writing ' +
+  'storing and reading objects! This is a moc library, storing the title, author, ' +
+  'number pages, and whether or not you have read the book. The total library stored ' +
+  'on your computer will be shown in the bottom section, while the current search' +
+  'function is shown in the above screen outlined by the thin white border. All ' +
+  'library changes will be stored on your local library. So when you come back they ' +
+  'will still be there! If you want to delete all in your cache you can click the ' +
+  'button that is labeled Clear Data on Local Machine'
+
+  screenColumn.appendChild(searchScreen);
+  screenColumn.appendChild(screen2);
+
+
+  inputBox1.appendChild(titleInput);
+  inputBox1.appendChild(titleSearchButton);
+
+  addContainer.appendChild(inputBox1);
+
+  inputBox2.appendChild(authorInput);
+  inputBox2.appendChild(authorSearchButton);
+
+  addContainer.appendChild(inputBox2);
+
+  inputBox3.appendChild(pagesInput);
+  inputBox3.appendChild(pagesSearchButton);
+
+  addContainer.appendChild(inputBox3);
+
+  addHaveRead.appendChild(trueButton);
+  addHaveRead.appendChild(trueSearchButton);
+
+  addContainer.appendChild(addHaveRead);
+
+
+  buttonContainer.appendChild(addButton);
+  buttonContainer.appendChild(searchButton);
+  buttonContainer.appendChild(storageClear);
 
 
 
+  inputsContainer.appendChild(addContainer);
+  inputsContainer.appendChild(buttonContainer);
+  inputsContainer.appendChild(explanationContainer);
+
+  show.appendChild(screenColumn);
+  show.appendChild(inputsContainer);
+
+  setUpLibrary();
 }
 
 function showCalculator() {
