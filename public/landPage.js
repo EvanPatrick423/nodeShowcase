@@ -2,6 +2,7 @@ import {manipulateDom} from './theOdinProject/DOM/DOM.js';
 import {listen, createGrid, setInk, toggleButton, eraseAllDivs, rangeSlider} from './theOdinProject/etchasketch/etchasketch.js';
 import {setUpCalculator} from './theOdinProject/calculator/calculator.js';
 import {setUpLibrary} from './theOdinProject/Library/script.js';
+import {startRPS} from './theOdinProject/rockpaperscissors/rockpaperscissors.js';
 
 let show = document.getElementById('show');
 
@@ -38,6 +39,11 @@ function popNavBar () {
   library.textContent = 'Library';
   library.addEventListener('click', () => showLibrary());
 
+  let rockPaperScissors = document.createElement('div');
+  rockPaperScissors.classList.add('nav-item');
+  rockPaperScissors.textContent = 'Rock Paper Scissors';
+  rockPaperScissors.addEventListener('click', () => showRPS());
+
   let dom = document.createElement('div');
   dom.classList.add('nav-item');
   dom.textContent = 'Dom';
@@ -47,7 +53,52 @@ function popNavBar () {
   navBar.appendChild(pixelPad);
   navBar.appendChild(library);
   navBar.appendChild(calculator);
+  navBar.appendChild(rockPaperScissors);
   navBar.appendChild(dom);
+}
+
+function showRPS() {
+  clearShow();
+
+  let dashBoard = document.createElement('div');
+  dashBoard.setAttribute('id','dashboard');
+
+  let message = document.createElement('div');
+  message.setAttribute('id','message');
+
+  let current = document.createElement('div');
+  current.setAttribute('id','current');
+
+  let container = document.createElement('div');
+  container.setAttribute('id','container');
+
+  let rock = document.createElement('button');
+  rock.classList.add('RPSbtn');
+  rock.setAttribute('id','rock');
+  rock.textContent = 'Rock';
+
+  let paper = document.createElement('button');
+  paper.classList.add('RPSbtn');
+  paper.setAttribute('id','paper');
+  paper.textContent = 'Paper';
+
+  let scissors = document.createElement('button');
+  scissors.classList.add('RPSbtn');
+  scissors.setAttribute('id','scissors');
+  scissors.textContent = 'Scissors';
+
+  container.appendChild(rock);
+  container.appendChild(paper);
+  container.appendChild(scissors);
+
+  dashBoard.appendChild(message);
+  dashBoard.appendChild(current);
+  dashBoard.appendChild(container);
+
+
+  show.appendChild(dashBoard);
+
+  startRPS();
 }
 
 function showLibrary() {
