@@ -3,11 +3,6 @@
   --font: #ffffff;
 }
 
-*::after {
-  padding: 0px;
-  margin: 0px;
-}
-
 #true {
   height: 50px;
   width: 100px;

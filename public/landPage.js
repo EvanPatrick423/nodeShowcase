@@ -3,6 +3,7 @@ import {listen, createGrid, setInk, toggleButton, eraseAllDivs, rangeSlider} fro
 import {setUpCalculator} from './theOdinProject/calculator/calculator.js';
 import {setUpLibrary} from './theOdinProject/Library/script.js';
 import {startRPS} from './theOdinProject/rockpaperscissors/rockpaperscissors.js';
+import {startTicTacToe} from './theOdinProject/tic tac toe/script.js';
 
 let show = document.getElementById('show');
 
@@ -13,6 +14,7 @@ function clearShow() {
   show.classList.remove('pixelPadBack');
   show.classList.remove('calShow');
   show.classList.remove('libraryShow');
+  show.classList.remove('ticTacToeShow');
 }
 
 function popNavBar () {
@@ -34,6 +36,11 @@ function popNavBar () {
   calculator.textContent = 'Calculator';
   calculator.addEventListener('click', () => showCalculator());
 
+  let ticTacToe = document.createElement('div');
+  ticTacToe.classList.add('nav-item');
+  ticTacToe.textContent = 'Tic Tac Toe';
+  ticTacToe.addEventListener('click',() => showTicTacToe());
+
   let library = document.createElement('div');
   library.classList.add('nav-item');
   library.textContent = 'Library';
@@ -51,14 +58,47 @@ function popNavBar () {
 
   navBar.appendChild(home);
   navBar.appendChild(pixelPad);
+  navBar.appendChild(ticTacToe);
   navBar.appendChild(library);
   navBar.appendChild(calculator);
   navBar.appendChild(rockPaperScissors);
   navBar.appendChild(dom);
 }
 
+function showTicTacToe() {
+  clearShow();
+
+  let header = document.getElementById('header');
+  header.textContent = 'Color Tic Tac Toe';
+
+  let show = document.getElementById('show');
+  show.classList.add('ticTacToeShow');
+
+  let showHeader = document.createElement('div');
+  showHeader.setAttribute('id','showHeader');
+
+  let scoreBoard = document.createElement('div');
+  scoreBoard.setAttribute('id','scoreBoard');
+
+  let buttonPlace = document.createElement('div');
+  buttonPlace.setAttribute('id','buttonPlace');
+
+  let playBoard = document.createElement('div');
+  playBoard.setAttribute('id', 'playBoard');
+
+  show.appendChild(showHeader);
+  show.appendChild(scoreBoard);
+  show.appendChild(buttonPlace);
+  show.appendChild(playBoard);
+
+  startTicTacToe();
+}
+
 function showRPS() {
   clearShow();
+
+  let header = document.getElementById('header');
+  header.textContent = 'Rock Paper Scissors';
 
   let dashBoard = document.createElement('div');
   dashBoard.setAttribute('id','dashboard');
@@ -103,6 +143,9 @@ function showRPS() {
 
 function showLibrary() {
   clearShow();
+
+  let header = document.getElementById('header');
+  header.textContent = 'Library';
 
   let show = document.getElementById('show');
   show.classList.add('libraryShow');

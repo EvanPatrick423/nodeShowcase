@@ -1,4 +1,4 @@
-#header {
+#showHeader {
   display:flex;
   width: 100%;
   height: 40px;
@@ -67,7 +67,6 @@
   width: 100%;
 }
 
-body {
-  margin: 0px;
+.ticTacToeShow {
   background-color: #000000;
 }

@@ -12,21 +12,21 @@ export function startRPS () {
   //Takes action selected, handles css, also sets x to choice---------------
   function select(x){
     if (x === 'rock'){
-      rck.classList.add("btn-on");                              //style.cssText = 'background: blue; color: white';
-      pap.classList.remove("btn-on");
-      sci.classList.remove("btn-on");
+      rck.classList.add("RPSbtn-on");                              //style.cssText = 'background: blue; color: white';
+      pap.classList.remove("RPSbtn-on");
+      sci.classList.remove("RPSbtn-on");
       //Go ahead and link the next logical thing to do. Link the playRound
       //function, into select. So it's one seemless interaction
       playRound(x);
     } else if (x === 'paper'){
-      pap.classList.add("btn-on");
-      rck.classList.remove("btn-on");
-      sci.classList.remove("btn-on");
+      pap.classList.add("RPSbtn-on");
+      rck.classList.remove("RPSbtn-on");
+      sci.classList.remove("RPSbtn-on");
       playRound(x);
     } else if (x === 'scissors'){
-      sci.classList.add("btn-on");
-      rck.classList.remove("btn-on");
-      pap.classList.remove("btn-on");
+      sci.classList.add("RPSbtn-on");
+      rck.classList.remove("RPSbtn-on");
+      pap.classList.remove("RPSbtn-on");
       playRound(x);
     } else {
       alert("ERROR no match found for choice variable in select function. Or you have not selected a choice")

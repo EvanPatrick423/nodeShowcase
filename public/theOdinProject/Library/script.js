@@ -1,5 +1,4 @@
 export function setUpLibrary () {
-  console.log('hit');
   //--------- Setting up the Library array ----------
   let library = JSON.parse(localStorage.getItem('localLibrary'));
 
