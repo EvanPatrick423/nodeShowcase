@@ -1,6 +1,6 @@
 import {manipulateDom} from './theOdinProject/DOM/DOM.js';
 import {listen, createGrid, setInk, toggleButton, eraseAllDivs, rangeSlider} from './theOdinProject/etchasketch/etchasketch.js';
-import {} from './theOdinProject/etchasketch/etchasketch.js';
+import {setUpCalculator} from './theOdinProject/calculator/calculator.js';
 
 let show = document.getElementById('show');
 
@@ -9,6 +9,7 @@ function clearShow() {
     show.removeChild(show.firstChild);
   }
   show.classList.remove('pixelPadBack');
+  show.classList.remove('calShow');
 }
 
 function popNavBar () {
@@ -20,10 +21,10 @@ function popNavBar () {
   home.textContent = 'Home';
   home.addEventListener('click', () => showHome());
 
-  /*let calculator = document.createElement('div');
+  let calculator = document.createElement('div');
   calculator.classList.add('nav-item');
   calculator.textContent = 'Calculator';
-  calculator.addEventListener('click', () => showCalculator())*/
+  calculator.addEventListener('click', () => showCalculator())
 
   let pixelPad = document.createElement('div');
   pixelPad.classList.add('nav-item')
@@ -37,18 +38,215 @@ function popNavBar () {
 
   navBar.appendChild(home);
   navBar.appendChild(pixelPad);
+  navBar.appendChild(calculator);
   navBar.appendChild(dom);
 
 
 }
 
-/*function showCalculator() {
+function showCalculator() {
   clearShow();
-  let
-}*/
+
+  let header = document.getElementById('header');
+  header.textContent = 'Basic Calculator';
+
+  let show = document.getElementById('show');
+  show.classList.add('calShow');
+
+  let warning = document.createElement('div');
+  warning.textContent = 'Trig functions do not work yet';
+
+  let calBack = document.createElement('div');
+  calBack.classList.add('calculator');
+
+  let calScreen = document.createElement('div');
+  calScreen.classList.add('screen');
+
+  let buttonsGrid = document.createElement('div');
+  buttonsGrid.classList.add('buttons-grid');
+
+  let numbers = document.createElement('div');
+  numbers.setAttribute('id','numbers');
+
+  let row6 = document.createElement('div');
+  row6.setAttribute('id','row-6');
+  row6.classList.add('row');
+
+  let factorial = document.createElement('div');
+  factorial.classList.add('data-operator','btn');
+  factorial.textContent = 'x!';
+
+  let exponent = document.createElement('div');
+  exponent.classList.add('data-operator','btn');
+  exponent.textContent = 'x^y';
+
+  let question = document.createElement('div');
+  question.classList.add('btn');
+  question.textContent = '?'
+
+  let row5 =document.createElement('div');
+  row5.setAttribute('id','row-5');
+  row5.classList.add('row');
+
+  let tan = document.createElement('div');
+  tan.textContent = 'tan(x)';
+  tan.classList.add('btn');
+
+  let sin = document.createElement('div');
+  sin.textContent = 'sin(x)';
+  sin.classList.add('btn');
+
+  let cos = document.createElement('div');
+  cos.textContent = 'cos(x)';
+  cos.classList.add('btn');
+
+  let row4 = document.createElement('div');
+  row4.setAttribute('id','row-4');
+  row4.classList.add('row');
+
+  let seven = document.createElement('button');
+  seven.textContent = '7';
+  seven.classList.add('btn', 'data-number');
+
+  let eight = document.createElement('button');
+  eight.textContent = '8';
+  eight.classList.add('btn', 'data-number');
+
+  let nine = document.createElement('button');
+  nine.textContent = '9';
+  nine.classList.add('btn', 'data-number');
+
+  let row3 = document.createElement('div');
+  row3.setAttribute('id','row-3');
+  row3.classList.add('row');
+
+  let four = document.createElement('button');
+  four.textContent = '4';
+  four.classList.add('btn', 'data-number');
+
+  let five = document.createElement('button');
+  five.textContent = '5';
+  five.classList.add('btn', 'data-number');
+
+  let six = document.createElement('button');
+  six.textContent = '6';
+  six.classList.add('btn', 'data-number');
+
+  let row2 = document.createElement('div');
+  row2.setAttribute('id','row-2');
+  row2.classList.add('row');
+
+  let one = document.createElement('button');
+  one.textContent = '1';
+  one.classList.add('btn', 'data-number');
+
+  let two = document.createElement('button');
+  two.textContent = '2';
+  two.classList.add('btn', 'data-number');
+
+  let three = document.createElement('button');
+  three.textContent = '3';
+  three.classList.add('btn', 'data-number');
+
+  let row1 = document.createElement('div');
+  row1.setAttribute('id','row-1');
+  row1.classList.add('row');
+
+  let dot = document.createElement('button');
+  dot.textContent = '.';
+  dot.classList.add('btn', 'data-point');
+
+  let zero = document.createElement('button');
+  zero.textContent = '0';
+  zero.classList.add('btn', 'data-number');
+
+  let equals = document.createElement('button');
+  equals.textContent = '=';
+  equals.classList.add('btn', 'data-equals');
+
+  let operandButtons = document.createElement('div');
+  operandButtons.setAttribute('id','operand-buttons');
+
+  let divide = document.createElement('div');
+  divide.classList.add('o-btn','data-operator');
+  divide.textContent = '%';
+
+  let multiply = document.createElement('div');
+  multiply.classList.add('o-btn','data-operator');
+  multiply.textContent = '*';
+
+  let minus = document.createElement('div');
+  minus.classList.add('o-btn','data-operator');
+  minus.textContent = '-';
+
+  let plus = document.createElement('div');
+  plus.classList.add('o-btn','data-operator');
+  plus.textContent = '+';
+
+  let clear = document.createElement('div');
+  clear.classList.add('o-btn','btn-red','data-clear');
+  clear.textContent = 'clear';
+
+  let deleteButton = document.createElement('div');
+  deleteButton.classList.add('o-btn','btn-blue','data-delete');
+  deleteButton.textContent = 'delete';
+
+  row6.appendChild(factorial);
+  row6.appendChild(exponent);
+  row6.appendChild(question);
+
+  row5.appendChild(tan);
+  row5.appendChild(sin);
+  row5.appendChild(cos);
+
+  row4.appendChild(seven);
+  row4.appendChild(eight);
+  row4.appendChild(nine);
+
+  row3.appendChild(four);
+  row3.appendChild(five);
+  row3.appendChild(six);
+
+  row2.appendChild(one);
+  row2.appendChild(two);
+  row2.appendChild(three);
+
+  row1.appendChild(dot);
+  row1.appendChild(zero);
+  row1.appendChild(equals);
+
+  numbers.appendChild(row6);
+  numbers.appendChild(row5);
+  numbers.appendChild(row4);
+  numbers.appendChild(row3);
+  numbers.appendChild(row2);
+  numbers.appendChild(row1);
+
+  operandButtons.appendChild(divide);
+  operandButtons.appendChild(multiply);
+  operandButtons.appendChild(minus);
+  operandButtons.appendChild(plus);
+  operandButtons.appendChild(clear);
+  operandButtons.appendChild(deleteButton);
+
+  buttonsGrid.appendChild(numbers);
+  buttonsGrid.appendChild(operandButtons)
+
+  calBack.appendChild(calScreen);
+  calBack.appendChild(buttonsGrid);
+
+
+  show.appendChild(warning);
+  show.appendChild(calBack);
+
+  setUpCalculator();
+}
 
 function showPixelPad () {
   clearShow();
+
+  let header = document.getElementById('header');
+  header.textContent = 'PixelPad';
 
   let show = document.getElementById('show');
   show.classList.add('pixelPadBack');
@@ -147,6 +345,9 @@ function showDom () {
 
 function showHome () {
   clearShow();
+
+  let header = document.getElementById('header');
+  header.textContent = 'Hello World! Welcome to my website!';
 
   let textHolder = document.createElement('div');
   textHolder.setAttribute('id','text-holder');
