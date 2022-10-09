@@ -58,10 +58,6 @@
   }
 }
 
-#back {
-
-}
-/* -------------------- */
 /* heart beat animation */
 #heart-beat {
   display: block;
@@ -336,127 +332,6 @@
    position: absolute;
    z-index: -9;
  }
-/* ------------- */
-#view {
-  height: 100%;
-  width: 100%;
-}
-
-#nav-bar {
-  display: block;
-  height: auto;
-
-  display: block;
-  float: left;
-  color: black;
-  padding: 8px 16px;
-  border-right: 1px;
-  border-right-style: solid;
-  border-right-color: black;
-  text-align: center;
-  background-color:rgba(0,0,0,0.5);
-
-  list-style-type: none;
-  margin: 0;
-  padding: 0;
-  height: auto;
-  width: 100%;
-  border-style: solid;
-  border-width: thin;
-  border-color: black;
-}
-
-#home {
-  background-color: #4CAF50;
-  color: white;
-  float:right;
-  border-right: 0px;
-  border-left: 1px;
-  border-left-color: black;
-  border-left-style: solid;
-}
-
-#home:hover {
-  background-color: blue;
-  color: white;
-}
-
-#header {
-  text-align: center;
-  border-style: solid;
-  border-width: thin;
-  border-bottom: 0px;
-  border-color: black;
-  white-space: normal;
-  margin:0;
-  padding:0;
-  display: block;
-  float:left;
-  background-color: #056823;
-  color: white;
-  width: 100%;
-}
-
-ul {
-  list-style-type: none;
-  margin: 0;
-  padding: 0;
-  height: auto;
-  width: 100%;
-  background-color: #07B43B;
-  border-width: 0px;
-  border-style: solid;
-  border-width: thin;
-  border-color: black;
-  overflow: hidden;
-}
-
-li a {
-}
-
-.nav-item {
-  display: block;
-  float: left;
-  color: black;
-  padding: 8px 16px;
-  border-right: 1px;
-  border-right-style: solid;
-  border-right-color: black;
-  text-align: center;
-}
-
-.nav-item:hover {
-  display: block;
-  float: left;
-  padding: 8px 16px;
-  border-right: 1px;
-  border-right-style: solid;
-  border-right-color: black;
-  text-align: center;
-  background-color: blue;
-  color: white;
-}
-
-li a:hover {
-  background-color: blue;
-  color: white;
-}
-
-a {
-  color: black;
-  text-decoration: none;
-}
-
-a:hover {
-  color: blue;
-}
-
-
-body {
-  margin:4px ;
-  background: url(https://cdn-media-1.freecodecamp.org/imgr/MJAkxbh.png)
-}
-
 
 #main-content {
   display:flex;
@@ -466,8 +341,6 @@ body {
   flex-direction: row;
 
 }
-
-
 
 .content-item {
   display: flex;

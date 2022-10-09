@@ -57,6 +57,11 @@ function popNavBar () {
   rockPaperScissors.textContent = 'Rock Paper Scissors';
   rockPaperScissors.addEventListener('click', () => showRPS());
 
+  let cssAnimations = document.createElement('div');
+  cssAnimations.classList.add('nav-item');
+  cssAnimations.textContent = 'CSS Animations';
+  cssAnimations.addEventListener('click', () => showCssAnimations());
+
   let dom = document.createElement('div');
   dom.classList.add('nav-item');
   dom.textContent = 'Dom';
@@ -69,7 +74,144 @@ function popNavBar () {
   navBar.appendChild(library);
   navBar.appendChild(calculator);
   navBar.appendChild(rockPaperScissors);
+  navBar.appendChild(cssAnimations);
   navBar.appendChild(dom);
+}
+
+function showCssAnimations() {
+  clearShow();
+
+  let header = document.getElementById('header');
+  header.textContent = 'Some Css Animations';
+
+  let animationBay = document.createElement('div');
+  animationBay.setAttribute('id','animation-bay');
+
+  let animation1 = document.createElement('div');
+  animation1.classList.add('animation');
+  animation1.setAttribute('id','one');
+
+  let animation1Back = document.createElement('div');
+  animation1Back.setAttribute('id','back');
+
+  let star1 = document.createElement('div');
+  star1.classList.add('stars');
+  star1.setAttribute('id','star-1');
+
+  let star2 = document.createElement('div');
+  star2.classList.add('stars');
+  star2.setAttribute('id','star-2');
+
+  let animation2 = document.createElement('div');
+  animation2.classList.add('animation');
+  animation2.setAttribute('id','heart-beat');
+
+  let heartBox = document.createElement('div');
+  heartBox.classList.add('back');
+
+  let heart = document.createElement('div');
+  heart.classList.add('heart');
+
+  let animation3 = document.createElement('div');
+  animation3.classList.add('animation');
+  animation3.setAttribute('id','penguin-wave');
+
+  let penguin = document.createElement('div');
+  penguin.classList.add('penguin');
+
+  let penguinBottom = document.createElement('div');
+  penguinBottom.classList.add('penguin-bottom');
+
+  let rightHand = document.createElement('div');
+  rightHand.classList.add('right-hand');
+
+  let leftHand = document.createElement('div');
+  leftHand.classList.add('left-hand');
+
+  let rightFeet = document.createElement('div');
+  rightFeet.classList.add('right-feet');
+
+  let leftFeet = document.createElement('div');
+  leftFeet.classList.add('left-feet');
+
+  let penguinTop = document.createElement('div');
+  penguinTop.classList.add('penguin-top');
+
+  let rightCheek = document.createElement('div');
+  rightCheek.classList.add('right-cheek');
+
+  let leftCheek = document.createElement('div');
+  leftCheek.classList.add('left-cheek');
+
+  let belly = document.createElement('div');
+  belly.classList.add('belly');
+
+  let rightEye = document.createElement('div');
+  rightEye.classList.add('right-eye');
+
+  let sparkle = document.createElement('div');
+  sparkle.classList.add('sparkle');
+
+  let sparkle2 = document.createElement('div');
+  sparkle2.classList.add('sparkle');
+
+  let leftEye = document.createElement('div');
+  leftEye.classList.add('left-eye');
+
+  let blushRight = document.createElement('div');
+  blushRight.classList.add('blush-right');
+
+  let blushLeft = document.createElement('div');
+  blushLeft.classList.add('blush-left');
+
+  let beakTop = document.createElement('div');
+  beakTop.classList.add('beak-top');
+
+  let beakBottom = document.createElement('div');
+  beakBottom.classList.add('beak-bottom');
+
+  animation1Back.appendChild(star1);
+  animation1Back.appendChild(star2);
+
+  animation1.appendChild(animation1Back);
+
+
+  animation2.appendChild(heartBox);
+  animation2.appendChild(heart);
+
+  penguinBottom.appendChild(rightHand);
+  penguinBottom.appendChild(leftHand);
+  penguinBottom.appendChild(rightFeet);
+  penguinBottom.appendChild(leftFeet);
+
+  rightEye.appendChild(sparkle);
+  leftEye.appendChild(sparkle2);
+
+  penguinTop.appendChild(rightCheek);
+  penguinTop.appendChild(leftCheek);
+  penguinTop.appendChild(belly);
+  penguinTop.appendChild(rightEye);
+  penguinTop.appendChild(leftEye);
+  penguinTop.appendChild(blushRight);
+  penguinTop.appendChild(blushLeft);
+  penguinTop.appendChild(beakTop);
+  penguinTop.appendChild(beakBottom);
+
+
+
+  penguin.appendChild(penguinBottom);
+  penguin.appendChild(penguinTop);
+
+
+  animation3.appendChild(penguin);
+
+  animationBay.appendChild(animation1);
+  animationBay.appendChild(animation2);
+  animationBay.appendChild(animation3);
+
+  console.log('hit');
+  show.appendChild(animationBay);
+
 }
 
 function showToDo() {
@@ -619,6 +761,10 @@ function showPixelPad () {
 
 function showDom () {
   clearShow();
+
+  let header = document.getElementById('header');
+  header.textContent = 'First Dom manipulation script';
+
   let container = document.createElement('div');
   container.setAttribute('id', 'container');
 
