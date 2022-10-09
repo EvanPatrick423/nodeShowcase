@@ -797,8 +797,10 @@ function showHome () {
   let resumeColumn = document.createElement('div');
   resumeColumn.setAttribute('id','resume-column');
 
-  let resume = document.createElement('div');
+  let resume = document.createElement('img');
   resume.setAttribute('id','resume');
+  resume.setAttribute('src','landPage/Dev1024_1.jpg');
+
 
   let pageTurn = document.createElement('div');
   pageTurn.setAttribute('id','page-turn');
