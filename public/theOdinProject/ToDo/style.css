@@ -8,12 +8,19 @@
   width: 18%;
   background-color: #ced9f5;
   overflow-y:auto;
+  border-color: black;
+  border-width: 1px;
+  border-style: solid;
+  border-bottom-width: 0px;
 }
 
 #taskBoard {
   width: 82%;
   height: 100%;
   overflow-y: auto;
+  border-color: black;
+  border-width: 1px;
+  border-style: solid;
 }
 
 .taskDescription {
@@ -23,12 +30,14 @@
 }
 
 .projectTabBackground {
+  display: flex;
+  flex-direction: column;
   height: 100px;
   width: 100%;
   background-color: grey;
-  border-style: solid;
-  border-color: black;
-  border-width: 1px;
+  border-bottom-style: solid;
+  border-bottom-color: black;
+  border-bottom-width: 1px;
 }
 
 .taskBoardHeader {
@@ -83,9 +92,6 @@
   height:200px;
   width: 100%;
   background-color: black;
-  border-color: white;
-  border-width: 1px;
-  border-style: solid;
 }
 
 .titleBack {
