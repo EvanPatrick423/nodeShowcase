@@ -21,18 +21,23 @@ function popNavBar () {
   home.textContent = 'Home';
   home.addEventListener('click', () => showHome());
 
-  let calculator = document.createElement('div');
-  calculator.classList.add('nav-item');
-  calculator.textContent = 'Calculator';
-  calculator.addEventListener('click', () => showCalculator())
-
   let pixelPad = document.createElement('div');
-  pixelPad.classList.add('nav-item')
+  pixelPad.classList.add('nav-item');
   pixelPad.textContent = 'Pixel Pad';
   pixelPad.addEventListener('click', () => showPixelPad());
 
+  let calculator = document.createElement('div');
+  calculator.classList.add('nav-item');
+  calculator.textContent = 'Calculator';
+  calculator.addEventListener('click', () => showCalculator());
+
+  let library = document.createElement('div');
+  library.classList.add('nav-item');
+  library.textContent = 'Library';
+  library.addEventListener('click', () => showLibrary());
+
   let dom = document.createElement('div');
-  dom.classList.add('nav-item')
+  dom.classList.add('nav-item');
   dom.textContent = 'Dom';
   dom.addEventListener('click', () => showDom());
 
@@ -40,6 +45,101 @@ function popNavBar () {
   navBar.appendChild(pixelPad);
   navBar.appendChild(calculator);
   navBar.appendChild(dom);
+
+
+}
+
+function showLibrary() {
+  clearShow();
+
+  let viewport = document.createElement('div');
+  viewport.setAttribute('id','viewport');
+
+  let screenColumn = document.createElement('div');
+  screenColumn.setAttribute('id','screen-column');
+
+  let searchScreen = document.createElement('div');
+  searchScreen.setAttribute('id','searchScreen');
+
+  let screen2 = document.createElement('div');
+  screen2.setAttribute('id','screen2');
+
+  screenColumn.appendChild(searchScreen);
+  screenColumn.appendChild(screen2);
+
+  let inputsContainer = document.createElement('div');
+  inputsContainer.setAttribute('id','add-container');
+
+  let inputBox = document.createElement('div');
+  inputBox.classList.add('inpout-box');
+
+  let titleInput = document.createElement('input');
+  titleInput.setAttribute('id','add-book-title');
+  titleInput.setAttribute('type','text');
+  titleInput.setAttribute('name','title');
+  titleInput.setAttribute('value','Book Title');
+  titleInput.classList.add('data-input');
+
+
+  let titleSearchButton = document.createElement('button');
+  titleSearchButton.classList.add('search-selector');
+  titleSearchButton.setAttribute('name','title');
+  titleSearchButton.textContent = 'Search By';
+
+  let authorInput = document.createElement('button');
+  authorInput.setAttribute('id','add-author-name');
+  authorInput.setAttribute('type','text');
+  authorInput.setAttribute('name','author');
+  authorInput.setAttribute('value','Book Author');
+  authorInput.classList.add('data-input');
+
+  let authorSearchButton = document.createElement('button');
+  authorSearchButton.classList.add('search-selector');
+  authorSearchButton.setAttribute('name','author');
+  authorSearchButton.textContent = 'Search By';
+
+  let pagesInput = document.createElement('div');
+  pagesInput.setAttribute('id','add-book-pages');
+  pagesInput.setAttribute('type','text');
+  pagesInput.setAttribute('name','pages');
+  pagesInput.setAttribute('value','Book Pages');
+  pagesInput.classList.add('data-input');
+
+  let pagesSearchButton = document.createElement('button');
+  pagesSearchButton.classList.add('search-selector');
+  pagesSearchButton.setAttribute('name','pages');
+  pagesSearchButton.textContent = 'Search By';
+
+  let addHaveRead = document.createElement('div');
+  addHaveRead.setAttribute('id');
+
+  let trueButton = document.createElement('button');
+  trueButton.setAttribute('id','true');
+  trueButton.setAttribute('name','add-have-read');
+  trueButton.textContent = 'Has Been Read?';
+
+  trueSearchButton = document.createElement('button');
+  trueSearchButton.classList.add('search-selector');
+  trueSearchButton.setAttribute('name','add-have-read');
+  trueSearchButton.textContent = 'Search By';
+
+  let buttonContainer = document.createElement('button');
+  buttonContainer.setAttribute('id','button-container');
+
+  let addButton = document.createElement('button');
+  addButton.setAttribute('add-button');
+  addButton.classList.add('input-box','data-write');
+  addButton.textContent = 'Add Book';
+
+  let trueSearchButton = document.createElement('button');
+  trueSearchButton.setAttribute('id','search-button');
+  trueSearchButton.classList.add('input-box','data-search');
+  trueSearchButton.textContent = 'Search for Book';
+
+  let storageClear = document.createElement('button');
+  storageClear.setAttribute('id','storage-clear');
+  storageClear.classList.add('input-box');
+
 
 
 }
