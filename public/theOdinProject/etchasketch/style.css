@@ -1,6 +1,6 @@
 #board {
-  height:550px;
-  width: 550px;
+  height:65vh;
+  width: 65vh;
   display: flex;
   flex-direction:column;
 }
@@ -9,8 +9,8 @@
   display: flex;
   justify-content: center;
   align-items: center;
-  height: 580px;
-  width: 580px;
+  height: 67vh;
+  width: 67vh;
   background-color: #282828;
   border-radius: 5px;
   border: solid;
@@ -24,7 +24,7 @@
   justify-content: center;
   align-items: center;
   margin-bottom:20px;
-  height:580px;
+  height:80vh;
   width:auto;
   background-color: #282828;
   border-radius: 5px;
@@ -63,25 +63,32 @@
   height: 140px;
 }
 
-button {
-  margin:30px;
-  color: #ffffff;
-  height: 30px;
-  width: 70%;
-  background-color: #282828;
-  border: solid;
+.content-item {
+  display: flex;
+  flex-wrap: wrap;
+  border-style: solid;
   border-width: thin;
-  border-color: #ffffff;
-  outline: none;
-  border-radius: 5px;
+  height:100px;
+  width: 20%;
+  justify-content: center;
+  align-items: center;
+  flex-grow: 1;
+  background-color:rgba(0,0,0,0.5);
+  color: black;
 }
 
-body {
+.content-item:hover {
+  border-width: thin;
   display: flex;
-  background: #181818;
+  flex-wrap: wrap;
+  border-style: solid;
+  height:100px;
+  width: 20%;
+  justify-content: center;
   align-items: center;
-  flex-direction: column;
-  margin:4px ;
+  flex-grow: 1;
+  background-color: blue;
+  color: white;
 }
 
 .slider-box {
@@ -106,6 +113,28 @@ body {
   align-content:stretch ;
   flex-grow:1 ;
   float:left ;
+}
+
+.pixelPadBack {
+  display: flex;
+  background: #181818;
+  align-items: center;
+  flex-direction: column;
+  margin-top: 4px ;
+  margin-left: 4px;
+}
+
+.pixelPadButton {
+  margin:30px;
+  color: #ffffff;
+  height: 30px;
+  width: 70%;
+  background-color: #282828;
+  border: solid;
+  border-width: thin;
+  border-color: #ffffff;
+  outline: none;
+  border-radius: 5px;
 }
 
 .btn-on {

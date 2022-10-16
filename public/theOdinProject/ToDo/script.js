@@ -514,7 +514,7 @@ export function startToDo() {
   //-------------------- Left hand column boxes ----------------------------------
 
   function updateLeftCol (projectDatabase) {
-    console.log('hit');
+    //console.log('hit');
     //create each projectTab for each project
     let leftColumn = document.getElementById('left-hand-column');
 

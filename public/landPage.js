@@ -209,7 +209,7 @@ function showCssAnimations() {
   animationBay.appendChild(animation2);
   animationBay.appendChild(animation3);
 
-  console.log('hit');
+  //console.log('hit');
   show.appendChild(animationBay);
 
 }
@@ -678,9 +678,11 @@ function showPixelPad () {
 
   let contentHolder = document.createElement('div');
   contentHolder.setAttribute('id','content-holder');
+  contentHolder.classList.add('row');
 
   let buttonHolder = document.createElement('div');
   buttonHolder.setAttribute('id','button-holder');
+  buttonHolder.classList.add('col-xs-3')
 
   let eraser = document.createElement('button');
   eraser.classList.add('pixelPadButton');
@@ -732,6 +734,7 @@ function showPixelPad () {
   let board = document.createElement('div');
   board.setAttribute('id','board');
   board.setAttribute('draggable','false');
+  board.classList.add('col-xs-9');
 
   sliderBox.appendChild(rangeSliderDiv);
   sliderBox.appendChild(progressBar);
@@ -789,16 +792,23 @@ function showHome () {
   'This site is mostly made in Javascript, HTML5, and CSS. With the application ' +
   'being run in node.js, using PM2 as the process manager and nginx as the ' +
   'reverse proxy.\n' +
-  'I hope you enoy my website!'
+  'I hope you enjoy my website!'
 
   let aboutSection = document.createElement('div');
   aboutSection.setAttribute('id','about-section');
+  aboutSection.classList.add('container-fluid');
+
+  let aboutRow = document.createElement('div');
+  aboutRow.classList.add('row', 'aboutRow');
+
 
   let resumeColumn = document.createElement('div');
   resumeColumn.setAttribute('id','resume-column');
+  resumeColumn.classList.add('col-xs-12','col-sm-12','col-md-8','col-lg-8');
 
-  let resume = document.createElement('div');
+  let resume = document.createElement('img');
   resume.setAttribute('id','resume');
+  resume.setAttribute('src', 'landPage/Dev1024_1.jpg')
 
   let pageTurn = document.createElement('div');
   pageTurn.setAttribute('id','page-turn');
@@ -807,12 +817,14 @@ function showHome () {
 
   let headShotCol = document.createElement('div');
   headShotCol.setAttribute('id','head-shot-column')
+  headShotCol.classList.add('col-xs-12','col-sm-12','col-md-4','col-lg-4');
 
   let headShotCont = document.createElement('div');
   headShotCont.setAttribute('id','head-shot-cont');
 
-  let headShot = document.createElement('div');
-  headShot.setAttribute('id','head-shot');
+  let headShot = document.createElement('img');
+  headShot.classList.add('img-fluid');
+  headShot.setAttribute('src','landPage/ProfessionalHeadShot.jfif');
 
   let pdfLink = document.createElement('a');
   pdfLink.setAttribute('href', 'landPage/Dev.pdf');
@@ -821,14 +833,16 @@ function showHome () {
   textHolder.appendChild(text);
   show.appendChild(textHolder);
 
-  resume.appendChild(pageTurn);
+  resumeColumn.appendChild(pageTurn);
   resumeColumn.appendChild(resume);
-  aboutSection.appendChild(resumeColumn);
+  aboutRow.appendChild(resumeColumn);
 
   headShotCont.appendChild(headShot);
   headShotCol.appendChild(headShotCont);
   headShotCol.appendChild(pdfLink);
-  aboutSection.appendChild(headShotCol);
+  aboutRow.appendChild(headShotCol);
+
+  aboutSection.appendChild(aboutRow);
 
   show.appendChild(aboutSection);
 
@@ -836,11 +850,11 @@ function showHome () {
   let turned = false;
   function changePage () {
     if (turned === false) {
-      resume.style.backgroundImage = "url(landPage/Dev1024_2.jpg)";
+      resume.setAttribute('src','landPage/Dev1024_2.jpg');
       pageTurn.textContent = '<';
       turned = true;
     } else {
-      resume.style.backgroundImage = "url(landPage/Dev1024_1.jpg)";
+      resume.setAttribute('src','landPage/Dev1024_1.jpg');
       pageTurn.textContent = '>';
       turned = false;
     }

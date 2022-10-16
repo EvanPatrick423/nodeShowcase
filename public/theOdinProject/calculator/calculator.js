@@ -11,7 +11,7 @@ export function setUpCalculator () {
   const pointButton = document.querySelector('.data-point');
   const dataScreen = document.querySelector('.screen');
 
-  console.log(operatorButtons);
+  //console.log(operatorButtons);
 
   let firstOperand = "";
   let secondOperand = "";

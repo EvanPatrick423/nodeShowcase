@@ -98,7 +98,7 @@ export function startTicTacToe() {
       //printBoard();
       for (let i = 0; i < 3; i++) {
         const row = document.createElement('div');
-        row.classList.add('row');
+        row.classList.add('tacRow');
         playBoard.appendChild(row);
 
         for (let z = 0; z < 3; z++) {

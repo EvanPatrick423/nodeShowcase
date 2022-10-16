@@ -36,7 +36,7 @@
   border-style: solid;
 }
 
-.row {
+.tacRow {
   display: flex;
   height: 100px;
   width: 100%;
