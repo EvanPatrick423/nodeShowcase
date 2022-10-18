@@ -9,12 +9,11 @@
 }
 
 .libraryShow {
-  background-color: var(--body);
-  color: var(--font);
   display: flex;
   flex-direction: row;
+  background-color: var(--body);
+  color: var(--font);
   height: 100%;
-  width: 100%;
   margin: 4px;
   margin-right:0px;
 }
@@ -57,8 +56,6 @@
   display: flex;
   flex-direction: column;
   height: 100%;
-  width: 80%;
-  margin-right: 3px;
 }
 
 #button-container {
@@ -71,7 +68,6 @@
   border-width: thin;
   border-color: var(--font);
   height: auto;
-  width:20%;
 }
 
 #explanation-container {

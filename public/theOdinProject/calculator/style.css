@@ -27,11 +27,9 @@
 }
 
 .calculator {
-  width: 45%;
   border: 2px var(--border) solid;
   border-radius: 15px;
-  margin: 30px;
-  padding: 20px;
+  padding: 2%;
   background-color: var(--calculator);
 }
 

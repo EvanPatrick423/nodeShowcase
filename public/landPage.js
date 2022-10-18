@@ -86,9 +86,13 @@ function showCssAnimations() {
 
   let animationBay = document.createElement('div');
   animationBay.setAttribute('id','animation-bay');
+  animationBay.classList.add('container-fluid');
+
+  let animationRow = document.createElement('div');
+  animationRow.classList.add('row');
 
   let animation1 = document.createElement('div');
-  animation1.classList.add('animation');
+  animation1.classList.add('animation','col-lg-4', 'col-md-4', 'col-sm-12', 'col-xs-12');
   animation1.setAttribute('id','one');
 
   let animation1Back = document.createElement('div');
@@ -103,7 +107,7 @@ function showCssAnimations() {
   star2.setAttribute('id','star-2');
 
   let animation2 = document.createElement('div');
-  animation2.classList.add('animation');
+  animation2.classList.add('animation','col-lg-4', 'col-md-4', 'col-sm-12', 'col-xs-12');
   animation2.setAttribute('id','heart-beat');
 
   let heartBox = document.createElement('div');
@@ -113,7 +117,7 @@ function showCssAnimations() {
   heart.classList.add('heart');
 
   let animation3 = document.createElement('div');
-  animation3.classList.add('animation');
+  animation3.classList.add('animation','col-lg-4', 'col-md-4', 'col-sm-12', 'col-xs-12');
   animation3.setAttribute('id','penguin-wave');
 
   let penguin = document.createElement('div');
@@ -205,9 +209,11 @@ function showCssAnimations() {
 
   animation3.appendChild(penguin);
 
-  animationBay.appendChild(animation1);
-  animationBay.appendChild(animation2);
-  animationBay.appendChild(animation3);
+  animationRow.appendChild(animation1);
+  animationRow.appendChild(animation2);
+  animationRow.appendChild(animation3);
+
+  animationBay.appendChild(animationRow);
 
   //console.log('hit');
   show.appendChild(animationBay);
@@ -320,10 +326,14 @@ function showLibrary() {
   header.textContent = 'Library';
 
   let show = document.getElementById('show');
-  show.classList.add('libraryShow');
+  show.classList.add('libraryShow', 'container-fluid');
+
+  let libraryRow = document.createElement('div');
+  libraryRow.classList.add('row');
 
   let screenColumn = document.createElement('div');
   screenColumn.setAttribute('id','screen-column');
+  screenColumn.classList.add('col-lg-7', 'col-md-7', 'col-sm-12', 'col-xs-12');
 
   let searchScreen = document.createElement('div');
   searchScreen.setAttribute('id','searchScreen');
@@ -336,15 +346,16 @@ function showLibrary() {
 
   let inputsContainer = document.createElement('div');
   inputsContainer.setAttribute('id','inputs-container');
+  inputsContainer.classList.add('col-lg-5', 'col-md-5', 'col-sm-12', 'col-xs-12');
 
   let inputBox1 = document.createElement('div');
-  inputBox1.classList.add('input-box');
+  inputBox1.classList.add('input-box', 'row');
 
   let inputBox2 = document.createElement('div');
-  inputBox2.classList.add('input-box');
+  inputBox2.classList.add('input-box', 'row');
 
   let inputBox3 = document.createElement('div');
-  inputBox3.classList.add('input-box');
+  inputBox3.classList.add('input-box','row');
 
   let addContainer = document.createElement('div');
   addContainer.setAttribute('id','add-container');
@@ -354,11 +365,11 @@ function showLibrary() {
   titleInput.setAttribute('type','text');
   titleInput.setAttribute('name','title');
   titleInput.setAttribute('value','Book Title');
-  titleInput.classList.add('data-input');
+  titleInput.classList.add('data-input','col-lg-5', 'col-md-5', 'col-sm-5', 'col-xs-12');
 
 
   let titleSearchButton = document.createElement('button');
-  titleSearchButton.classList.add('search-selector');
+  titleSearchButton.classList.add('search-selector','col-lg-5', 'col-md-5', 'col-sm-5', 'col-xs-12');
   titleSearchButton.setAttribute('name','title');
   titleSearchButton.textContent = 'Search By';
 
@@ -367,10 +378,10 @@ function showLibrary() {
   authorInput.setAttribute('type','text');
   authorInput.setAttribute('name','author');
   authorInput.setAttribute('value','Book Author');
-  authorInput.classList.add('data-input');
+  authorInput.classList.add('data-input','col-lg-5', 'col-md-5', 'col-sm-5', 'col-xs-12');
 
   let authorSearchButton = document.createElement('button');
-  authorSearchButton.classList.add('search-selector');
+  authorSearchButton.classList.add('search-selector','col-lg-5', 'col-md-5', 'col-sm-5', 'col-xs-12');
   authorSearchButton.setAttribute('name','author');
   authorSearchButton.textContent = 'Search By';
 
@@ -379,10 +390,10 @@ function showLibrary() {
   pagesInput.setAttribute('type','text');
   pagesInput.setAttribute('name','pages');
   pagesInput.setAttribute('value','Book Pages');
-  pagesInput.classList.add('data-input');
+  pagesInput.classList.add('data-input','col-lg-5', 'col-md-5', 'col-sm-5', 'col-xs-12');
 
   let pagesSearchButton = document.createElement('button');
-  pagesSearchButton.classList.add('search-selector');
+  pagesSearchButton.classList.add('search-selector','col-lg-5', 'col-md-5', 'col-sm-5', 'col-xs-12');
   pagesSearchButton.setAttribute('name','pages');
   pagesSearchButton.textContent = 'Search By';
 
@@ -463,8 +474,11 @@ function showLibrary() {
   inputsContainer.appendChild(buttonContainer);
   inputsContainer.appendChild(explanationContainer);
 
-  show.appendChild(screenColumn);
-  show.appendChild(inputsContainer);
+  libraryRow.appendChild(inputsContainer);
+  libraryRow.appendChild(screenColumn);
+
+
+  show.appendChild(libraryRow);
 
   setUpLibrary();
 }
@@ -476,13 +490,13 @@ function showCalculator() {
   header.textContent = 'Basic Calculator';
 
   let show = document.getElementById('show');
-  show.classList.add('calShow');
+  show.classList.add('calShow','container-fluid');
 
   let warning = document.createElement('div');
   warning.textContent = 'Trig functions do not work yet';
 
   let calBack = document.createElement('div');
-  calBack.classList.add('calculator');
+  calBack.classList.add('calculator','col-lg-7', 'col-md-7', 'col-sm-12', 'col-xs-12');
 
   let calScreen = document.createElement('div');
   calScreen.classList.add('screen');
