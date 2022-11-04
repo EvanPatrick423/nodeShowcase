@@ -1,11 +1,7 @@
 #toDoMain {
-  display: flex;
-  flex-direction: row;
 }
 
 #left-hand-column {
-  height: 100%;
-  width: 18%;
   background-color: #ced9f5;
   overflow-y:auto;
   border-color: black;
@@ -15,8 +11,6 @@
 }
 
 #taskBoard {
-  width: 82%;
-  height: 100%;
   overflow-y: auto;
   border-color: black;
   border-width: 1px;
@@ -24,16 +18,11 @@
 }
 
 .taskDescription {
-  height: 100px;
-  width: 200px;
+  height: 100%;
   overflow: hidden;
 }
 
 .projectTabBackground {
-  display: flex;
-  flex-direction: column;
-  height: 100px;
-  width: 100%;
   background-color: grey;
   border-bottom-style: solid;
   border-bottom-color: black;
@@ -41,27 +30,21 @@
 }
 
 .taskBoardHeader {
-  height: 100px;
-  width: 100%;
+  height: 5vh;
   background-color: green;
   color: white;
   position: sticky;
   top: 0px;
-  display: flex;
-  flex-direction: row;
-  justify-content: space-between;
 }
 
 .addTask {
-  height: 100px;
-  width: 100px;
+  height: 100%;
   background-color: blue;
   color: white;
 }
 
 .headerBack {
   height: 50px;
-  width: 100%;
   background-color: black;
   position: sticky;
   top: 0px;
@@ -69,43 +52,51 @@
 
 .addButton {
   height: 50px;
-  width: 100px;
   background-color: blue;
   color: white;
+  border-radius: 15px;
 }
 
 .toDoDeleteButton {
-  height: 20px;
-  width: 100px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 100%;
   background-color: red;
   color: white;
-  float: right;
 }
 
 .taskTitle {
-  height: 50px;
-  width: 200px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  height: 100%;
   background-color: teal;
 }
 
 .taskBackBoard {
   height:200px;
-  width: 100%;
   background-color: black;
 }
 
 .titleBack {
-  display:flex;
-  flex-direction: row;
-  justify-content: space-between;
-  height:10%;
-  width: 100%;
   background-color: grey;
+  min-height: 5vh;
+}
+
+.statusTab {
+  height: 100%;
+}
+
+.dateHolder {
+
 }
 
 .Draft {
+  display: flex;
+  justify-content: center;
+  align-items: center;
   height: 100%;
-  width: 100px;
   background-color: Blue;
   color: white;
 }
@@ -116,8 +107,7 @@
 }
 
 .checklistBack {
-  height: 90%;
-  width: 200px;
+  height: 100%;
   background-color: orange;
   float: right;
 }
@@ -138,16 +128,18 @@
   background-color: teal;
 }
 
+.full-height{
+  height:100%;
+}
+
 .exportButton {
 
 }
 
 .projectTitleHeader {
-  height: 50px;
-  width: 100px;
+  height: 100%;
   background-color: blue;
 }
 
 .projectText {
-  width: 50;
 }

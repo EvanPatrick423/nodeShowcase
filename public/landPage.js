@@ -228,15 +228,25 @@ function showToDo() {
 
   let toDoMain = document.createElement('div');
   toDoMain.setAttribute('id','toDoMain');
+  toDoMain.classList.add('container-fluid');
+
+  let toDoRow = document.createElement('div');
+  toDoRow.classList.add('row');
 
   let leftHandColumn = document.createElement('div');
   leftHandColumn.setAttribute('id','left-hand-column');
+  leftHandColumn.classList.add('col-lg-2', 'col-md-2', 'col-sm-4', 'col-xs-6');
 
   let taskBoard = document.createElement('div');
   taskBoard.setAttribute('id','taskBoard');
+  taskBoard.classList.add('col-lg-10', 'col-md-10', 'col-sm-8', 'col-xs-6');
 
-  toDoMain.appendChild(leftHandColumn);
-  toDoMain.appendChild(taskBoard);
+
+
+  toDoRow.appendChild(leftHandColumn);
+  toDoRow.appendChild(taskBoard);
+
+  toDoMain.appendChild(toDoRow);
 
   show.appendChild(toDoMain);
 

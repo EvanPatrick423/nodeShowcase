@@ -93,15 +93,15 @@ export function startToDo() {
     let taskBoard = document.getElementById('taskBoard');
 
     const header = document.createElement('div');
-    header.classList.add('taskBoardHeader');
+    header.classList.add('taskBoardHeader','row');
 
     const projectTitle = document.createElement('div');
-    projectTitle.classList.add('projectTitleHeader');
+    projectTitle.classList.add('projectTitleHeader','col-lg-4', 'col-md-4', 'col-sm-4', 'col-xs-3');
     projectTitle.textContent = project.title;
 
     const addButton = document.createElement('button');
-    addButton.classList.add('addTask');
-    addButton.textContent = '+';
+    addButton.classList.add('addTask', 'col-lg-2', 'col-md-2', 'col-sm-4', 'col-xs-4');
+    addButton.textContent = '+ Task';
     addButton.addEventListener('click', () => createTask(project));
 
     //const exportButton = document.createElement('button');
@@ -273,34 +273,50 @@ export function startToDo() {
     let taskBoard = document.getElementById('taskBoard');
 
     const taskBack = document.createElement('div');
-    taskBack.classList.add('taskBackBoard');
+    taskBack.classList.add('taskBackBoard','row', 'padding-0');
     taskBack.setAttribute('id',task.id);
 
     const titleBack = document.createElement('div');
     titleBack.setAttribute('id', 'titleBack' + task.id);
-    titleBack.classList.add('titleBack');
+    titleBack.classList.add('titleBack','col-lg-12', 'col-md-12', 'col-sm-12', 'col-xs-12','padding-0');
+
+    const titleBackRow = document.createElement('div');
+    titleBackRow.classList.add('row','padding-0','full-height');
 
     const taskTitle = document.createElement('div');
     taskTitle.setAttribute('id', 'title' + task.id);
-    taskTitle.classList.add('taskTitle');
+    taskTitle.classList.add('taskTitle', 'col-lg-6', 'col-md-6', 'col-sm-6', 'col-xs-6');
     //console.log(deHash(task.title));
     taskTitle.textContent = deHash(task.title);
     taskTitle.addEventListener('dblclick', () => showInput(task,project));
     taskTitle.addEventListener('keyup', () => saveTask(task, project));
 
+    const statusTab = document.createElement('div');
+    statusTab.classList.add('statusTab', 'col-lg-6', 'col-md-6', 'col-sm-6', 'col-xs-6');
+
+    const statusTabRow = document.createElement('div');
+    statusTabRow.classList.add('row', 'padding-0','full-height');
+
     const taskStatus = document.createElement('div');
     taskStatus.setAttribute('id','status'+task.id);
     let statusClass = getStatusClass(task.status);
-    taskStatus.classList.add(statusClass);
+    taskStatus.classList.add(statusClass,'col-lg-6', 'col-md-6', 'col-sm-6', 'col-xs-6');
     taskStatus.textContent = task.status;
     taskStatus.addEventListener('keyup', () => saveTask(task, project));
 
-    const taskDescription = document.createElement('textarea');
-    taskDescription.setAttribute('type', 'text');
-    taskDescription.setAttribute('id','description'+ task.id);
-    taskDescription.classList.add('taskDescription');
-    taskDescription.value = deHash(task.description);
-    taskDescription.addEventListener('keyup', () => saveTask(task, project));
+    const deleteButton = document.createElement('div');
+    deleteButton.classList.add('toDoDeleteButton','col-lg-6', 'col-md-6', 'col-sm-6', 'col-xs-6');
+    deleteButton.textContent = 'x';
+    deleteButton.addEventListener('click', () => deleteTask(task,project));
+
+    const taskMain = document.createElement('div');
+    taskMain.classList.add('taskMain','col-lg-12', 'col-md-12', 'col-sm-12', 'col-xs-12');
+
+    const taskRow = document.createElement('div');
+    taskRow.classList.add('taskRow','row','padding-0');
+
+    const dateHolder = document.createElement('div');
+    dateHolder.classList.add('dateHolder','col-lg-3', 'col-md-3', 'col-sm-3', 'col-xs-3','padding-0');
 
     const dueDate = document.createElement('input');
     dueDate.setAttribute('type','date');
@@ -314,13 +330,29 @@ export function startToDo() {
     createDate.value = task.createdDate;
     createDate.addEventListener('change', () => saveTask(task,project));
 
-    const notes = document.createElement('input');
+
+    const descriptionCol = document.createElement('div');
+    descriptionCol.classList.add('descriptionCol','col-lg-3', 'col-md-3', 'col-sm-3', 'col-xs-3','padding-0');
+
+    const taskDescription = document.createElement('textarea');
+    taskDescription.setAttribute('type', 'text');
+    taskDescription.setAttribute('id','description'+ task.id);
+    taskDescription.classList.add('taskDescription','col-lg-12', 'col-md-12', 'col-sm-12', 'col-xs-12');
+    taskDescription.value = deHash(task.description);
+    taskDescription.addEventListener('keyup', () => saveTask(task, project));
+
+    const notesCol = document.createElement('notesCol');
+    notesCol.classList.add('notesCol','col-lg-3', 'col-md-3', 'col-sm-3', 'col-xs-3','padding-0');
+
+    const notes = document.createElement('textarea');
+    notes.setAttribute('type', 'text');
     notes.setAttribute('id','notes' + task.id);
+    notes.classList.add('full-height','col-lg-12', 'col-md-12', 'col-sm-12', 'col-xs-12')
     notes.value = deHash(task.notes);
     notes.addEventListener('keyup', () => saveTask(task,project));
 
     const checklistBack = document.createElement('div');
-    checklistBack.classList.add('checklistBack');
+    checklistBack.classList.add('checklistBack','col-lg-3', 'col-md-3', 'col-sm-3', 'col-xs-3','padding-0');
     checklistBack.setAttribute('id','checklistBack' + task.id);
 
     createChecklistHeader(task,project);
@@ -329,22 +361,32 @@ export function startToDo() {
       populateCheckItem(task.checklist[x],task,project);
       }
 
-    const deleteButton = document.createElement('div');
-    deleteButton.classList.add('toDoDeleteButton');
-    deleteButton.textContent = 'x';
-    deleteButton.addEventListener('click', () => deleteTask(task,project));
 
-    titleBack.appendChild(taskTitle);
-    titleBack.appendChild(taskStatus);
-    titleBack.appendChild(deleteButton);
+    statusTabRow.appendChild(taskStatus);
+    statusTabRow.appendChild(deleteButton);
+    statusTab.appendChild(statusTabRow);
+
+    titleBackRow.appendChild(taskTitle);
+    titleBackRow.appendChild(statusTab);
+    titleBack.appendChild(titleBackRow);
+
     taskBack.appendChild(titleBack);
 
+    descriptionCol.appendChild(taskDescription);
 
-    taskBack.appendChild(taskDescription);
-    taskBack.appendChild(notes);
-    taskBack.appendChild(dueDate);
-    taskBack.appendChild(createDate);
-    taskBack.appendChild(checklistBack);
+    notesCol.appendChild(notes);
+
+    dateHolder.appendChild(createDate);
+    dateHolder.appendChild(dueDate);
+
+    taskRow.appendChild(descriptionCol);
+    taskRow.appendChild(notesCol);
+    taskRow.appendChild(dateHolder);
+    taskRow.appendChild(checklistBack);
+
+    taskMain.appendChild(taskRow);
+    taskBack.appendChild(taskMain);
+
     taskBoard.appendChild(taskBack);
 
 
@@ -530,17 +572,17 @@ export function startToDo() {
   function popProjectTab (project,col) {
 
     const tabBack = document.createElement('div');
-    tabBack.classList.add('projectTabBackground');
+    tabBack.classList.add('projectTabBackground', 'row');
     tabBack.addEventListener('click', () => changeProject(project));
 
     const projectTitle = document.createElement('input');
-    projectTitle.classList.add('projectText');
+    projectTitle.classList.add('projectText', 'col-lg-10', 'col-md-10', 'col-sm-8', 'col-xs-6', 'padding-0');
     projectTitle.value = project.title;
     projectTitle.setAttribute('id',project.id);
     projectTitle.addEventListener('keyup', () => renameProject(project,projectTitle));
 
     const deleteButton = document.createElement('div');
-    deleteButton.classList.add('toDoDeleteButton');
+    deleteButton.classList.add('toDoDeleteButton', 'col-lg-2', 'col-md-2', 'col-sm-4', 'col-xs-6', 'padding-0');
     deleteButton.textContent = 'X';
     deleteButton.addEventListener('click', () => deleteProject(project));
 
@@ -614,10 +656,10 @@ export function startToDo() {
 
   function createLeftColHeader (tab) {
     let headerBack = document.createElement('div');
-    headerBack.classList.add('headerBack');
+    headerBack.classList.add('headerBack', 'row');
 
     let addButton = document.createElement('button');
-    addButton.classList.add('addButton');
+    addButton.classList.add('addButton', 'col-lg-6', 'col-md-6', 'col-sm-6', 'col-xs-6');
     addButton.textContent = '+';
     addButton.addEventListener('click', () => addProject());
 
