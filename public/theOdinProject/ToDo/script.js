@@ -313,7 +313,7 @@ export function startToDo() {
     taskMain.classList.add('taskMain','col-lg-12', 'col-md-12', 'col-sm-12', 'col-xs-12');
 
     const taskRow = document.createElement('div');
-    taskRow.classList.add('taskRow','row','padding-0');
+    taskRow.classList.add('taskRow','row');
 
     const dateHolder = document.createElement('div');
     dateHolder.classList.add('dateHolder','col-lg-3', 'col-md-3', 'col-sm-3', 'col-xs-3','padding-0');
@@ -334,6 +334,10 @@ export function startToDo() {
     const descriptionCol = document.createElement('div');
     descriptionCol.classList.add('descriptionCol','col-lg-3', 'col-md-3', 'col-sm-3', 'col-xs-3','padding-0');
 
+    const descriptionText = document.createElement('div');
+    descriptionText.textContent = 'Description';
+    descriptionText.classList.add('col-lg-3', 'col-md-3', 'col-sm-3', 'col-xs-3','padding-0');
+
     const taskDescription = document.createElement('textarea');
     taskDescription.setAttribute('type', 'text');
     taskDescription.setAttribute('id','description'+ task.id);
@@ -341,8 +345,12 @@ export function startToDo() {
     taskDescription.value = deHash(task.description);
     taskDescription.addEventListener('keyup', () => saveTask(task, project));
 
-    const notesCol = document.createElement('notesCol');
+    const notesCol = document.createElement('div');
     notesCol.classList.add('notesCol','col-lg-3', 'col-md-3', 'col-sm-3', 'col-xs-3','padding-0');
+
+    const notesText = document.createElement('div');
+    notesText.textContent = 'Notes';
+    notesText.classList.add('descriptionCol','col-lg-3', 'col-md-3', 'col-sm-3', 'col-xs-3','padding-0')
 
     const notes = document.createElement('textarea');
     notes.setAttribute('type', 'text');
@@ -372,8 +380,10 @@ export function startToDo() {
 
     taskBack.appendChild(titleBack);
 
+    descriptionCol.appendChild(descriptionText);
     descriptionCol.appendChild(taskDescription);
 
+    notesCol.appendChild(notesText);
     notesCol.appendChild(notes);
 
     dateHolder.appendChild(createDate);
