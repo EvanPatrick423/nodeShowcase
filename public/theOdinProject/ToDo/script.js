@@ -282,6 +282,7 @@ export function startToDo() {
 
     const titleBackRow = document.createElement('div');
     titleBackRow.classList.add('row','padding-0','full-height');
+    titleBackRow.setAttribute('id','titleBackRow');
 
     const taskTitle = document.createElement('div');
     taskTitle.setAttribute('id', 'title' + task.id);
@@ -292,10 +293,12 @@ export function startToDo() {
     taskTitle.addEventListener('keyup', () => saveTask(task, project));
 
     const statusTab = document.createElement('div');
-    statusTab.classList.add('statusTab', 'col-lg-6', 'col-md-6', 'col-sm-6', 'col-xs-6');
+    statusTab.classList.add('statusTab','padding-0','col-lg-6', 'col-md-6', 'col-sm-6', 'col-xs-6');
+    statusTab.setAttribute('id','statusTab');
 
     const statusTabRow = document.createElement('div');
     statusTabRow.classList.add('row', 'padding-0','full-height');
+    statusTabRow.setAttribute('id','statusTabRow');
 
     const taskStatus = document.createElement('div');
     taskStatus.setAttribute('id','status'+task.id);
