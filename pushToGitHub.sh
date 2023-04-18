@@ -9,4 +9,5 @@ COMMITMESSAGE="Regular back up Date:"$CURRENTDATE
 #echo Date: {$COMMITMESSAGE}
 
 git commit -m "$COMMITMESSAGE"
+echo $gitKey
 git push https://EvanPatrick423:$gitKey@github.com/EvanPatrick423/nodeShowcase.git
