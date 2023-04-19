@@ -3,7 +3,8 @@
 git add --all
 git status
 
-COMMITMESSAGE=$1
+CURRENTDATE=`date +"%d-%m-%Y %T"`
+COMMITMESSAGE="Regular back up Date:"$CURRENTDATE
 
 
 git commit -m "$COMMITMESSAGE"
