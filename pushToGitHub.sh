@@ -1,8 +1,5 @@
 #!/bin/#!/usr/bin/env bash
 
-git add --all
-git status
-
 COMMITMESSAGE=$1
 
 
