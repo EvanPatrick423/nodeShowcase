@@ -9,4 +9,4 @@ COMMITMESSAGE="Regular back up Date:"$CURRENTDATE
 
 git commit -m "$COMMITMESSAGE"
 
-git push https://EvanPatrick423:$gitKey@github.com/EvanPatrick423/nodeShowcase.git
+git push https://EvanPatrick423:$gitKey@github.com/EvanPatrick423/MinecraftServer.git
