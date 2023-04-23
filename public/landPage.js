@@ -1031,6 +1031,83 @@ function showHome () {
 
   harrisULDiv.appendChild(harrisUL);
 
+  let sungTitleRow = document.createElement('div');
+  sungTitleRow.setAttribute('id','harrisTitleRow');
+  sungTitleRow.classList.add('resume-block');
+
+  let sungTitle = document.createElement('div');
+  sungTitle.classList.add('resumeSubTitle','resume-block');
+  sungTitle.textContent = "University of Tennessee | Research Assistant, Dr. Sungwoo Yang";
+
+  let sungTitleDate = document.createElement('div');
+  sungTitleDate.classList.add('resumeSubTitle','resume-block');
+  sungTitleDate.textContent = "August 2017 – May 2019";
+
+  sungTitleRow.appendChild(sungTitle);
+  sungTitleRow.appendChild(sungTitleDate);
+
+  let sungULDiv = document.createElement('div');
+
+  let sungUL = document.createElement('ul');
+
+  let sungJobData = [
+    "Researched and developed methods of ambient drying of aerogel for the purposes of creating translucent insulation materials and solar thermal energy conversion devices.",
+    "Performed literature review and experiments to construct standard methods of production and data collection regarding measuring the total weighted solar transmittance of the aerogel samples.",
+    "Produced an aerogel sample with the highest solar weighted transmittance synthesized by the lab at that time (72% Total weighted solar transmittance). "
+  ];
+
+  for (let i = 0; i < sungJobData.length; i++) {
+    var li = document.createElement('li');
+    li.innerText = sungJobData[i];
+    sungUL.appendChild(li);
+  }
+
+  sungULDiv.appendChild(sungUL);
+
+  let educationTitle = document.createElement('div');
+  educationTitle.classList.add('resume-block','resumeTitle');
+  educationTitle.textContent = 'Education & Certification:';
+
+  let schoolInfo = document.createElement('div');
+  schoolInfo.classList.add('resume-block');
+  schoolInfo.textContent = "University of Tennessee Graduated May 2019 BS Chemical Engineering GPA 3.5";
+
+  let odinProjectLink =  document.createElement('a');
+  odinProjectLink.setAttribute('href', 'https://www.theodinproject.com/dashboard');
+  odinProjectLink.textContent = 'The Odin Project';
+
+  let odinCert1 = document.createElement('div');
+  odinCert1.classList.add('resume-block');
+  odinCert1.textContent = "The Odin Project, JavaScript Foundations 2019 - 2020";
+
+  let odinCert2 = document.createElement('div');
+  odinCert2.classList.add('resume-block');
+  odinCert2.textContent = "The Odin Project, JavaScript Full Stack Development 2020 - 2021";
+
+  let mendixLink = document.createElement('a');
+  mendixLink.setAttribute('href','https://academy.mendix.com/');
+  mendixLink.textContent = "Mendix";
+
+  let mendixCert1 = document.createElement('div');
+  mendixCert1.classList.add('resume-block');
+  mendixCert1.textContent = "Mendix, Rapid Application Certified";
+
+  let mendixCert2 = document.createElement('div');
+  mendixCert2.classList.add('resume-block');
+  mendixCert2.textContent = "Mendix, Intermediate Certified";
+
+
+  textHolder.appendChild(text);
+  show.appendChild(textHolder);
+
+
+  resumeColumn.append(resumeHeader,resumeOverview,workExperienceTitle,
+    epiuseTitleRow,epiuseULDiv,chatCoinTitleRow,chatCoinULDiv,legacyBoxTitleRow,
+    legacyBoxULDiv,vitalFarmsTitleRow,vitalFarmsULDiv,harrisTitleRow,harrisULDiv,
+    sungTitleRow,sungULDiv,educationTitle,schoolInfo,odinProjectLink,odinCert1,
+    odinCert2,mendixLink,mendixCert1,mendixCert2);
+
+  aboutRow.appendChild(resumeColumn);
 
   let headShotCol = document.createElement('div');
   headShotCol.setAttribute('id','head-shot-column')
@@ -1047,29 +1124,12 @@ function showHome () {
   pdfLink.setAttribute('href', 'landPage/Dev.pdf');
   pdfLink.textContent = 'A PDF Link to My Resume';
 
-  textHolder.appendChild(text);
-  show.appendChild(textHolder);
-
-  resumeColumn.appendChild(resumeHeader);
-  resumeColumn.appendChild(resumeOverview);
-  resumeColumn.appendChild(workExperienceTitle);
-  resumeColumn.appendChild(epiuseTitleRow);
-  resumeColumn.appendChild(epiuseULDiv);
-  resumeColumn.appendChild(chatCoinTitleRow);
-  resumeColumn.appendChild(chatCoinULDiv);
-  resumeColumn.appendChild(legacyBoxTitleRow);
-  resumeColumn.appendChild(legacyBoxULDiv);
-  resumeColumn.appendChild(vitalFarmsTitleRow);
-  resumeColumn.appendChild(vitalFarmsULDiv);
-  resumeColumn.appendChild(harrisTitleRow);
-  resumeColumn.appendChild(harrisULDiv);
-
-
-  aboutRow.appendChild(resumeColumn);
+  
 
   headShotCont.appendChild(headShot);
-  headShotCol.appendChild(headShotCont);
-  headShotCol.appendChild(pdfLink);
+  headShotCol.append(headShotCont,pdfLink);
+
+
   aboutRow.appendChild(headShotCol);
 
   aboutSection.appendChild(aboutRow);
