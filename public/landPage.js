@@ -828,7 +828,7 @@ function showHome () {
 
   let resumeColumn = document.createElement('div');
   resumeColumn.setAttribute('id','resume-column');
-  resumeColumn.classList.add('col-xs-12','col-sm-12','col-md-8','col-lg-8');
+  resumeColumn.classList.add('col-xs-12','col-sm-12','col-md-9','col-lg-9');
 
   /* let resume = document.createElement('img');
   resume.setAttribute('id','resume');
@@ -1111,7 +1111,7 @@ function showHome () {
 
   let headShotCol = document.createElement('div');
   headShotCol.setAttribute('id','head-shot-column')
-  headShotCol.classList.add('col-xs-12','col-sm-12','col-md-4','col-lg-4');
+  headShotCol.classList.add('col-xs-12','col-sm-12','col-md-3','col-lg-3');
 
   let headShotCont = document.createElement('div');
   headShotCont.setAttribute('id','head-shot-cont');
@@ -1124,7 +1124,7 @@ function showHome () {
   pdfLink.setAttribute('href', 'landPage/Dev.pdf');
   pdfLink.textContent = 'A PDF Link to My Resume';
 
-  
+
 
   headShotCont.appendChild(headShot);
   headShotCol.append(headShotCont,pdfLink);
