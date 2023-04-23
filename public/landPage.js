@@ -830,14 +830,207 @@ function showHome () {
   resumeColumn.setAttribute('id','resume-column');
   resumeColumn.classList.add('col-xs-12','col-sm-12','col-md-8','col-lg-8');
 
-  let resume = document.createElement('img');
+  /* let resume = document.createElement('img');
   resume.setAttribute('id','resume');
-  resume.setAttribute('src', 'landPage/Dev1024_1.jpg')
+  resume.setAttribute('src', 'landPage/Dev1024_1.jpg') */
 
-  let pageTurn = document.createElement('div');
+  /*let pageTurn = document.createElement('div');
   pageTurn.setAttribute('id','page-turn');
   pageTurn.addEventListener('click', () => changePage());
-  pageTurn.textContent ='>';
+  pageTurn.textContent ='>';*/
+
+  let resumeHeader = document.createElement('div');
+  resumeHeader.classList.add('resume-block','resume-header');
+  resumeHeader.textContent = 'Evan Patrick';
+
+  let resumeOverview = document.createElement('div');
+  resumeOverview.classList.add('resume-block');
+  resumeOverview.textContent = 'I am a software engineer working in the Mendix ' +
+  'platform. With prior experience with JavaScript, Python Django, HTML and CSS.' +
+  ' I have certifications in JavaScript, HTML, and CSS and Mendix. Prior to ' +
+  'working in application development, I had extensive experience in research ' +
+  'and development environments. Working on multiple research teams during my' +
+  ' undergrad, as well as in many extracurricular engineering groups. I am ' +
+  'currently trying to expand my knowledge and break into more in depth and ' +
+  'exciting software engineering roles.';
+
+  let workExperienceTitle = document.createElement('div');
+  workExperienceTitle.classList.add('resume-block','resumeTitle');
+  workExperienceTitle.textContent = 'Work Experience:';
+
+  let epiuseTitleRow = document.createElement('div');
+  epiuseTitleRow.setAttribute('id','epiuseTitleRow');
+  epiuseTitleRow.classList.add('resume-block');
+
+
+  let epiuseTitle = document.createElement('div');
+  epiuseTitle.classList.add('resumeSubTitle','resume-block');
+  epiuseTitle.textContent = 'EPI-USE America, Inc | Software Developer:';
+
+  let epiuseTitleDate = document.createElement('div');
+  epiuseTitleDate.classList.add('resumeSubTitle','resume-block');
+  epiuseTitleDate.textContent = 'October 2021 - Present';
+
+  epiuseTitleRow.appendChild(epiuseTitle);
+  epiuseTitleRow.appendChild(epiuseTitleDate);
+
+  let epiuseULDiv = document.createElement('div');
+  epiuseULDiv.classList.add();
+
+  let epiuseUL = document.createElement('ul');
+  //epiuseUL.classList.add();
+
+  let epiuseJobData = [
+  "Developed multiple enterprise level applications for clients of EPI-USE America Inc",
+  "Manages development projects by serving as the scrum master",
+  "Works in both Agile or Waterfall environments depending on client needs",
+  "Trains client employees on use of new software",
+  "Manages merging and deployment of applications via CI/CD environments",
+  "Documents best practices for team members"
+  ];
+
+  for (let i = 0; i < epiuseJobData.length; i++) {
+    var li = document.createElement('li');
+    li.innerText = epiuseJobData[i];
+    epiuseUL.appendChild(li);
+  }
+
+  epiuseULDiv.appendChild(epiuseUL);
+
+  let chatCoinTitleRow = document.createElement('div');
+  chatCoinTitleRow.setAttribute('id','chatCoinTitleRow');
+  chatCoinTitleRow.classList.add('resume-block');
+
+  let chatCoinTitle = document.createElement('div');
+  chatCoinTitle.classList.add('resumeSubTitle','resume-block');
+  chatCoinTitle.textContent = 'Chattanooga Coin | Systems Administrator:';
+
+  let chatCoinTitleDate = document.createElement('div');
+  chatCoinTitleDate.classList.add('resumeSubTitle','resume-block');
+  chatCoinTitleDate.textContent = 'February 2021 – October 2021';
+
+  chatCoinTitleRow.appendChild(chatCoinTitle);
+  chatCoinTitleRow.appendChild(chatCoinTitleDate);
+
+  let chatCoinULDiv = document.createElement('div');
+
+  let chatCoinUL = document.createElement('ul');
+
+  let chatCoinJobData = [
+    "Managed the website chattanoogacoins.com",
+    "Developed internal software for inventory management and other businesses needs",
+    "Designed and published new catalogs",
+    "Solved problems with any IT related issues"
+  ];
+
+  for (let i = 0; i < chatCoinJobData.length; i++) {
+    var li = document.createElement('li');
+    li.innerText = chatCoinJobData[i];
+    chatCoinUL.appendChild(li);
+  }
+
+  chatCoinULDiv.appendChild(chatCoinUL);
+
+  let legacyBoxTitleRow = document.createElement('div');
+  legacyBoxTitleRow.setAttribute('id','legacyBoxTitleRow');
+  legacyBoxTitleRow.classList.add('resume-block');
+
+  let legacyBoxTitle = document.createElement('div');
+  legacyBoxTitle.classList.add('resumeSubTitle','resume-block');
+  legacyBoxTitle.textContent = "Legacy Box | Repair and IT Technician ";
+
+  let legacyBoxTitleDate = document.createElement('div');
+  legacyBoxTitleDate.classList.add('resumeSubTitle','resume-block');
+  legacyBoxTitleDate.textContent = "February 2020 – February 2021";
+
+  legacyBoxTitleRow.appendChild(legacyBoxTitle);
+  legacyBoxTitleRow.appendChild(legacyBoxTitleDate);
+
+  let legacyBoxULDiv = document.createElement('div');
+
+  let legacyBoxUL = document.createElement('ul');
+
+  let legacyBoxJobData = [
+    "Managed the operations of 37 media capture stations",
+    "Troubleshot stations, media capturing software and media printers",
+    "Created Routine Maintenance Schedules to prevent and reduce downtime on stations",
+    "Performed routine maintenance on all media capture stations",
+    "Improved the working efficiency of the floor through continuous improvement practices "
+  ];
+
+  for (let i = 0; i < legacyBoxJobData.length; i++) {
+    var li = document.createElement('li');
+    li.innerText = legacyBoxJobData[i];
+    legacyBoxUL.appendChild(li);
+  }
+
+  legacyBoxULDiv.appendChild(legacyBoxUL);
+
+  let vitalFarmsTitleRow = document.createElement('div');
+  vitalFarmsTitleRow.setAttribute('id','vitalFarmsTitleRow');
+  vitalFarmsTitleRow.classList.add('resume-block');
+
+  let vitalFarmsTitle = document.createElement('div');
+  vitalFarmsTitle.classList.add('resumeSubTitle','resume-block');
+  vitalFarmsTitle.textContent = 'Vital Farms | Head of R&D/Laboratory Manager';
+
+  let vitalFarmsTitleDate = document.createElement('div');
+  vitalFarmsTitleDate.classList.add('resumeSubTitle','resume-block');
+  vitalFarmsTitleDate.textContent = "September 2019 – February 2020"
+
+  vitalFarmsTitleRow.appendChild(vitalFarmsTitle);
+  vitalFarmsTitleRow.appendChild(vitalFarmsTitleDate);
+
+  let vitalFarmsULDiv = document.createElement('div');
+
+  let vitalFarmsUL = document.createElement('ul');
+
+  let vitalFarmsJobData = [
+    "Designed a centrifugal partition chromatography (CPC) process for extraction of cannabinoid compounds, a method of extraction that achieves higher extraction purity, with lower operational cost",
+    "Researched and found manufacturers of CPC equipment that meet the companies standard for CBD oil extraction and separation processes",
+    "Worked with the regional manager and CEO to source buyers, harvest, process, and store the physical biomass, and renovate our extraction laboratory"
+  ];
+
+  for (let i = 0; i < vitalFarmsJobData.length; i++) {
+    var li = document.createElement('li');
+    li.innerText = vitalFarmsJobData[i];
+    vitalFarmsUL.appendChild(li);
+  }
+
+  vitalFarmsULDiv.appendChild(vitalFarmsUL);
+
+  let harrisTitleRow = document.createElement('div');
+  harrisTitleRow.setAttribute('id','harrisTitleRow');
+  harrisTitleRow.classList.add('resume-block');
+
+  let harrisTitle = document.createElement('div');
+  harrisTitle.classList.add('resumeSubTitle','resume-block');
+  harrisTitle.textContent = "University of Tennessee | Research Assistant, Dr. Bradley Harris";
+
+  let harrisTitleDate = document.createElement('div');
+  harrisTitleDate.classList.add('resumeSubTitle','resume-block');
+  harrisTitleDate.textContent = "May 2019 – August 2019"
+
+  harrisTitleRow.appendChild(harrisTitle);
+  harrisTitleRow.appendChild(harrisTitleDate);
+
+  let harrisULDiv = document.createElement('div');
+
+  let harrisUL = document.createElement('ul');
+
+  let harrisJobData = [
+    "Designed network communication structure using Labview, that would allow researchers to operate the chemical engineering controls systems lab machines remotely from any internet capable devices.",
+    "Researched microcontrollers that meet requirements of communication software."
+  ];
+
+  for (let i = 0; i < harrisJobData.length; i++) {
+    var li = document.createElement('li');
+    li.innerText = harrisJobData[i];
+    harrisUL.appendChild(li);
+  }
+
+  harrisULDiv.appendChild(harrisUL);
+
 
   let headShotCol = document.createElement('div');
   headShotCol.setAttribute('id','head-shot-column')
@@ -857,8 +1050,21 @@ function showHome () {
   textHolder.appendChild(text);
   show.appendChild(textHolder);
 
-  resumeColumn.appendChild(pageTurn);
-  resumeColumn.appendChild(resume);
+  resumeColumn.appendChild(resumeHeader);
+  resumeColumn.appendChild(resumeOverview);
+  resumeColumn.appendChild(workExperienceTitle);
+  resumeColumn.appendChild(epiuseTitleRow);
+  resumeColumn.appendChild(epiuseULDiv);
+  resumeColumn.appendChild(chatCoinTitleRow);
+  resumeColumn.appendChild(chatCoinULDiv);
+  resumeColumn.appendChild(legacyBoxTitleRow);
+  resumeColumn.appendChild(legacyBoxULDiv);
+  resumeColumn.appendChild(vitalFarmsTitleRow);
+  resumeColumn.appendChild(vitalFarmsULDiv);
+  resumeColumn.appendChild(harrisTitleRow);
+  resumeColumn.appendChild(harrisULDiv);
+
+
   aboutRow.appendChild(resumeColumn);
 
   headShotCont.appendChild(headShot);

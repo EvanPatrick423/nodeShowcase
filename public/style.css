@@ -3,17 +3,7 @@ html {
 }
 
 ul {
-  list-style-type: none;
-  margin: 0;
-  padding: 0;
-  height: auto;
-  width: 100%;
-  background-color: #07B43B;
-  border-width: 0px;
-  border-style: solid;
-  border-width: thin;
-  border-color: black;
-  overflow: hidden;
+
 }
 
 li a {
@@ -56,8 +46,10 @@ body {
 
 #show {
   padding: 4px;
+  padding-top: 0px;
   padding-right: 0px;
   height:93vh;
+
   overflow-y: scroll;
 
 }
@@ -113,6 +105,7 @@ body {
   border-width: thin;
   justify-content: center;
   align-items: center;
+  margin-bottom: 5px;
 }
 
 #text {
@@ -121,7 +114,7 @@ body {
 
 #about-section {
   background-color: rgba(0,0,0,0.30);
-  height: 100%;
+  height: auto;
   margin-bottom: 10px;
   padding: 5px;
   border-style: solid;
@@ -154,6 +147,23 @@ body {
 
 #resume-column {
   margin-bottom: 10px;
+}
+
+.resumeTitle {
+  text-underline-position: under;
+}
+
+.resume-block {
+
+
+}
+
+.resume-header {
+font-size: 40px;
+}
+
+.resumeUL {
+
 }
 
 #page-turn {
@@ -208,4 +218,10 @@ body {
 .padding-0 {
   padding-right:0;
   padding-left:0;
+}
+
+.padding-01{
+  padding-right:0;
+  padding-left:0;
+  padding-top : 5px;
 }
