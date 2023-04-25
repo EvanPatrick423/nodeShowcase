@@ -40,7 +40,7 @@ body {
 }
 
 #view {
-  margin: 10px ;
+  padding: 10px ;
   height: 100%;
   width: 100%;
   display: flex;
@@ -51,7 +51,7 @@ body {
   margin: 4px;
   margin-top: 0px;
   margin-right: 0px;
-  height:93vh;
+  height:100%;
   border-top-style: solid;
   border-top-width: 1px;
   border-right-style: solid;
@@ -268,4 +268,8 @@ font-size: 40px;
   padding-right:0;
   padding-left:0;
   padding-top : 4px;
+}
+
+.height100 {
+  height:100%;
 }
