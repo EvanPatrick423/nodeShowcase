@@ -31,13 +31,14 @@ img {
 }
 
 body {
-  margin: 10px ;
   background: url(https://cdn-media-1.freecodecamp.org/imgr/MJAkxbh.png);
   display: flex;
-  height: 100%;
+  height: 100vh;
+  font-family: "Times New Roman", Times, serif;
 }
 
 #view {
+  margin: 10px ;
   height: 100%;
   width: 100%;
   display: flex;
@@ -45,10 +46,15 @@ body {
 }
 
 #show {
-  padding: 4px;
-  padding-top: 0px;
-  padding-right: 0px;
+  margin: 4px;
+  margin-top: 0px;
+  margin-right: 0px;
   height:93vh;
+  border-top-style: solid;
+  border-top-width: 1px;
+  border-right-style: solid;
+  border-right-width: 1px;
+  width: auto;
 
   overflow-y: scroll;
 
@@ -106,6 +112,7 @@ body {
   justify-content: center;
   align-items: center;
   margin-bottom: 5px;
+  border-top:0px;
 }
 
 #text {
@@ -123,6 +130,8 @@ body {
 }
 
 #head-shot-column {
+  border-left-style:solid;
+  border-left-width: thin;
 }
 
 #head-shot {
@@ -150,12 +159,44 @@ body {
 }
 
 .resumeTitle {
-  text-underline-position: under;
+  text-decoration: underline;
+  font-size: 25px;
+}
+
+.resumeSideTitle {
+  font-size: 20px;
+  text-decoration: underline;
 }
 
 .resume-block {
 
+}
 
+.resumeLink {
+  color: blue;
+  text-decoration: underline;
+}
+
+.educationBlock {
+  font-weight: bold;
+}
+
+.titleRow {
+  height: 30px;
+}
+
+.resumeSubTitle {
+  font-weight: bold;
+  float: left;
+}
+
+.resumeSubTitle02 {
+  font-weight: bold;
+}
+
+.resumeSubDate {
+  font-weight: bold;
+  float: right;
 }
 
 .resume-header {
@@ -187,8 +228,7 @@ font-size: 40px;
 }
 
 .aboutRow {
-  display: flex;;
-  flex-direction: row;
+  width: 100%;
 }
 
 .nav-item {

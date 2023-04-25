@@ -828,7 +828,7 @@ function showHome () {
 
   let resumeColumn = document.createElement('div');
   resumeColumn.setAttribute('id','resume-column');
-  resumeColumn.classList.add('col-xs-12','col-sm-12','col-md-9','col-lg-9');
+  resumeColumn.classList.add('col-xs-12','col-sm-12','col-md-8','col-lg-9');
 
   /* let resume = document.createElement('img');
   resume.setAttribute('id','resume');
@@ -860,7 +860,7 @@ function showHome () {
 
   let epiuseTitleRow = document.createElement('div');
   epiuseTitleRow.setAttribute('id','epiuseTitleRow');
-  epiuseTitleRow.classList.add('resume-block');
+  epiuseTitleRow.classList.add('resume-block','titleRow');
 
 
   let epiuseTitle = document.createElement('div');
@@ -868,7 +868,7 @@ function showHome () {
   epiuseTitle.textContent = 'EPI-USE America, Inc | Software Developer:';
 
   let epiuseTitleDate = document.createElement('div');
-  epiuseTitleDate.classList.add('resumeSubTitle','resume-block');
+  epiuseTitleDate.classList.add('resume-block','resumeSubDate');
   epiuseTitleDate.textContent = 'October 2021 - Present';
 
   epiuseTitleRow.appendChild(epiuseTitle);
@@ -899,14 +899,14 @@ function showHome () {
 
   let chatCoinTitleRow = document.createElement('div');
   chatCoinTitleRow.setAttribute('id','chatCoinTitleRow');
-  chatCoinTitleRow.classList.add('resume-block');
+  chatCoinTitleRow.classList.add('resume-block','titleRow');
 
   let chatCoinTitle = document.createElement('div');
   chatCoinTitle.classList.add('resumeSubTitle','resume-block');
   chatCoinTitle.textContent = 'Chattanooga Coin | Systems Administrator:';
 
   let chatCoinTitleDate = document.createElement('div');
-  chatCoinTitleDate.classList.add('resumeSubTitle','resume-block');
+  chatCoinTitleDate.classList.add('resume-block','resumeSubDate');
   chatCoinTitleDate.textContent = 'February 2021 – October 2021';
 
   chatCoinTitleRow.appendChild(chatCoinTitle);
@@ -933,14 +933,14 @@ function showHome () {
 
   let legacyBoxTitleRow = document.createElement('div');
   legacyBoxTitleRow.setAttribute('id','legacyBoxTitleRow');
-  legacyBoxTitleRow.classList.add('resume-block');
+  legacyBoxTitleRow.classList.add('resume-block','titleRow');
 
   let legacyBoxTitle = document.createElement('div');
   legacyBoxTitle.classList.add('resumeSubTitle','resume-block');
   legacyBoxTitle.textContent = "Legacy Box | Repair and IT Technician ";
 
   let legacyBoxTitleDate = document.createElement('div');
-  legacyBoxTitleDate.classList.add('resumeSubTitle','resume-block');
+  legacyBoxTitleDate.classList.add('resume-block','resumeSubDate');
   legacyBoxTitleDate.textContent = "February 2020 – February 2021";
 
   legacyBoxTitleRow.appendChild(legacyBoxTitle);
@@ -968,14 +968,14 @@ function showHome () {
 
   let vitalFarmsTitleRow = document.createElement('div');
   vitalFarmsTitleRow.setAttribute('id','vitalFarmsTitleRow');
-  vitalFarmsTitleRow.classList.add('resume-block');
+  vitalFarmsTitleRow.classList.add('resume-block','titleRow');
 
   let vitalFarmsTitle = document.createElement('div');
   vitalFarmsTitle.classList.add('resumeSubTitle','resume-block');
   vitalFarmsTitle.textContent = 'Vital Farms | Head of R&D/Laboratory Manager';
 
   let vitalFarmsTitleDate = document.createElement('div');
-  vitalFarmsTitleDate.classList.add('resumeSubTitle','resume-block');
+  vitalFarmsTitleDate.classList.add('resume-block','resumeSubDate');
   vitalFarmsTitleDate.textContent = "September 2019 – February 2020"
 
   vitalFarmsTitleRow.appendChild(vitalFarmsTitle);
@@ -1001,14 +1001,14 @@ function showHome () {
 
   let harrisTitleRow = document.createElement('div');
   harrisTitleRow.setAttribute('id','harrisTitleRow');
-  harrisTitleRow.classList.add('resume-block');
+  harrisTitleRow.classList.add('resume-block','titleRow');
 
   let harrisTitle = document.createElement('div');
   harrisTitle.classList.add('resumeSubTitle','resume-block');
   harrisTitle.textContent = "University of Tennessee | Research Assistant, Dr. Bradley Harris";
 
   let harrisTitleDate = document.createElement('div');
-  harrisTitleDate.classList.add('resumeSubTitle','resume-block');
+  harrisTitleDate.classList.add('resume-block','resumeSubDate');
   harrisTitleDate.textContent = "May 2019 – August 2019"
 
   harrisTitleRow.appendChild(harrisTitle);
@@ -1033,14 +1033,14 @@ function showHome () {
 
   let sungTitleRow = document.createElement('div');
   sungTitleRow.setAttribute('id','harrisTitleRow');
-  sungTitleRow.classList.add('resume-block');
+  sungTitleRow.classList.add('resume-block','titleRow');
 
   let sungTitle = document.createElement('div');
   sungTitle.classList.add('resumeSubTitle','resume-block');
   sungTitle.textContent = "University of Tennessee | Research Assistant, Dr. Sungwoo Yang";
 
   let sungTitleDate = document.createElement('div');
-  sungTitleDate.classList.add('resumeSubTitle','resume-block');
+  sungTitleDate.classList.add('resume-block','resumeSubDate');
   sungTitleDate.textContent = "August 2017 – May 2019";
 
   sungTitleRow.appendChild(sungTitle);
@@ -1069,11 +1069,12 @@ function showHome () {
   educationTitle.textContent = 'Education & Certification:';
 
   let schoolInfo = document.createElement('div');
-  schoolInfo.classList.add('resume-block');
+  schoolInfo.classList.add('educationBlock');
   schoolInfo.textContent = "University of Tennessee Graduated May 2019 BS Chemical Engineering GPA 3.5";
 
   let odinProjectLink =  document.createElement('a');
   odinProjectLink.setAttribute('href', 'https://www.theodinproject.com/dashboard');
+  odinProjectLink.classList.add('resumeLink');
   odinProjectLink.textContent = 'The Odin Project';
 
   let odinCert1 = document.createElement('div');
@@ -1086,6 +1087,7 @@ function showHome () {
 
   let mendixLink = document.createElement('a');
   mendixLink.setAttribute('href','https://academy.mendix.com/');
+  mendixLink.classList.add('resumeLink');
   mendixLink.textContent = "Mendix";
 
   let mendixCert1 = document.createElement('div');
@@ -1095,6 +1097,8 @@ function showHome () {
   let mendixCert2 = document.createElement('div');
   mendixCert2.classList.add('resume-block');
   mendixCert2.textContent = "Mendix, Intermediate Certified";
+
+
 
 
   textHolder.appendChild(text);
@@ -1111,7 +1115,7 @@ function showHome () {
 
   let headShotCol = document.createElement('div');
   headShotCol.setAttribute('id','head-shot-column')
-  headShotCol.classList.add('col-xs-12','col-sm-12','col-md-3','col-lg-3');
+  headShotCol.classList.add('col-xs-12','col-sm-12','col-md-4','col-lg-3');
 
   let headShotCont = document.createElement('div');
   headShotCont.setAttribute('id','head-shot-cont');
@@ -1124,10 +1128,140 @@ function showHome () {
   pdfLink.setAttribute('href', 'landPage/Dev.pdf');
   pdfLink.textContent = 'A PDF Link to My Resume';
 
+  let gitHubTitle = document.createElement('div');
+  gitHubTitle.classList.add('resumeSideTitle');
+  gitHubTitle.textContent = "GitHub:";
 
+  let gitHubLink =  document.createElement('a');
+  gitHubLink.setAttribute('href', 'https://github.com/EvanPatrick423');
+  gitHubLink.classList.add('resumeLink');
+  gitHubLink.textContent = 'https://github.com/EvanPatrick423';
+
+  let technicalSkillsTitle = document.createElement('div');
+  technicalSkillsTitle.classList.add('resumeSideTitle');
+  technicalSkillsTitle.textContent = "Technical Skills:";
+
+  let technicalSkillsCont = document.createElement('div');
+  //technicalSkillsCont.classList.add('');
+
+  let technicalSkillsUL = document.createElement('ul');
+
+  let technicalSkillsData = [
+    'JavaScript',
+    ' node.js',
+    ' express',
+    'Java',
+    'Python',
+    ' Django',
+    'Mendix',
+    'Jenkins CI/CD tool',
+    'MongoDB',
+    'PostgreSQL',
+    'VBA',
+    'HTML5',
+    'CSS',
+    'Labview',
+    'ChemCad',
+    'Solidworks',
+    'Proficient in Excel, Microsoft Office and PowerPoint'
+  ]
+
+  for (let i = 0; i < technicalSkillsData.length; i++) {
+    var li = document.createElement('li');
+    li.innerText = technicalSkillsData[i];
+    technicalSkillsUL.appendChild(li);
+  }
+
+  let honorsTitle = document.createElement('div');
+  honorsTitle.classList.add('resumeSideTitle');
+  honorsTitle.textContent = "Honors:";
+
+  let honorsCont = document.createElement('div');
+
+  let honorsUL = document.createElement('ul');
+
+  let honorsData = [
+    'Graduated University of Tennessee with Deans list distinction for high academic standing',
+    '2019 Tau Beta Pi Engineering Honors Society Member'
+  ]
+
+  for (let i = 0; i < honorsData.length; i++) {
+    var li = document.createElement('li');
+    li.innerText = honorsData[i];
+    honorsUL.appendChild(li);
+  }
+
+  honorsCont.appendChild(honorsUL);
+
+  let activitiesTitle = document.createElement('div');
+  activitiesTitle.classList.add('resumeSideTitle');
+  activitiesTitle.textContent = "Activities:";
+
+  let chemECarTitle = document.createElement('div');
+  chemECarTitle.classList.add('resumeSubTitle02','resume-block');
+  chemECarTitle.textContent = "Chem-E-Car Captain";
+
+  let chemECarStatement = document.createElement('div');
+  chemECarStatement.classList.add('resume-block');
+  chemECarStatement.textContent = "Chemical Engineering Competition, August 2016 - December 2018";
+
+  let chemECarCont = document.createElement('div');
+
+  let chemECarUL = document.createElement('ul');
+
+  let chemECarData = [
+    'AIChE Nationals 2018 placed 8th',
+    'AIChE Nationals 2017 placed 13th',
+    'AIChE Regionals 2017 placed 3rd'
+  ]
+
+  for (let i = 0; i < chemECarData.length; i++) {
+    var li = document.createElement('li');
+    li.innerText = chemECarData[i];
+    chemECarUL.appendChild(li);
+  }
+
+  chemECarCont.appendChild(chemECarUL);
+
+  let okiTurboTitle = document.createElement('div');
+  okiTurboTitle.classList.add('resumeSubTitle02','resume-block');
+  okiTurboTitle.textContent = "Oki Turbo";
+
+  let okiTurboStatement = document.createElement('div');
+  okiTurboStatement.classList.add('resume-block');
+  okiTurboStatement.textContent = "Drummer, November 2016 - Present";
+
+  let okiTurboCont = document.createElement('div');
+
+  let okiTurboUL = document.createElement('ul');
+
+  let okiTurboData = [
+    'We create, refine, memorize, and perform pieces of music',
+    'Manages money made to invest into merchandise, new equipment, and other necessities',
+    'Collaborates with many entities to organize and plan events'
+  ]
+
+  for (let i = 0; i < okiTurboData.length; i++) {
+    var li = document.createElement('li');
+    li.innerText = okiTurboData[i];
+    okiTurboUL.appendChild(li);
+  }
+
+  okiTurboCont.appendChild(okiTurboUL);
+
+  let okiTurboLink =  document.createElement('a');
+  okiTurboLink.setAttribute('href', 'https://open.spotify.com/artist/1XPVjiMlhwj4FrGRJ8UZGv?si=rGmqsMbCS8ike2nN88keDg');
+  okiTurboLink.classList.add('resumeLink');
+  okiTurboLink.textContent = 'Spotify Link';
 
   headShotCont.appendChild(headShot);
-  headShotCol.append(headShotCont,pdfLink);
+  technicalSkillsCont.appendChild(technicalSkillsUL);
+  headShotCol.append(headShotCont,pdfLink,gitHubTitle,gitHubLink,
+    technicalSkillsTitle,technicalSkillsCont,honorsTitle,honorsCont,
+    activitiesTitle,chemECarTitle,chemECarStatement,chemECarCont,
+    okiTurboTitle,okiTurboStatement,okiTurboLink,okiTurboCont);
+
+
 
 
   aboutRow.appendChild(headShotCol);
