@@ -1,5 +1,5 @@
 html {
-  height: 100vh;
+
 }
 
 ul {
@@ -35,6 +35,8 @@ body {
   display: flex;
   height: 100vh;
   font-family: "Times New Roman", Times, serif;
+  margin: 0px;
+  overflow-y: scroll;
 }
 
 #view {
@@ -61,6 +63,7 @@ body {
 }
 
 #main {
+  height: 90vh;
 }
 
 #nav-bar {
@@ -102,6 +105,7 @@ body {
   color: white;
   width: 100%;
   font-size: 40px;
+  height:  10vh;
 }
 
 #text-holder {
@@ -263,5 +267,5 @@ font-size: 40px;
 .padding-01{
   padding-right:0;
   padding-left:0;
-  padding-top : 5px;
+  padding-top : 4px;
 }

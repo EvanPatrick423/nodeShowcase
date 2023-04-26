@@ -336,7 +336,7 @@ function showLibrary() {
   header.textContent = 'Library';
 
   let show = document.getElementById('show');
-  show.classList.add('libraryShow', 'container-fluid');
+  show.classList.add('libraryShow');
 
   let libraryRow = document.createElement('div');
   libraryRow.classList.add('row');
