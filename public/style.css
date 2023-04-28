@@ -84,15 +84,10 @@ body {
 }
 
 #home {
-  background-color: #4CAF50;
-  color: white;
   border-top: 0px;
 }
 
-#home:hover {
-  background-color: blue;
-  color: white;
-}
+
 
 #header {
   display: flex;
@@ -211,24 +206,9 @@ font-size: 40px;
 
 }
 
-#page-turn {
-  color: #ffffff;
-  background-color: #000000;
-  height: 30px;
-  width: 30px;
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  border-radius: 50%;
-  opacity: 0.5;
-  float:left;
-  position: absolute;
-  z-index: 1000;
-}
-
-#page-turn:hover {
-  background-color: blue;
-  opacity: 1;
+.navSelected {
+  background-color: #4CAF50;
+  color:white;
 }
 
 .aboutRow {
@@ -238,13 +218,16 @@ font-size: 40px;
 .nav-item {
   display: block;
   float: left;
-  color: black;
   padding: 8px 16px;
   border-top-width: 0px;
   border-bottom: 1px;
   border-bottom-style: solid;
   border-bottom-color: black;
   text-align: center;
+}
+
+.navBottom {
+  border-bottom-width: 0px;
 }
 
 .nav-item:hover {

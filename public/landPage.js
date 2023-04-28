@@ -6,6 +6,7 @@ import {startRPS} from './theOdinProject/rockpaperscissors/rockpaperscissors.js'
 import {startTicTacToe} from './theOdinProject/tic tac toe/script.js';
 import {startToDo} from './theOdinProject/ToDo/script.js';
 
+
 let show = document.getElementById('show');
 
 function clearShow() {
@@ -18,7 +19,23 @@ function clearShow() {
   show.classList.remove('ticTacToeShow');
 }
 
+function resetNav(string) {
+  console.log('resetNav ' + string);
+  let navBar = document.getElementById('nav-bar');
+  let childNodes = navBar.childNodes;
+
+  for (let i = 0; i < childNodes.length; i++) {
+    const childNode = childNodes[i];
+    // Do something with the childNode
+    childNode.classList.remove('navSelected');
+  }
+  let navItem = document.getElementById(string);
+  navItem.classList.add('navSelected');
+  console.log('ResetNav Concluded');
+}
+
 function popNavBar () {
+  //console.log('start Pop nav bar');
   let navBar = document.getElementById('nav-bar');
 
   let home = document.createElement('div');
@@ -27,40 +44,63 @@ function popNavBar () {
   home.textContent = 'Home';
   home.addEventListener('click', () => showHome());
 
+  let moreAbout = document.createElement('div');
+  moreAbout.setAttribute('id','moreAbout');
+  moreAbout.classList.add('nav-item','navBottom');
+  moreAbout.textContent = 'More About Me (under construction)';
+  //cssAnimations.addEventListener('click', () => showCssAnimations());
+
   let pixelPad = document.createElement('div');
+  pixelPad.setAttribute('id','pixelPad');
   pixelPad.classList.add('nav-item');
   pixelPad.textContent = 'Pixel Pad';
   pixelPad.addEventListener('click', () => showPixelPad());
 
   let toDo = document.createElement('div');
+  toDo.setAttribute('id','toDo');
   toDo.classList.add('nav-item');
   toDo.textContent = 'To Do App';
   toDo.addEventListener('click', () => showToDo());
 
   let calculator = document.createElement('div');
+  calculator.setAttribute('id','calculator');
   calculator.classList.add('nav-item');
   calculator.textContent = 'Calculator';
   calculator.addEventListener('click', () => showCalculator());
 
   let ticTacToe = document.createElement('div');
+  ticTacToe.setAttribute('id','ticTacToe');
   ticTacToe.classList.add('nav-item');
   ticTacToe.textContent = 'Tic Tac Toe';
   ticTacToe.addEventListener('click',() => showTicTacToe());
 
   let library = document.createElement('div');
+  library.setAttribute('id','library');
   library.classList.add('nav-item');
   library.textContent = 'Library';
   library.addEventListener('click', () => showLibrary());
 
   let rockPaperScissors = document.createElement('div');
+  rockPaperScissors.setAttribute('id','rockPaperScissors');
   rockPaperScissors.classList.add('nav-item');
   rockPaperScissors.textContent = 'Rock Paper Scissors';
   rockPaperScissors.addEventListener('click', () => showRPS());
 
   let cssAnimations = document.createElement('div');
-  cssAnimations.classList.add('nav-item');
+  cssAnimations.setAttribute('id','cssAnimations');
+  cssAnimations.classList.add('nav-item','navBottom');
   cssAnimations.textContent = 'CSS Animations';
   cssAnimations.addEventListener('click', () => showCssAnimations());
+
+  let weatherAPI = document.createElement('div');
+  weatherAPI.setAttribute('id','weatherAPI');
+  weatherAPI.classList.add('nav-item','navBottom');
+  weatherAPI.textContent = 'Weather API (under construction)';
+  //cssAnimations.addEventListener('click', () => showCssAnimations());
+
+  //console.log('Nav Bar populated');
+
+
 
   /*let dom = document.createElement('div');
   dom.classList.add('nav-item');
@@ -80,6 +120,7 @@ function popNavBar () {
 
 function showCssAnimations() {
   clearShow();
+  resetNav('cssAnimations');
 
   let header = document.getElementById('header');
   header.textContent = 'Some Css Animations';
@@ -222,6 +263,7 @@ function showCssAnimations() {
 
 function showToDo() {
   clearShow();
+  resetNav('toDo');
 
   let header = document.getElementById('header');
   header.textContent = 'To Do App';
@@ -255,6 +297,7 @@ function showToDo() {
 
 function showTicTacToe() {
   clearShow();
+  resetNav('ticTacToe');
 
   let header = document.getElementById('header');
   header.textContent = 'Color Tic Tac Toe';
@@ -284,6 +327,7 @@ function showTicTacToe() {
 
 function showRPS() {
   clearShow();
+  resetNav('rockPaperScissors');
 
   let header = document.getElementById('header');
   header.textContent = 'Rock Paper Scissors';
@@ -331,6 +375,7 @@ function showRPS() {
 
 function showLibrary() {
   clearShow();
+  resetNav('library');
 
   let header = document.getElementById('header');
   header.textContent = 'Library';
@@ -495,12 +540,13 @@ function showLibrary() {
 
 function showCalculator() {
   clearShow();
+  resetNav('calculator');
 
   let header = document.getElementById('header');
   header.textContent = 'Basic Calculator';
 
   let show = document.getElementById('show');
-  show.classList.add('calShow','container-fluid');
+  show.classList.add('calShow');
 
   let warning = document.createElement('div');
   warning.textContent = 'Trig functions do not work yet';
@@ -693,6 +739,7 @@ function showCalculator() {
 
 function showPixelPad () {
   clearShow();
+  resetNav('pixelPad');
 
   let header = document.getElementById('header');
   header.textContent = 'PixelPad';
@@ -786,7 +833,7 @@ function showPixelPad () {
   listen();
 }
 
-function showDom () {
+/*function showDom () {
   clearShow();
 
   let header = document.getElementById('header');
@@ -798,9 +845,10 @@ function showDom () {
   show.appendChild(container);
   manipulateDom();
 }
-
-function showHome () {
+*/
+function showHome() {
   clearShow();
+  resetNav('home');
 
   let header = document.getElementById('header');
   header.textContent = 'Hello World! Welcome to my website!';
