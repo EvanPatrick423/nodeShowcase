@@ -20,7 +20,7 @@ function clearShow() {
 }
 
 function resetNav(string) {
-  console.log('resetNav ' + string);
+  //console.log('resetNav ' + string);
   let navBar = document.getElementById('nav-bar');
   let childNodes = navBar.childNodes;
 
@@ -31,7 +31,7 @@ function resetNav(string) {
   }
   let navItem = document.getElementById(string);
   navItem.classList.add('navSelected');
-  console.log('ResetNav Concluded');
+  //console.log('ResetNav Concluded');
 }
 
 function popNavBar () {
@@ -46,9 +46,15 @@ function popNavBar () {
 
   let moreAbout = document.createElement('div');
   moreAbout.setAttribute('id','moreAbout');
-  moreAbout.classList.add('nav-item','navBottom');
+  moreAbout.classList.add('nav-item');
   moreAbout.textContent = 'More About Me (under construction)';
   //cssAnimations.addEventListener('click', () => showCssAnimations());
+
+  let resume = document.createElement('div');
+  resume.setAttribute('id','resume');
+  resume.classList.add('nav-item','resume');
+  resume.textContent = 'My Resume';
+  resume.addEventListener('click', () => showResume());
 
   let pixelPad = document.createElement('div');
   pixelPad.setAttribute('id','pixelPad');
@@ -94,8 +100,14 @@ function popNavBar () {
 
   let weatherAPI = document.createElement('div');
   weatherAPI.setAttribute('id','weatherAPI');
-  weatherAPI.classList.add('nav-item','navBottom');
+  weatherAPI.classList.add('nav-item');
   weatherAPI.textContent = 'Weather API (under construction)';
+  //cssAnimations.addEventListener('click', () => showCssAnimations());
+
+  let contactMe = document.createElement('div');
+  contactMe.setAttribute('id','contactMe');
+  contactMe.classList.add('nav-item','navBottom');
+  contactMe.textContent = 'Contact Me (under construction)';
   //cssAnimations.addEventListener('click', () => showCssAnimations());
 
   //console.log('Nav Bar populated');
@@ -108,6 +120,8 @@ function popNavBar () {
   dom.addEventListener('click', () => showDom());*/
 
   navBar.appendChild(home);
+  navBar.appendChild(resume);
+  //navBar.appendChild(moreAbout);
   navBar.appendChild(pixelPad);
   navBar.appendChild(toDo);
   navBar.appendChild(ticTacToe);
@@ -115,12 +129,17 @@ function popNavBar () {
   navBar.appendChild(calculator);
   navBar.appendChild(rockPaperScissors);
   navBar.appendChild(cssAnimations);
+  //navBar.appendChild(weatherAPI);
+  //navBar.appendChild(contactMe);
   //navBar.appendChild(dom);
 }
 
 function showCssAnimations() {
   clearShow();
   resetNav('cssAnimations');
+
+  let show = document.getElementById('show');
+  show.classList.remove('borderTopThin');
 
   let header = document.getElementById('header');
   header.textContent = 'Some Css Animations';
@@ -265,6 +284,9 @@ function showToDo() {
   clearShow();
   resetNav('toDo');
 
+  let show = document.getElementById('show');
+  show.classList.remove('borderTopThin');
+
   let header = document.getElementById('header');
   header.textContent = 'To Do App';
 
@@ -299,11 +321,13 @@ function showTicTacToe() {
   clearShow();
   resetNav('ticTacToe');
 
+
   let header = document.getElementById('header');
   header.textContent = 'Color Tic Tac Toe';
 
   let show = document.getElementById('show');
   show.classList.add('ticTacToeShow');
+  show.classList.remove('borderTopThin');
 
   let showHeader = document.createElement('div');
   showHeader.setAttribute('id','showHeader');
@@ -328,6 +352,9 @@ function showTicTacToe() {
 function showRPS() {
   clearShow();
   resetNav('rockPaperScissors');
+
+  let show = document.getElementById('show');
+  show.classList.remove('borderTopThin');
 
   let header = document.getElementById('header');
   header.textContent = 'Rock Paper Scissors';
@@ -382,6 +409,7 @@ function showLibrary() {
 
   let show = document.getElementById('show');
   show.classList.add('libraryShow');
+  show.classList.remove('borderTopThin');
 
   let libraryRow = document.createElement('div');
   libraryRow.classList.add('row');
@@ -547,6 +575,7 @@ function showCalculator() {
 
   let show = document.getElementById('show');
   show.classList.add('calShow');
+  show.classList.remove('borderTopThin');
 
   let warning = document.createElement('div');
   warning.textContent = 'Trig functions do not work yet';
@@ -746,6 +775,7 @@ function showPixelPad () {
 
   let show = document.getElementById('show');
   show.classList.add('pixelPadBack');
+  show.classList.add('borderTopThin');
 
   let contentHolder = document.createElement('div');
   contentHolder.setAttribute('id','content-holder');
@@ -850,14 +880,17 @@ function showHome() {
   clearShow();
   resetNav('home');
 
+  let show = document.getElementById('show');
+  show.classList.add('borderTopThin');
+
   let header = document.getElementById('header');
-  header.textContent = 'Hello World! Welcome to my website!';
+  header.textContent = 'Hello World! Welcome to My Website!';
 
   let textHolder = document.createElement('div');
   textHolder.setAttribute('id','text-holder');
 
   let text = document.createElement('p');
-  text.setAttribute('id', 'text');
+  text.classList.add('homeText')
   text.textContent = 'This website serves as an active resume and portfolio. ' +
   'Where you can take a look at my current resume, some course material or ' +
   'personal projects. All hosted on this website.\n' +
@@ -865,6 +898,21 @@ function showHome() {
   'being run in node.js, using PM2 as the process manager and nginx as the ' +
   'reverse proxy.\n' +
   'I hope you enjoy my website!'
+
+  textHolder.appendChild(text);
+  show.appendChild(textHolder);
+
+}
+
+function showResume() {
+  clearShow();
+  resetNav('resume');
+
+  let show = document.getElementById('show');
+  show.classList.add('borderTopThin');
+
+  let header = document.getElementById('header');
+  header.textContent = 'My Resume';
 
   let aboutSection = document.createElement('div');
   aboutSection.setAttribute('id','about-section');
@@ -1145,12 +1193,6 @@ function showHome() {
   let mendixCert2 = document.createElement('div');
   mendixCert2.classList.add('resume-block');
   mendixCert2.textContent = "Mendix, Intermediate Certified";
-
-
-
-
-  textHolder.appendChild(text);
-  show.appendChild(textHolder);
 
 
   resumeColumn.append(resumeHeader,resumeOverview,workExperienceTitle,
