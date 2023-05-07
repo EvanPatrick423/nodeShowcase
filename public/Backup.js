@@ -7,10 +7,9 @@ import {startTicTacToe} from './theOdinProject/tic tac toe/script.js';
 import {startToDo} from './theOdinProject/ToDo/script.js';
 
 
-
+let show = document.getElementById('show');
 
 function clearShow() {
-  let show = document.getElementById('show');
   while (show.lastChild) {
     show.removeChild(show.firstChild);
   }
@@ -35,83 +34,7 @@ function resetNav(string) {
   //console.log('ResetNav Concluded');
 }
 
-function clearView() {
-  while (view.lastChild) {
-    view.removeChild(view.firstChild);
-  }
-}
-
-function makeShow() {
-  clearView();
-
-  document.body.style.backgroundImage = "url(https://cdn-media-1.freecodecamp.org/imgr/MJAkxbh.png)";
-  document.body.style.backgroundSize = '';
-
-  let view = document.getElementById('view');
-  // create the header div and add text content
-  const header = document.createElement("div");
-  header.id = "header";
-  header.textContent = "Hello world! Welcome to my website!";
-
-  // create the main div and add classes
-  const main = document.createElement("div");
-  main.id = "main";
-  main.classList.add("container-fluid");
-
-  // create the row div and add classes
-  const row = document.createElement("div");
-  row.classList.add("row");
-  row.classList.add("height100");
-
-  // create the nav column and add classes
-  const navCol = document.createElement("div");
-  navCol.classList.add("col-lg-2");
-  navCol.classList.add("col-md-2");
-  navCol.classList.add("col-sm-4");
-  navCol.classList.add("col-xs-4");
-  navCol.classList.add("padding-0");
-
-  // create the nav bar div and set the id
-  const navBar = document.createElement("div");
-  navBar.id = "nav-bar";
-
-  // append the nav bar div to the nav column
-  navCol.appendChild(navBar);
-
-  // create the show column and add classes
-  const showCol = document.createElement("div");
-  showCol.classList.add("col-lg-10");
-  showCol.classList.add("col-md-10");
-  showCol.classList.add("col-sm-8");
-  showCol.classList.add("col-xs-8");
-  showCol.classList.add("padding-01");
-  showCol.classList.add("height100");
-
-  // create the show div and set the id
-  const showDiv = document.createElement("div");
-  showDiv.id = "show";
-
-  // append the show div to the show column
-  showCol.appendChild(showDiv);
-
-  // append the nav column and show column to the row div
-  row.appendChild(navCol);
-  row.appendChild(showCol);
-
-  // append the row div to the main div
-  main.appendChild(row);
-
-  // append the header div and main div to the existing view element on the page
-  view.appendChild(header);
-  view.appendChild(main);
-
-  popNavBar();
-
-}
-
-
-
-function popNavBar() {
+function popNavBar () {
   //console.log('start Pop nav bar');
   let navBar = document.getElementById('nav-bar');
 
@@ -211,144 +134,7 @@ function popNavBar() {
   //navBar.appendChild(dom);
 }
 
-function showHome() {
-  clearView();
-  //resetNav('home');
-  document.body.style.backgroundImage = "url('landPage/pexels-bich-tran-669996.jpg')";
-  document.body.style.backgroundSize = 'cover';
-
-  let view = document.getElementById('view');
-  view.classList.add('viewHome');
-
-  let darkCont = document.createElement('div');
-  darkCont.classList.add('darkCont','row','padding-0');
-
-  let column1 = document.createElement('div');
-  column1.classList.add('col-lg-8', 'col-md-8', 'col-sm-9', 'col-xs-12');
-
-
-  let header = document.createElement('div');
-  header.classList.add('homeHeader');
-  header.textContent = 'Hello World! Welcome to My Website';
-  column1.appendChild(header);
-
-  let introBlock = document.createElement('div');
-
-  let introText1  = document.createElement('div');
-  introText1.classList.add('introText');
-  introText1.textContent = 'Welcome to my website, which serves as both my active '
-  + 'resume and portfolio. Here, you can view my current resume, browse through '
-  + 'my coursework materials, and explore my personal projects.'
-  introBlock.appendChild(introText1);
-
-  let introText2 = document.createElement('div');
-  introText2.classList.add('introText');
-  introText2.textContent = 'The website was built with cutting-edge technologies '
-  + 'such as Javascript, HTML5, and CSS to create an engaging and visually '
-  + 'appealing user experience. The application is run on node.js, utilizing '
-  + 'PM2 as the process manager and nginx as the reverse proxy to ensure '
-  + 'optimal performance and reliability.'
-  introBlock.appendChild(introText2);
-
-  let introText3 = document.createElement('div');
-  introText3.classList.add('introText');
-  introText3.textContent = 'I take great pride in my work and am delighted to '
-  + 'share my website with you. I hope you enjoy exploring it as much as I '
-  + 'enjoyed creating it.'
-  introBlock.appendChild(introText3);
-  column1.appendChild(introBlock);
-
-
-
-
-
-
-
-
-
-  let column2 = document.createElement('div');
-  column2.classList.add('col-lg-4', 'col-md-4', 'col-sm-3', 'col-xs-12','column2');
-
-  let column2Box = document.createElement('div');
-  column2Box.classList.add('column2Box');
-
-
-
-
-  let headShot = document.createElement('img');
-  headShot.classList.add('img-fluid');
-  headShot.setAttribute('src','landPage/ProfessionalHeadShot.jfif');
-
-  let headShotCont = document.createElement('div');
-  headShotCont.setAttribute('id','head-shot-cont');
-
-
-  headShotCont.appendChild(headShot);
-  column2Box.appendChild(headShotCont);
-
-  let linkBox = document.createElement('div');
-  linkBox.classList.add('linkBox');
-
-  let linkedIn = document.createElement('a');
-  linkedIn.classList.add('circleLink','linkedInLink','img-fluid');
-  linkedIn.setAttribute('href', 'https://www.linkedin.com/in/evan-patrick-4824481b1/');
-  linkBox.appendChild(linkedIn);
-
-  let gitHub = document.createElement('a');
-  gitHub.classList.add('circleLink','gitHubLink','img-fluid');
-  gitHub.setAttribute('href', 'https://github.com/EvanPatrick423');
-  linkBox.appendChild(gitHub);
-
-  let resume = document.createElement('a');
-  resume.classList.add('circleLink');
-  resume.setAttribute('href', 'landPage/Dev.pdf');
-  resume.textContent = 'Resume'
-  linkBox.appendChild(resume);
-
-  column2Box.appendChild(linkBox);
-
-
-  let descBox = document.createElement('div');
-  descBox.classList.add('introBox');
-
-  let descText1 = document.createElement('div');
-  descText1.classList.add('descText');
-  descText1.textContent = 'I am an accomplished software engineer proficient in'
-  + ' JavaScript, Python Django, HTML, CSS, and Mendix, with a proven track '
-  + 'record of delivering high-quality results. I hold certifications in all of '
-  + 'these technologies, demonstrating my mastery in each.'
-  descBox.appendChild(descText1);
-
-  let descText2 = document.createElement('div');
-  descText2.classList.add('descText');
-  descText2.textContent = 'Prior to my work in application development, '
-  + 'I gained extensive experience in research and development environments. '
-  + 'As an undergrad, I worked on multiple research teams, as well as participated '
-  + 'in various extracurricular engineering groups.'
-  descBox.appendChild(descText2);
-
-  let descText3 = document.createElement('div');
-  descText3.classList.add('descText');
-  descText3.textContent = 'My passion for learning drives me to '
-  + 'continuously expand my knowledge and skill set, and I am eager to take on '
-  + 'more challenging and rewarding software engineering roles.'
-  descBox.appendChild(descText3);
-
-
-  column2Box.appendChild(descBox);
-  column2.appendChild(column2Box);
-
-
-
-  darkCont.appendChild(column1);
-  darkCont.appendChild(column2);
-  view.appendChild(darkCont);
-
-
-}
-
 function showCssAnimations() {
-  makeShow();
   clearShow();
   resetNav('cssAnimations');
 
@@ -495,7 +281,6 @@ function showCssAnimations() {
 }
 
 function showToDo() {
-  makeShow();
   clearShow();
   resetNav('toDo');
 
@@ -533,7 +318,6 @@ function showToDo() {
 }
 
 function showTicTacToe() {
-  makeShow();
   clearShow();
   resetNav('ticTacToe');
 
@@ -566,7 +350,6 @@ function showTicTacToe() {
 }
 
 function showRPS() {
-  makeShow();
   clearShow();
   resetNav('rockPaperScissors');
 
@@ -618,7 +401,6 @@ function showRPS() {
 }
 
 function showLibrary() {
-  makeShow();
   clearShow();
   resetNav('library');
 
@@ -785,7 +567,6 @@ function showLibrary() {
 }
 
 function showCalculator() {
-  makeShow();
   clearShow();
   resetNav('calculator');
 
@@ -986,7 +767,6 @@ function showCalculator() {
 }
 
 function showPixelPad () {
-  makeShow();
   clearShow();
   resetNav('pixelPad');
 
@@ -1096,10 +876,35 @@ function showPixelPad () {
   manipulateDom();
 }
 */
+function showHome() {
+  clearShow();
+  resetNav('home');
 
+  let show = document.getElementById('show');
+  show.classList.add('borderTopThin');
+
+  let header = document.getElementById('header');
+  header.textContent = 'Hello World! Welcome to My Website!';
+
+  let textHolder = document.createElement('div');
+  textHolder.setAttribute('id','text-holder');
+
+  let text = document.createElement('p');
+  text.classList.add('homeText')
+  text.textContent = 'This website serves as an active resume and portfolio. ' +
+  'Where you can take a look at my current resume, some course material or ' +
+  'personal projects. All hosted on this website.\n' +
+  'This site is mostly made in Javascript, HTML5, and CSS. With the application ' +
+  'being run in node.js, using PM2 as the process manager and nginx as the ' +
+  'reverse proxy.\n' +
+  'I hope you enjoy my website!'
+
+  textHolder.appendChild(text);
+
+  show.appendChild(textHolder);
+}
 
 function showResume() {
-  makeShow();
   clearShow();
   resetNav('resume');
 
@@ -1571,5 +1376,6 @@ function showResume() {
     }
   }
 }
-  makeShow();
-  //showResume();
+
+  popNavBar();
+  showHome();
