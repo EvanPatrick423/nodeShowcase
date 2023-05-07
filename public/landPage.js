@@ -224,7 +224,7 @@ function showHome() {
   darkCont.classList.add('darkCont','row','padding-0');
 
   let column1 = document.createElement('div');
-  column1.classList.add('col-lg-8', 'col-md-8', 'col-sm-9', 'col-xs-12');
+  column1.classList.add('column1','col-lg-8', 'col-md-8', 'col-sm-8', 'col-xs-12');
 
 
   let header = document.createElement('div');
@@ -236,7 +236,7 @@ function showHome() {
 
   let introText1  = document.createElement('div');
   introText1.classList.add('introText');
-  introText1.textContent = 'Welcome to my website, which serves as both my active '
+  introText1.textContent = 'This website serves as both my active '
   + 'resume and portfolio. Here, you can view my current resume, browse through '
   + 'my coursework materials, and explore my personal projects.'
   introBlock.appendChild(introText1);
@@ -258,6 +258,24 @@ function showHome() {
   introBlock.appendChild(introText3);
   column1.appendChild(introBlock);
 
+  let buttonBlock = document.createElement('div');
+  buttonBlock.classList.add('buttonBlock');
+
+  let learningProjects = document.createElement('div');
+  learningProjects.addEventListener('click', () => showResume());
+  learningProjects.classList.add('homeButton','activeButton');
+  learningProjects.innerHTML = 'Learning Projects  <br /> Old UI, fixing soon';
+
+  let messageMe = document.createElement('div');
+  messageMe.classList.add('homeButton');
+  messageMe.innerHTML = 'Message Me  <br /> [Under Development]';
+
+  let otherInterests = document.createElement('div');
+  otherInterests.classList.add('homeButton');
+  otherInterests.innerHTML = 'Other Interests  <br /> [Under Development]';
+
+  buttonBlock.append(learningProjects,messageMe,otherInterests);
+  column1.appendChild(buttonBlock);
 
 
 
@@ -267,7 +285,7 @@ function showHome() {
 
 
   let column2 = document.createElement('div');
-  column2.classList.add('col-lg-4', 'col-md-4', 'col-sm-3', 'col-xs-12','column2');
+  column2.classList.add('col-lg-4', 'col-md-4', 'col-sm-4', 'col-xs-12','column2');
 
   let column2Box = document.createElement('div');
   column2Box.classList.add('column2Box');
@@ -292,16 +310,19 @@ function showHome() {
   let linkedIn = document.createElement('a');
   linkedIn.classList.add('circleLink','linkedInLink','img-fluid');
   linkedIn.setAttribute('href', 'https://www.linkedin.com/in/evan-patrick-4824481b1/');
+  linkedIn.setAttribute('target', '_blank');
   linkBox.appendChild(linkedIn);
 
   let gitHub = document.createElement('a');
   gitHub.classList.add('circleLink','gitHubLink','img-fluid');
   gitHub.setAttribute('href', 'https://github.com/EvanPatrick423');
+  gitHub.setAttribute('target', '_blank');
   linkBox.appendChild(gitHub);
 
   let resume = document.createElement('a');
   resume.classList.add('circleLink');
   resume.setAttribute('href', 'landPage/Dev.pdf');
+  resume.setAttribute('target', '_blank');
   resume.textContent = 'Resume'
   linkBox.appendChild(resume);
 
@@ -1571,5 +1592,5 @@ function showResume() {
     }
   }
 }
-  makeShow();
-  //showResume();
+//makeShow();
+showHome();

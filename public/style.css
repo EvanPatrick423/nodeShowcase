@@ -33,10 +33,6 @@ img {
 
 
 body {
-  background: url(https://cdn-media-1.freecodecamp.org/imgr/MJAkxbh.png);
-  /*background: url(https://img.freepik.com/free-vector/background-made-octagons_1010-488.jpg?w=826&t=st=1682826079~exp=1682826679~hmac=fa750faa062ba90b7fb74b34493287fc9fd22a13f9e51d3af16d7770c3a60089);*/
-  /*background-size: cover;*/
-  /*background-position: center bottom;*/
   display: flex;
   height: 100vh;
   font-family: "Times New Roman", Times, serif;
@@ -148,6 +144,7 @@ body::-webkit-scrollbar{
   overflow: hidden;
   border-radius: 50%;
   margin-top: 5vh;
+  margin-bottom: 2vh;
   min-height: 20vw;
   min-width: 20vw;
   max-height: 20vw;
@@ -172,6 +169,58 @@ body::-webkit-scrollbar{
 .homeHeader {
   color: white;
   font-size: 4vw;
+  text-decoration: underline white 2px;
+  text-decoration-color: white;
+}
+.column1 {
+  /*position: relative;*/
+}
+
+.buttonBlock {
+  /*position: absolute;
+  bottom:0;*/
+  display: flex;
+  flex-direction: row;
+  justify-content: space-around;
+  align-items: center;
+  width: 98%;
+  height: 20vh;
+}
+
+.homeButton {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  color: white;
+  border-color: white;
+  border-width: 0.2vw;
+  border-style: solid;
+  height: 7vh;
+  width: 13vw;
+  border-radius: 1vw;
+  font-size: 1.2vw;
+}
+
+.activeButton {
+
+}
+
+.activeButton:hover {
+  background-color: rgb(0,0,256, 0.5);
+  color:white;
+
+  box-shadow: 0 0 0 0 rgba(0, 0, 0, 1);
+	transform: scale(1);
+	animation: pulse 2s infinite;
+}
+
+.homeButton:hover {
+
+}
+
+.column2 {
+  height: 100%;
+  position: relative;
 }
 
 .column2Box {
@@ -180,20 +229,37 @@ body::-webkit-scrollbar{
   flex-direction: column;
   align-items: center;
   overflow-y: scroll;
+  overflow-x: hidden;
   top: 0;
   bottom: 0;
-  left: 2;
-  right: 2;
-}
+  padding-left: 0.1vw;
+  padding-right: 0.1vw;
 
-.column2 {
-  height: 100%;
-  position: relative;
 }
 
 .column2Box::-webkit-scrollbar{
-    display: none;
+    /*display: none;*/
+    background-color: rgb(0,0,0,0);
+    width: 6px;
+    transition-property:opacity;
+    transition-duration: 2s;
+    opacity: 0;
   }
+
+.column2Box::-webkit-scrollbar-thumb {
+  border-radius: 5px;
+
+}
+
+.column2Box:hover::-webkit-scrollbar{
+  opacity: 1;
+}
+
+.column2Box:hover::-webkit-scrollbar-thumb {
+  background:rgb(256,256,256,.8);
+  border-radius: 3px;
+
+}
 
 .introText {
   color: white;
@@ -219,7 +285,7 @@ body::-webkit-scrollbar{
   align-items: center;
   color:white;
   border-radius: 50%;
-  border-width: 5px;
+  border-width: 0.22vw;
   border-style: solid;
   border-color: white;
   width: 6vw;
@@ -228,6 +294,7 @@ body::-webkit-scrollbar{
   margin-left: 2vw;
   margin-top: 2vh;
   margin-bottom: 2vh;
+  font-size: 1.3vw;
 
 
 }
