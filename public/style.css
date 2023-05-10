@@ -6,6 +6,10 @@ ul {
 
 }
 
+li {
+  color: white;
+}
+
 li a {
 }
 
@@ -17,7 +21,7 @@ li a:hover {
 }
 
 a {
-  color: black;
+  color: white;
   text-decoration: none;
 }
 
@@ -65,6 +69,30 @@ body::-webkit-scrollbar{
 
 }
 
+#show::-webkit-scrollbar{
+    /*display: none;*/
+    background-color: rgb(0,0,0,0);
+    width: 6px;
+    transition-property:opacity;
+    transition-duration: 2s;
+    opacity: 0;
+  }
+
+#show::-webkit-scrollbar-thumb {
+  border-radius: 5px;
+
+}
+
+#show:hover::-webkit-scrollbar{
+  opacity: 1;
+}
+
+#show:hover::-webkit-scrollbar-thumb {
+  background:rgb(256,256,256,.8);
+  border-radius: 3px;
+
+}
+
 #main {
   height: 90vh;
 }
@@ -73,17 +101,16 @@ body::-webkit-scrollbar{
   height: 100%;
   display: flex;
   flex-direction:column;
-  color: black;
+  color: white;
   text-align: center;
-  background-color:rgba(0,0,0,.5);
 
   list-style-type: none;
-  margin: 0;
-  margin-top:4px;
+  margin: 0px;
 
   border-style: solid;
-  border-width: 1px;
-  border-color: black;
+  border-width: 0px;
+  border-right-width: 1px;
+  border-color: white;
 }
 
 #home {
@@ -97,9 +124,9 @@ body::-webkit-scrollbar{
   justify-content: center;
   align-items: center;
   border-style: solid;
-  border-width: thin;
-  border-color: black;
-  background-color: #056823;
+  border-width: 0px;
+  border-bottom-width: 1px;
+  border-color: white;
   color: white;
   width: 100%;
   font-size: 40px;
@@ -118,7 +145,6 @@ body::-webkit-scrollbar{
 }
 
 #about-section {
-  background-color: rgba(0,0,0,0.30);
   height: auto;
   margin-bottom: 10px;
   padding: 5px;
@@ -352,11 +378,6 @@ body::-webkit-scrollbar{
   overflow: hidden;
 }
 
-.borderTopThin {
-  border-top-style: solid;
-  border-top-width: 1px;
-}
-
 
 .resumeTitle {
   text-decoration: underline;
@@ -366,19 +387,22 @@ body::-webkit-scrollbar{
 .resumeSideTitle {
   font-size: 20px;
   text-decoration: underline;
+  color: white;
 }
 
 .resume-block {
+  color: white;
 
 }
 
 .resumeLink {
-  color: blue;
+  color: white;
   text-decoration: underline;
 }
 
 .educationBlock {
   font-weight: bold;
+  color: white;
 }
 
 .titleRow {
@@ -419,11 +443,12 @@ font-size: 40px;
 .nav-item {
   display: block;
   float: left;
-  padding: 8px 16px;
+  padding: 8px 8px;
+  margin: 0px 8px;
   border-top-width: 0px;
   border-bottom: 1px;
   border-bottom-style: solid;
-  border-bottom-color: black;
+  border-bottom-color: white;
   text-align: center;
 }
 

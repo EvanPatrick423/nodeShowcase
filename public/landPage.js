@@ -20,6 +20,19 @@ function clearShow() {
   show.classList.remove('ticTacToeShow');
 }
 
+function clearView() {
+  while (view.lastChild) {
+    view.removeChild(view.firstChild);
+  }
+}
+
+function clearDarkCont() {
+  let darkCont = document.getElementById('darkCont');
+  while (darkCont.lastChild) {
+    darkCont.removeChild(darkCont.firstChild);
+  }
+}
+
 function resetNav(string) {
   //console.log('resetNav ' + string);
   let navBar = document.getElementById('nav-bar');
@@ -35,23 +48,18 @@ function resetNav(string) {
   //console.log('ResetNav Concluded');
 }
 
-function clearView() {
-  while (view.lastChild) {
-    view.removeChild(view.firstChild);
-  }
-}
+
+
+
 
 function makeShow() {
-  clearView();
+  clearDarkCont();
 
-  document.body.style.backgroundImage = "url(https://cdn-media-1.freecodecamp.org/imgr/MJAkxbh.png)";
-  document.body.style.backgroundSize = '';
-
-  let view = document.getElementById('view');
+  let darkCont = document.getElementById('darkCont');
   // create the header div and add text content
   const header = document.createElement("div");
   header.id = "header";
-  header.textContent = "Hello world! Welcome to my website!";
+  header.textContent = "Learning Projects";
 
   // create the main div and add classes
   const main = document.createElement("div");
@@ -102,8 +110,8 @@ function makeShow() {
   main.appendChild(row);
 
   // append the header div and main div to the existing view element on the page
-  view.appendChild(header);
-  view.appendChild(main);
+  darkCont.appendChild(header);
+  darkCont.appendChild(main);
 
   popNavBar();
 
@@ -222,6 +230,7 @@ function showHome() {
 
   let darkCont = document.createElement('div');
   darkCont.classList.add('darkCont','row','padding-0');
+  darkCont.id = 'darkCont';
 
   let column1 = document.createElement('div');
   column1.classList.add('column1','col-lg-8', 'col-md-8', 'col-sm-8', 'col-xs-12');
@@ -264,7 +273,7 @@ function showHome() {
   let learningProjects = document.createElement('div');
   learningProjects.addEventListener('click', () => showResume());
   learningProjects.classList.add('homeButton','activeButton');
-  learningProjects.innerHTML = 'Learning Projects  <br /> Old UI, fixing soon';
+  learningProjects.innerHTML = 'Learning Projects';
 
   let messageMe = document.createElement('div');
   messageMe.classList.add('homeButton');
@@ -374,7 +383,6 @@ function showCssAnimations() {
   resetNav('cssAnimations');
 
   let show = document.getElementById('show');
-  show.classList.remove('borderTopThin');
 
   let header = document.getElementById('header');
   header.textContent = 'Some Css Animations';
@@ -521,7 +529,6 @@ function showToDo() {
   resetNav('toDo');
 
   let show = document.getElementById('show');
-  show.classList.remove('borderTopThin');
 
   let header = document.getElementById('header');
   header.textContent = 'To Do App';
@@ -564,7 +571,6 @@ function showTicTacToe() {
 
   let show = document.getElementById('show');
   show.classList.add('ticTacToeShow');
-  show.classList.remove('borderTopThin');
 
   let showHeader = document.createElement('div');
   showHeader.setAttribute('id','showHeader');
@@ -592,7 +598,6 @@ function showRPS() {
   resetNav('rockPaperScissors');
 
   let show = document.getElementById('show');
-  show.classList.remove('borderTopThin');
 
   let header = document.getElementById('header');
   header.textContent = 'Rock Paper Scissors';
@@ -648,7 +653,6 @@ function showLibrary() {
 
   let show = document.getElementById('show');
   show.classList.add('libraryShow');
-  show.classList.remove('borderTopThin');
 
   let libraryRow = document.createElement('div');
   libraryRow.classList.add('row');
@@ -815,7 +819,6 @@ function showCalculator() {
 
   let show = document.getElementById('show');
   show.classList.add('calShow');
-  show.classList.remove('borderTopThin');
 
   let warning = document.createElement('div');
   warning.textContent = 'Trig functions do not work yet';
@@ -1016,7 +1019,6 @@ function showPixelPad () {
 
   let show = document.getElementById('show');
   show.classList.add('pixelPadBack');
-  show.classList.add('borderTopThin');
 
   let contentHolder = document.createElement('div');
   contentHolder.setAttribute('id','content-holder');
@@ -1125,7 +1127,6 @@ function showResume() {
   resetNav('resume');
 
   let show = document.getElementById('show');
-  show.classList.add('borderTopThin');
 
   let header = document.getElementById('header');
   header.textContent = 'My Resume';
