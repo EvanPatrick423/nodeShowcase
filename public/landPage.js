@@ -1171,10 +1171,48 @@ function showResume() {
   workExperienceTitle.classList.add('resume-block','resumeTitle');
   workExperienceTitle.textContent = 'Work Experience:';
 
+  let drivetimeTitleRow = document.createElement('div');
+  drivetimeTitleRow.setAttribute('id','drivetimeTitleRow');
+  drivetimeTitleRow.classList.add('resume-block','titleRow');
+
+  let drivetimeTitle = document.createElement('div');
+  drivetimeTitle.classList.add('resumeSubTitle','resume-block');
+  drivetimeTitle.textContent = 'DriveTime | Decision Software Engineer:';
+
+  let drivetimeTitleDate = document.createElement('div');
+  drivetimeTitleDate.classList.add('resume-block','resumeSubDate');
+  drivetimeTitleDate.textContent = 'October 2023 - Present';
+
+  drivetimeTitleRow.appendChild(drivetimeTitle);
+  drivetimeTitleRow.appendChild(drivetimeTitleDate);
+
+  let drivetimeULDiv = document.createElement('div');
+  let drivetimeUL = document.createElement('ul');
+
+  let drivetimeJobsData = [
+    "Developed and maintained Mendix application",
+    "Developed Node.js applications that served as middleware and gateways",
+    "Contributed to company documentation",
+    'Recorded Loom video presentations to non devlopers and developers',
+    'developed in Proviner, a finance driven stateless low code software marketed toward finance companies',
+    'Contributed towards migrating code base to event drivent microservice architecture for better ease of use and readability',
+    'Generated and Subscribed to events in the microservice architecture',
+    'Ensured services were always up by being in an OnCall schedule will all other engineers at drivetime',
+    "Intergrated API's between Mendix, Node.js apps, and Proviner",
+
+  ]
+
+  for (let i = 0; i < drivetimeJobsData.length; i++) {
+    var li = document.createElement('li');
+    li.innerText = drivetimeJobsData[i];
+    drivetimeUL.appendChild(li);
+  }
+
+  drivetimeULDiv.appendChild(drivetimeUL);
+
   let epiuseTitleRow = document.createElement('div');
   epiuseTitleRow.setAttribute('id','epiuseTitleRow');
   epiuseTitleRow.classList.add('resume-block','titleRow');
-
 
   let epiuseTitle = document.createElement('div');
   epiuseTitle.classList.add('resumeSubTitle','resume-block');
@@ -1182,13 +1220,12 @@ function showResume() {
 
   let epiuseTitleDate = document.createElement('div');
   epiuseTitleDate.classList.add('resume-block','resumeSubDate');
-  epiuseTitleDate.textContent = 'October 2021 - Present';
+  epiuseTitleDate.textContent = 'October 2021 - October 2023';
 
   epiuseTitleRow.appendChild(epiuseTitle);
   epiuseTitleRow.appendChild(epiuseTitleDate);
 
   let epiuseULDiv = document.createElement('div');
-  epiuseULDiv.classList.add();
 
   let epiuseUL = document.createElement('ul');
   //epiuseUL.classList.add();
@@ -1412,7 +1449,7 @@ function showResume() {
   mendixCert2.textContent = "Mendix, Intermediate Certified";
 
 
-  resumeColumn.append(resumeHeader,resumeOverview,workExperienceTitle,
+  resumeColumn.append(resumeHeader,resumeOverview,workExperienceTitle,drivetimeTitleRow,drivetimeULDiv,
     epiuseTitleRow,epiuseULDiv,chatCoinTitleRow,chatCoinULDiv,legacyBoxTitleRow,
     legacyBoxULDiv,vitalFarmsTitleRow,vitalFarmsULDiv,harrisTitleRow,harrisULDiv,
     sungTitleRow,sungULDiv,educationTitle,schoolInfo,odinProjectLink,odinCert1,
@@ -1458,14 +1495,17 @@ function showResume() {
 
   let technicalSkillsData = [
     'JavaScript',
-    ' node.js',
-    ' express',
+    'node.js',
+    'express',
+    'SQL',
     'Java',
     'Python',
-    ' Django',
+    'Django',
     'Mendix',
+    'Proviner',
     'Jenkins CI/CD tool',
     'MongoDB',
+    'Snowflake',
     'PostgreSQL',
     'VBA',
     'HTML5',
